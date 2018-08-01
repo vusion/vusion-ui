@@ -1,0 +1,6 @@
+.root {
+    background: $background-color-base;
+    border: 1px solid $border-color-base;
+    border-radius: 3px;
+    padding: 20px;
+}

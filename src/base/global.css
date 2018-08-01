@@ -1,0 +1,5 @@
+@import 'proto-ui.vusion/src/base/global.css';
+
+$brand-primary: #007ebe;
+
+$transition-duration: 0.2s;

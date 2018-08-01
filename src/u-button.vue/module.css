@@ -1,0 +1,14 @@
+@import 'proto-ui.vusion/src/u-button.vue/module.css';
+
+.root {
+    border: none;
+    background: #e4eaec;
+}
+
+.root:hover {
+    background: #ccd5db;
+}
+
+.root:active {
+    background: #76838f;
+}
