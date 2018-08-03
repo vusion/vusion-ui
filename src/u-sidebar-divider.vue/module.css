@@ -1,0 +1,7 @@
+@import 'proto-ui.vusion/src/u-list-view-divider.vue/module.css';
+
+.root {
+    margin: 0 8px;
+    height: 1px;
+    background: #3d4654;
+}

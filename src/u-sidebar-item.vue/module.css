@@ -1,0 +1,34 @@
+@import 'proto-ui.vusion/src/u-sidebar-item.vue/module.css';
+
+.root {
+    composes: item from '../u-sidebar.vue/module.css';
+    display: block;
+    cursor: pointer;
+    height: 44px;
+    line-height: 44px;
+    padding-left: 20px;
+    color: #bbc5d4;
+    transition: all $transition-duration;
+}
+
+.root:hover {
+    color: white;
+    background: #17263c;
+}
+
+.root[selected] {
+    color: white;
+    background: $brand-primary;
+    border-right: 4px solid $brand-primary;
+}
+
+.root[disabled] {
+    cursor: $cursor-not-allowed;
+    background: transparent;
+    color: #586475;
+}
+
+.root[selected][disabled] {
+    background: transparent;
+    border-right: none;
+}

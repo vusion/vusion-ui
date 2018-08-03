@@ -1,14 +1,179 @@
 @import 'proto-ui.vusion/src/u-button.vue/module.css';
 
 .root {
-    border: none;
-    background: #e4eaec;
+    padding: 0 20px;
+    border-color: #ebedf2;
+    border-radius: $border-radius-base;
+    transition: all $transition-duration;
 }
 
 .root:hover {
-    background: #ccd5db;
+    border-color: #ebedf2;
+    color: $color-base;
+    background: #f4f5f8;
 }
 
 .root:active {
-    background: #76838f;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.root[disabled] {
+    color: #ebedf2;
+    background: white;
+    box-shadow: none;
+}
+
+/**
+ * Color extends
+ */
+
+.root[color="primary"] {
+    background: $brand-primary;
+    color: white;
+    border: none;
+    line-height: 34px;
+}
+
+.root[color="primary"]:hover {
+    background: #5d93e6;
+}
+
+.root[color="primary"][disabled] {
+    background: #ebedf2;
+}
+
+.root[color="success"] {
+    background: $brand-success;
+    color: white;
+    border: none;
+    line-height: 34px;
+}
+
+.root[color="success"]:hover {
+    background: #2ca189;
+}
+
+.root[color="success"]:active {
+    background: #299781;
+}
+
+.root[color="success"][disabled] {
+    background: #ebedf2;
+}
+
+.root[color="info"] {
+    background: $brand-info;
+    color: white;
+    border: none;
+    line-height: 34px;
+}
+
+.root[color="info"]:hover {
+    background: #1192f6;
+}
+
+.root[color="info"]:active {
+    background: #0a8cf0;
+}
+
+.root[color="info"][disabled] {
+    background: #ebedf2;
+}
+
+.root[color="warning"] {
+    background: $brand-warning;
+    color: white;
+    border: none;
+    line-height: 34px;
+}
+
+.root[color="warning"]:hover {
+    background: #fbaa00;
+}
+
+.root[color="warning"]:active {
+    background: #eea200;
+}
+
+.root[color="warning"][disabled] {
+    background: #ebedf2;
+}
+
+.root[color="error"] {
+    background: $brand-error;
+    color: white;
+    border: none;
+    line-height: 34px;
+}
+
+.root[color="error"]:hover {
+    background: #f22d4e;
+}
+
+.root[color="error"]:active {
+    background: #f12143;
+}
+
+.root[color="error"][disabled] {
+    background: #ebedf2;
+}
+
+/**
+ * Size extends
+ */
+
+.root[size="small"] {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+
+.root[size="large"] {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+}
+
+.root[square] {
+    width: $height-base;
+    padding: 0;
+}
+
+/**
+ * Icon extends
+ */
+.root[icon="create"]::before {
+    icon-font: url('cloud-ui.vusion/src/u-icon.vue/icons/create.svg');
+    vertical-align: -2px;
+    margin-right: 8px;
+}
+
+.root[square][icon="refresh"]::before {
+    icon-font: url('cloud-ui.vusion/src/u-icon.vue/icons/refresh.svg');
+    vertical-align: -2px;
+    color: #9ba4ad;
+}
+
+.root[square][icon="refresh"]:hover::before {
+    color: $brand-primary;
+}
+
+.root[icon="loading"]::before {
+    content: '';
+    display: inline-block;
+    vertical-align: -4px;
+    margin-left: -2px;
+    margin-right: 6px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 100%;
+    animation: rotate 1s ease-in-out 0s infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0); }
+    80% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
 }

@@ -22,19 +22,24 @@
     "vusion-ui"
   ],
   "dependencies": {
+    "cloud-ui.vusion": "~0.3.27",
     "proto-ui.vusion": "~0.3.20"
   },
   "devDependencies": {
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
+    "commander": "^2.16.0",
     "eslint": "^4.19.1",
     "eslint-config-vusion": "^2.1.1",
     "husky": "^0.13.3",
+    "markdown-it-for-inline": "^0.1.1",
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.0.3",
     "vue": "^2.5.0",
     "vusion-hooks": "^0.2.1",
-    "vusion-utils": "^0.2.1"
+    "vusion-utils": "^0.2.1",
+    "x-ace-editor.vue": "^0.1.2"
   },
   "peerDependencies": {
     "vue": "^2.5.0"

@@ -1,0 +1,20 @@
+@import 'proto-ui.vusion/src/u-sidebar.vue/module.css';
+
+.root {
+    height: 100%;
+    overflow: auto;
+    background: #1d2b40;
+}
+
+.root[size="small"] .group_head {
+    height: 32px;
+    line-height: 32px;
+    font-size: 12px;
+    /* background: transparent; */
+    cursor: default;
+}
+
+.root[size="small"] .item {
+    height: 32px;
+    line-height: 32px;
+}

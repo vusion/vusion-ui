@@ -1,6 +1,7 @@
 module.exports = {
     version: '>=0.6.0',
     type: 'library',
+    lint: true,
     docs: {
         navbar: [
             { text: '指南', to: '/guide' },

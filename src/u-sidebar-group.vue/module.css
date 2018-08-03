@@ -1,0 +1,54 @@
+.root {
+    composes: group from '../u-sidebar.vue/module.css';
+}
+
+.head {
+    composes: group_head from '../u-sidebar.vue/module.css';
+    display: block;
+    cursor: pointer;
+
+    height: 36px;
+    line-height: 36px;
+    color: #6e728c;
+    padding-left: 20px;
+    transition: color 0.2s;
+    position: relative;
+}
+
+.expander {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    width: 36px;
+    height: 36px;
+    line-height: 35px;
+    text-align: center;
+}
+
+/* @TODO: replace by icon-font */
+.expander::after {
+    content: '▸';
+    font-size: 16px;
+}
+
+.head:hover {
+    /* color: white; */
+    /* background: #17263c; */
+    /* background-color: #dde8f0; */
+}
+
+/* @TODO: replace by icon-font */
+.head:hover::after {
+    border-left-color: white;
+}
+
+/* @TODO: replace by icon-font */
+.expander[expanded]::after {
+    content: '▾';
+}
+
+.body {
+    background: #17263c;
+    transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out;
+}

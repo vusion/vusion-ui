@@ -1,5 +1,15 @@
-@import 'proto-ui.vusion/src/base/global.css';
+@import 'cloud-ui.vusion/src/base/global.css';
 
-$brand-primary: #007ebe;
+/* Brand Colors */
+$brand-primary: #457cd0;
+$brand-secondary: #e1e8ed;
+$brand-success: #34bfa3;
+$brand-info: #36a3f7;
+$brand-warning: #ffb822;
+$brand-error: #f22d4e;
+$brand-disabled: #e7e9ec;
+
+$height-base: 36px;
+$border-radius-base: 3px;
 
 $transition-duration: 0.2s;
