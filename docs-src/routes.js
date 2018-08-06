@@ -62,6 +62,7 @@ export default [
             { path: 'u-grid-layout', component: () => import('proto-ui.vusion/src/u-grid-layout.vue/README.md') },
             { path: 'u-desc-list', component: () => import('cloud-ui.vusion/src/u-desc-list.vue/README.md') },
             { path: 'u-info-list', component: () => import('cloud-ui.vusion/src/u-info-list.vue/README.md') },
+            { path: 'u-table', component: () => import('cloud-ui.vusion/src/u-table.vue/README.md') },
             /* Navigation */
             { path: 'u-navbar', component: () => import('cloud-ui.vusion/src/u-navbar.vue/README.md') },
             { path: 'u-sidebar', component: () => import('cloud-ui.vusion/src/u-sidebar.vue/README.md') },
@@ -70,6 +71,7 @@ export default [
             { path: 'u-tabs', component: () => import('proto-ui.vusion/src/u-tabs.vue/README.md') },
             { path: 'u-subtabs', component: () => import('cloud-ui.vusion/src/u-subtabs.vue/README.md') },
             { path: 'u-steps', component: () => import('cloud-ui.vusion/src/u-steps.vue/README.md') },
+            { path: 'u-crumb', component: () => import('proto-ui.vusion/src/u-crumb.vue/README.md') },
             { path: 'u-pagination', component: () => import('proto-ui.vusion/src/u-pagination.vue/README.md') },
             /* Form */
             { path: 'u-input', component: () => import('cloud-ui.vusion/src/u-input.vue/README.md') },
@@ -93,11 +95,11 @@ export default [
             { path: 'u-list-view', component: () => import('proto-ui.vusion/src/u-list-view.vue/README.md') },
             { path: 'u-tree-view', component: () => import('proto-ui.vusion/src/u-tree-view.vue/README.md') },
             { path: 'u-table-view', component: () => import('cloud-ui.vusion/src/u-table-view.vue/README.md') },
-            { path: 'u-table', component: () => import('cloud-ui.vusion/src/u-table.vue/README.md') },
             { path: 'u-capsules', component: () => import('cloud-ui.vusion/src/u-capsules.vue/README.md') },
             { path: 'u-cascade-capsules', component: () => import('cloud-ui.vusion/src/u-cascade-capsules.vue/README.md') },
             { path: 'u-pills', component: () => import('cloud-ui.vusion/src/u-pills.vue/README.md') },
             { path: 'u-tablets', component: () => import('cloud-ui.vusion/src/u-tablets.vue/README.md') },
+            { path: 'u-transfer', component: () => import('proto-ui.vusion/src/u-transfer.vue/README.md') },
             { path: 'u-countup', component: () => import('cloud-ui.vusion/src/u-countup.vue/README.md') },
             /* DateTime */
             { path: 'u-calendar', component: () => import('cloud-ui.vusion/src/u-calendar.vue/README.md') },

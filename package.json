@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "cloud-ui.vusion": "~0.3.27",
-    "proto-ui.vusion": "~0.3.20"
+    "proto-ui.vusion": "~0.3.21"
   },
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
