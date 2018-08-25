@@ -8,7 +8,7 @@ module.exports = {
     type: 'app',
     // version: '>=0.6.1',
     libraryPath: `./${themePath}`,
-    lint: true,
+    lint: false,
     extractCSS: true,
     uglifyJS: true,
     webpack: {

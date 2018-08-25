@@ -26,6 +26,19 @@
 </u-linear-layout>
 ```
 
+### ghost样式扩展
+
+``` html
+<u-linear-layout>
+    <u-button color="primary" ghost>Primary</u-button>
+    <u-button color="success" ghost>Success</u-button>
+    <u-button color="info" ghost>Info</u-button>
+    <u-button color="warning" ghost>Warning</u-button>
+    <u-button color="error" ghost>Error</u-button>
+    <u-button color="error" disabled>Disabled</u-button>
+</u-linear-layout>
+```
+
 ### 大小扩展
 
 ``` html

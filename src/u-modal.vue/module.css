@@ -1,0 +1,40 @@
+@import "cloud-ui.vusion/src/u-modal.vue/module.css";
+
+.root {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    -webkit-overflow-scrolling: touch;
+    touch-action: cross-slide-y pinch-zoom double-tap-zoom;
+    text-align: center;
+    overflow: hidden;
+    overflow-y: auto;
+    background: rgba(0,0,0,0.6);
+    padding-top: 65px;
+    padding-bottom: 30px;
+}
+
+.dialog {
+    vertical-align: top;
+    border-radius: 4px;
+    margin-top: 50px;
+}
+
+.foot {
+    border-top: 1px solid $brand-default;
+    margin: 0;
+    padding: 20px;
+    text-align: right;
+}
+
+:global .fade-enter-active, :global .fade-leave-active {
+    transition: all 0.3s;
+}
+
+:global .fade-enter, :global .fade-leave-to {
+    opacity: 0;
+    top: -40px;
+}

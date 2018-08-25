@@ -1,0 +1,116 @@
+$margin: 30px;
+
+.root {
+    position: fixed;
+    z-index: $z-index-toast;
+    top: $margin;
+    left: $margin;
+    width: 300px;
+}
+
+.root[position='top-center'], .root[position='bottom-center'] {
+    left: 50%;
+    margin-left: -150px;
+}
+
+.root[position='bottom-center'], .root[position='bottom-left'], .root[position='bottom-right'] {
+    top: auto;
+    bottom: $margin;
+}
+
+.root[position='top-right'], .root[position='bottom-right'] {
+    left: auto;
+    right: $margin;
+}
+
+.root[position='top-left'], .root[position='bottom-left'] {
+    left: $margin;
+    right: auto;
+}
+
+.root[position='top-left'], .root[position='top-center'], .root[position='top-right'] {
+    top: $margin;
+    bottom: auto;
+}
+
+.root[position="static"] {
+    position: static;
+    width: auto;
+}
+
+.item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border-radius: 3px;
+}
+
+.close {
+    float: right;
+    color: white;
+}
+
+.close::before {
+    content: '×';
+    font-size: 18px;
+    line-height: 0.8;
+}
+
+:global .toast-enter-active {
+    animation: bounce-in 0.8s;
+}
+
+/*.root[position='top-right'] > .item {
+    animation: bounceInRight 0.8s;
+}*/
+
+@keyframes bounceInRight {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(3000px, 0, 0);
+        transform: translate3d(3000px, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(-25px, 0, 0);
+        transform: translate3d(-25px, 0, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(-5px, 0, 0);
+        transform: translate3d(-5px, 0, 0);
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

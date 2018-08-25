@@ -1,0 +1,14 @@
+@import 'cloud-ui.vusion/src/u-form-item.vue/module.css';
+
+.description {
+    font-size: 0.4rem;
+    padding-top: 4px;
+}
+
+.root[layout="block"] > .label {
+    padding-top: 3px;
+}
+
+.root[layout="block"] > .label::after {
+    padding-top: 3px;
+}

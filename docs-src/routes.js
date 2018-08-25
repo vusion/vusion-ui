@@ -54,7 +54,7 @@ export default [
             { path: 'u-text', component: () => import('proto-ui.vusion/src/u-text.vue/README.md') },
             { path: 'typography', component: () => import('proto-ui.vusion/src/base/TYPOGRAPHY.md') },
             { path: 'u-label', component: () => import('cloud-ui.vusion/src/u-label.vue/README.md') },
-            { path: 'u-icon', component: () => import('cloud-ui.vusion/src/u-icon.vue/README.md') },
+            { path: 'u-icon', component: () => import('../src/u-icon.vue/README.md') },
             { path: 'u-status-icon', component: () => import('cloud-ui.vusion/src/u-status-icon.vue/README.md') },
             { path: 'u-logo', component: () => import('cloud-ui.vusion/src/u-logo.vue/README.md') },
             /* Layout */
@@ -109,10 +109,10 @@ export default [
             /* Popper */
             { path: 'u-popper', component: () => import('proto-ui.vusion/src/u-popper.vue/README.md') },
             { path: 'u-popup', component: () => import('proto-ui.vusion/src/u-popup.vue/README.md') },
-            { path: 'u-tooltip', component: () => import('cloud-ui.vusion/src/u-tooltip.vue/README.md') },
+            { path: 'u-tooltip', component: () => import('../src/u-tooltip.vue/README.md') },
             /* Feedback */
-            { path: 'u-loading', component: () => import('cloud-ui.vusion/src/u-loading.vue/README.md') },
-            { path: 'u-toast', component: () => import('cloud-ui.vusion/src/u-toast.vue/README.md') },
+            { path: 'u-loading', component: () => import('proto-ui.vusion/src/u-spinner.vue/README.md') },
+            { path: 'u-toast', component: () => import('proto-ui.vusion/src/u-toast.vue/README.md') },
             { path: 'u-modal', component: () => import('cloud-ui.vusion/src/u-modal.vue/README.md') },
             { path: 'u-lightbox', component: () => import('cloud-ui.vusion/src/u-lightbox.vue/README.md') },
             /* Progress & Chart */
