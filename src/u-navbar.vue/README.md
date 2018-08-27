@@ -44,12 +44,17 @@
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-navbar alignment="center">
+    <u-navbar color="inverse" alignment="left">
         <u-navbar-item to="u-navbar">组件</u-navbar-item>
         <u-navbar-item>备案管理</u-navbar-item>
         <u-navbar-item>帮助</u-navbar-item>
     </u-navbar>
-    <u-navbar alignment="right">
+    <u-navbar color="inverse" alignment="center">
+        <u-navbar-item to="u-navbar">组件</u-navbar-item>
+        <u-navbar-item>备案管理</u-navbar-item>
+        <u-navbar-item>帮助</u-navbar-item>
+    </u-navbar>
+    <u-navbar color="inverse" alignment="right">
         <u-navbar-item to="u-navbar">组件</u-navbar-item>
         <u-navbar-item>备案管理</u-navbar-item>
         <u-navbar-item>帮助</u-navbar-item>
@@ -74,20 +79,17 @@
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-navbar style="background: #4289db;; padding: 0 10px;">
-        <u-logo slot="left"><a href="/" target="_blank">ICP 备案系统</a></u-logo>
+    <u-navbar>
+        <u-logo slot="left"></u-logo>
         <u-navbar-item to="u-navbar">主体</u-navbar-item>
         <u-navbar-item>备案管理</u-navbar-item>
         <u-navbar-item>帮助</u-navbar-item>
     </u-navbar>
-    <u-navbar alignment="right" style="background: #151d2b; padding: 0 10px;">
-        <u-logo slot="left"></u-logo>
+    <u-navbar color="inverse" alignment="right">
+        <u-logo color="inverse" slot="left"></u-logo>
         <u-navbar-item>产品</u-navbar-item>
         <u-navbar-item to="u-navbar">价格</u-navbar-item>
         <u-navbar-item>帮助</u-navbar-item>
-        <u-navbar-item>合作与生态</u-navbar-item>
-        <u-navbar-item>博客</u-navbar-item>
-        <u-navbar-item>备案</u-navbar-item>
     </u-navbar>
 </u-linear-layout>
 ```

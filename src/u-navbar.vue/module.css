@@ -29,7 +29,7 @@
 }
 
 .root[color="inverse"] {
-    background-color: $brand-third;
+    background-color: $brand-primary;
 }
 
 .root[color="inverse"] .item {

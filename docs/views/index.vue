@@ -3,7 +3,7 @@
     <header :class="$style.head">
         <div :class="$style.wrap">
             <u-navbar>
-                <u-logo color="inverse" slot="left"></u-logo>
+                <u-logo slot="left" color="inverse"></u-logo>
                 <u-navbar-item v-for="item in navbar" :key="item.text" :to="item.to" :href="item.href" :target="item.target">{{ item.text }}</u-navbar-item>
             </u-navbar>
         </div>

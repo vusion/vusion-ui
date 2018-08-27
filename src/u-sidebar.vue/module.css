@@ -3,7 +3,7 @@
 .root {
     height: 100%;
     overflow: auto;
-    background: #1d2b40;
+    background: #1d293c;
 }
 
 .root[size="small"] .group_head {
