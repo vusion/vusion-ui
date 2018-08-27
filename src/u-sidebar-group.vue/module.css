@@ -7,9 +7,9 @@
     display: block;
     cursor: pointer;
 
-    height: 36px;
-    line-height: 36px;
-    color: #6e728c;
+    height: 40px;
+    line-height: 40px;
+    color: #6e7a8c;
     padding-left: 20px;
     transition: color 0.2s;
     position: relative;
@@ -20,9 +20,9 @@
     right: 0;
     top: 0;
     z-index: 1;
-    width: 36px;
-    height: 36px;
-    line-height: 35px;
+    width: 40px;
+    height: 40px;
+    line-height: 39px;
     text-align: center;
 }
 
@@ -49,6 +49,6 @@
 }
 
 .body {
-    background: #17263c;
+    background: #14202f;
     transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out;
 }

@@ -1,16 +1,20 @@
 <template>
 <div :class="$style.root">
     <div :class="$style.example"><slot></slot></div>
-    <div :class="$style.code" v-show="expanded">
-        <slot name="code"></slot>
-    </div>
+    <u-collapse-transition>
+        <div :class="$style.code" v-show="expanded">
+            <slot name="code"></slot>
+        </div>
+    </u-collapse-transition>
     <div :class="$style.expander" :expanded="expanded" @click="expanded = !expanded">{{ expanded ? '收起代码' : '显示代码' }}</div>
 </div>
 </template>
 
 <script>
+import './solarized-light.css';
+
 export default {
-    name: 'u-example',
+    name: 'u-code-example',
     data() {
         return {
             expanded: false,
@@ -20,16 +24,8 @@ export default {
 </script>
 
 <style module>
-$border-color: #e1e8ed;
-
 .root {
-    margin: 10px 0;
-    border: 1px $border-color solid;
-    border-radius: $border-radius-base;
-}
-
-.root:hover {
-    box-shadow: 0 2px 10px rgba(90,95,100,0.12);
+    border: 1px #eee solid;
 }
 
 .example {
@@ -37,12 +33,12 @@ $border-color: #e1e8ed;
 }
 
 .code {
-    border-top: 1px $border-color solid;
-    background: #f8f9fb;
+    border-top: 1px #eee solid;
+    transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out;
 }
 
 .code pre {
-    margin: 0;
+    margin: -1px;
 }
 
 .code:empty {
@@ -50,7 +46,7 @@ $border-color: #e1e8ed;
 }
 
 .expander {
-    border-top: 1px $border-color solid;
+    border-top: 1px #eee solid;
     text-align: center;
     vertical-align: middle;
     padding: 5px;
@@ -58,7 +54,7 @@ $border-color: #e1e8ed;
 }
 
 .expander:hover {
-    background: #e9eef5;
+    background: whitesmoke;
 }
 
 .expander::before {

@@ -1,7 +1,7 @@
 <template>
     <div :class="$style.root">
         <div :class="$style.side">
-            <u-sidebar style="padding: 20px 0;">
+            <u-sidebar>
                 <u-sidebar-item to="/guide/introduce">介绍</u-sidebar-item>
                 <u-sidebar-item to="/guide/quickstart">快速开始</u-sidebar-item>
                 <u-sidebar-item href="https://github.com/vusion/vusion-ui/releases" target="_blank">更新日志</u-sidebar-item>
@@ -14,20 +14,20 @@
 </template>
 
 <style module>
-.root {
-    /* width: 1180px;
-    margin: 0 auto; */
-}
 .side {
     position: fixed;
-    width: 220px;
-    top: 70px;
+    width: $sidebar-width;
+    top: $navbar-height;
     bottom: 0;
     overflow: hidden;
 }
 
+.side li {
+    width: $sidebar-width;
+}
+
 .main {
-    margin-left: 220px;
+    margin-left: $sidebar-width;
     max-width: 1000px;
     padding: 40px;
 }

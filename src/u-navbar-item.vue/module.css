@@ -1,8 +1,9 @@
 @import 'proto-ui.vusion/src/u-navbar-item.vue/module.css';
 
 .root {
-    height: 70px;
-    line-height: 70px;
+    composes: item from '../u-navbar.vue/module.css';
+    height: $navbar-height;
+    line-height: $navbar-height;
     padding: 0 10px;
 }
 
@@ -37,4 +38,3 @@
 .root[selected]::after {
     width: 100%;
 }
-

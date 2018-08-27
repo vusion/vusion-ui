@@ -7,18 +7,17 @@
     height: 44px;
     line-height: 44px;
     padding-left: 20px;
-    color: #bbc5d4;
+    color: #717f94;
     transition: all $transition-duration;
 }
 
 .root:hover {
     color: white;
-    background: #17263c;
 }
 
 .root[selected] {
     color: white;
-    background: $brand-primary;
+    background: rgba(0,0,0,0.15);
     border-right: 4px solid $brand-primary;
 }
 

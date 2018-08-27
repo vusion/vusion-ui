@@ -39,7 +39,7 @@
                 <div :class="$style.content">
                     <u-line-chart :title="title" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="monitorData" :smooth="smooth" :title-align="titleAlign" :loading = "loading" border legend height="350px">
                         <template v-for="(item,index) in monitorData">
-                            <div :slot="'tooltipTemplate'+index">
+                            <div :key="index" :slot="'tooltipTemplate'+index">
                                 <p>{{ item.week }}</p>
                                 <p>云主机 {{ item.number }}</p>
                             </div>
@@ -105,7 +105,7 @@
                 <div :class="$style.chart">
                     <u-line-chart :title="title1" :x-axis="xaxis" :y-axis="yaxis1" :series="series1" :data="vmData" :smooth="smooth" border legend height="350px">
                         <template v-for="(item,index) in vmData">
-                            <div :slot="'tooltipTemplate'+index">
+                            <div :key="index" :slot="'tooltipTemplate'+index">
                                 <p>{{ item.week }}</p>
                                 <p>vcpu {{ item.cpu }}%</p>
                             </div>
@@ -115,7 +115,7 @@
                 <div :class="$style.chart">
                     <u-line-chart :title="title2" :x-axis="xaxis" :y-axis="yaxis1" :series="series2" :data="vmData" :smooth="smooth" border legend height="350px">
                         <template v-for="(item,index) in vmData">
-                            <div :slot="'tooltipTemplate'+index">
+                            <div :key="index" :slot="'tooltipTemplate'+index">
                                 <p>{{ item.week }}</p>
                                 <p>内存 {{ item.mem }}%</p>
                             </div>

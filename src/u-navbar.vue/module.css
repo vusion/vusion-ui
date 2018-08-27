@@ -1,6 +1,6 @@
 .root {
     user-select: none;
-    height: 70px;
+    height: $navbar-height;
     /* display: flex;
     justify-content: space-between; */
 }
@@ -28,3 +28,18 @@
     margin-left: 50px;
 }
 
+.root[color="inverse"] {
+    background-color: $brand-third;
+}
+
+.root[color="inverse"] .item {
+    color: white;
+}
+
+.root[color="inverse"] .item:hover {
+    color: white;
+}
+
+.root[color="inverse"] .item[selected] {
+    color: white;
+}

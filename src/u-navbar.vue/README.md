@@ -6,7 +6,7 @@
 #### 路由模式
 
 ``` html
-<u-navbar style="background: #4289db">
+<u-navbar>
     <u-navbar-item to="u-navbar">组件</u-navbar-item>
     <u-navbar-item>备案管理</u-navbar-item>
     <u-navbar-item>帮助</u-navbar-item>
@@ -16,23 +16,40 @@
 #### value模式
 
 ``` html
-<u-navbar value="3" :router="false" style="background: #4289db">
+<u-navbar value="3" :router="false">
     <u-navbar-item value="1">指南</u-navbar-item>
     <u-navbar-item value="2">概念</u-navbar-item>
     <u-navbar-item value="3">组件</u-navbar-item>
 </u-navbar>
 ```
 
+### 颜色扩展
+
+``` html
+<u-linear-layout direction="vertical">
+    <u-navbar value="3" :router="false">
+        <u-navbar-item value="1">指南</u-navbar-item>
+        <u-navbar-item value="2">概念</u-navbar-item>
+        <u-navbar-item value="3">组件</u-navbar-item>
+    </u-navbar>
+    <u-navbar value="3" :router="false" color="inverse">
+        <u-navbar-item value="1">指南</u-navbar-item>
+        <u-navbar-item value="2">概念</u-navbar-item>
+        <u-navbar-item value="3">组件</u-navbar-item>
+    </u-navbar>
+</u-linear-layout>
+```
+
 ### 位置
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-navbar alignment="center" style="background: #4289db">
+    <u-navbar alignment="center">
         <u-navbar-item to="u-navbar">组件</u-navbar-item>
         <u-navbar-item>备案管理</u-navbar-item>
         <u-navbar-item>帮助</u-navbar-item>
     </u-navbar>
-    <u-navbar alignment="right" style="background: #4289db">
+    <u-navbar alignment="right">
         <u-navbar-item to="u-navbar">组件</u-navbar-item>
         <u-navbar-item>备案管理</u-navbar-item>
         <u-navbar-item>帮助</u-navbar-item>
@@ -43,7 +60,7 @@
 ### 分隔符
 
 ``` html
-<u-navbar style="background: #4289db">
+<u-navbar>
     <u-navbar-item>指南</u-navbar-item>
     <u-navbar-item>概念</u-navbar-item>
     <u-navbar-item>配置</u-navbar-item>
@@ -57,7 +74,7 @@
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-navbar style="background: #4289db; padding: 0 10px;">
+    <u-navbar style="background: #4289db;; padding: 0 10px;">
         <u-logo slot="left"><a href="/" target="_blank">ICP 备案系统</a></u-logo>
         <u-navbar-item to="u-navbar">主体</u-navbar-item>
         <u-navbar-item>备案管理</u-navbar-item>

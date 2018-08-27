@@ -4,6 +4,7 @@ export { default as Button } from './u-button.vue';
 export { default as Link } from './u-link.vue';
 export { default as ListView } from './u-list-view.vue';
 export { default as ListViewItem } from './u-list-view-item.vue';
+export { default as Logo } from './u-logo.vue';
 export { default as Navbar } from './u-navbar.vue';
 export { default as NavbarItem } from './u-navbar-item.vue';
 export { default as NavbarDivider } from './u-navbar-divider.vue';

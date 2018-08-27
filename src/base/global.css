@@ -3,6 +3,7 @@
 /* Brand Colors */
 $brand-primary: #457cd0;
 $brand-secondary: #e1e8ed;
+$brand-third: #17263c;
 $brand-success: #34bfa3;
 $brand-info: #36a3f7;
 $brand-warning: #ffb822;
@@ -14,3 +15,6 @@ $border-radius-base: 3px;
 
 $transition-duration: 0.2s;
 $transition-duration-base: 0.2s;
+
+$navbar-height: 70px;
+$sidebar-width: 240px;
