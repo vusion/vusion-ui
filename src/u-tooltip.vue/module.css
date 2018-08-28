@@ -1,5 +1,5 @@
 $tooltip-background-color: rgba(71,88,107,0.9);
-$tooltip-arrow-size: 3px;
+$tooltip-arrow-size: 4px;
 $tooltip-arrow-offset: 16px;
 
 .root {
@@ -8,7 +8,7 @@ $tooltip-arrow-offset: 16px;
     background: $tooltip-background-color;
     color: white;
     font-size: 12px;
-    border-radius: 20px;
+    border-radius: 4px;
     z-index: $z-index-popper;
     animation: fade-in 0.1s linear 0s;
 }

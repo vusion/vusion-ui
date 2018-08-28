@@ -73,14 +73,14 @@ $border-color: #e1e8ed;
     border: 5px solid transparent;
     border-left-width: 4px;
     border-right-width: 4px;
-    border-top-color: #bbb;
+    border-top-color: currentColor;
     bottom: -3px;
     right: 4px;
 }
 
 .expander[expanded]::before {
     border-top-color: transparent;
-    border-bottom-color: #bbb;
+    border-bottom-color: currentColor;
     top: -3px;
     bottom: 0;
 }
