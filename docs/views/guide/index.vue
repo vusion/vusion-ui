@@ -29,6 +29,7 @@
 .main {
     margin-left: $sidebar-width;
     max-width: 1000px;
-    padding: 40px;
+    padding: 50px;
+    padding-top: 30px;
 }
 </style>
