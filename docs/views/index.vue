@@ -47,7 +47,7 @@ export default {
     /* background: #1c2b41; */
     background: white;
     box-shadow: 0 3px 4px rgba(0,0,0,0.1);
-    z-index: 2000;
+    z-index: $z-index-layout;
 }
 
 .body {

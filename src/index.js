@@ -25,5 +25,5 @@ export { default as Radio } from './u-radios.vue';
 export { default as DateTimePicker } from './u-date-time-picker.vue';
 export { default as ToolTip } from './u-tooltip.vue';
 export { default as Icon } from './u-icon.vue';
-export { default as Loading } from './u-loading.vue';
+export { default as Spinner } from './u-spinner.vue';
 export { default as Toast } from './u-toast.vue';

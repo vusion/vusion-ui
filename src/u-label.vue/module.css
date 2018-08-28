@@ -5,25 +5,24 @@
     font-size: 12px;
     border-radius: 10px;
     background: #eaeaea;
-    color: black;
 }
 
 .root[color="primary"] {
-    background: #36a3f7;
+    background: $brand-primary;
     color: white;
 }
 
 .root[color="success"] {
-    background: #34bfa3;
+    background: $brand-success;
     color: white;
 }
 
 .root[color="warning"] {
-    background: #ffa136;
+    background: $brand-warning;
     color: white;
 }
 
 .root[color="error"] {
-    background: #ff8a7a;
+    background: $brand-error;
     color: white;
 }
