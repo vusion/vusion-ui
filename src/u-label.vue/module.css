@@ -1,0 +1,29 @@
+@import 'proto-ui.vusion/src/u-label.vue/module.css';
+
+.root {
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 10px;
+    background: #eaeaea;
+    color: black;
+}
+
+.root[color="primary"] {
+    background: #36a3f7;
+    color: white;
+}
+
+.root[color="success"] {
+    background: #34bfa3;
+    color: white;
+}
+
+.root[color="warning"] {
+    background: #ffa136;
+    color: white;
+}
+
+.root[color="error"] {
+    background: #ff8a7a;
+    color: white;
+}

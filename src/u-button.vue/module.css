@@ -42,6 +42,18 @@
     background: #ebedf2;
 }
 
+.root[color="primary"][ghost] {
+    background: white;
+    color: $brand-primary;
+    border-color: $brand-primary;
+    border: 1px solid;
+}
+
+.root[color="primary"][ghost]:hover {
+    background: $brand-primary;
+    color: white;
+}
+
 .root[color="success"] {
     background: $brand-success;
     color: white;
@@ -59,6 +71,28 @@
 
 .root[color="success"][disabled] {
     background: #ebedf2;
+}
+
+.root[color="success"][ghost] {
+    background: white;
+    color: $brand-success;
+    border: 1px solid $brand-success;
+    line-height: 34px;
+}
+
+.root[color="success"][ghost]:hover {
+    background: $brand-success;
+    color: white;
+}
+
+.root[color="success"][ghost]:active {
+    background: #299781;
+}
+
+.root[color="success"][ghost][disabled] {
+    background: #ebedf2;
+    color: white;
+    border: none;
 }
 
 .root[color="info"] {
@@ -80,6 +114,28 @@
     background: #ebedf2;
 }
 
+.root[color="info"][ghost] {
+    background: white;
+    color: $brand-info;
+    border: 1px solid $brand-info;
+    line-height: 34px;
+}
+
+.root[color="info"][ghost]:hover {
+    background: $brand-info;
+    color: white;
+}
+
+.root[color="info"][ghost]:active {
+    background: #0a8cf0;
+}
+
+.root[color="info"][ghost][disabled] {
+    background: #ebedf2;
+    color: white;
+    border: none;
+}
+
 .root[color="warning"] {
     background: $brand-warning;
     color: white;
@@ -99,6 +155,28 @@
     background: #ebedf2;
 }
 
+.root[color="warning"][ghost] {
+    background: white;
+    color: $brand-warning;
+    border: 1px solid $brand-warning;
+    line-height: 34px;
+}
+
+.root[color="warning"][ghost]:hover {
+    background: $brand-warning;
+    color: white;
+}
+
+.root[color="warning"][ghost]:active {
+    background: #eea200;
+}
+
+.root[color="warning"][ghost][disabled] {
+    background: #ebedf2;
+    color: white;
+    border: none;
+}
+
 .root[color="error"] {
     background: $brand-error;
     color: white;
@@ -116,6 +194,28 @@
 
 .root[color="error"][disabled] {
     background: #ebedf2;
+}
+
+.root[color="error"][ghost] {
+    background: white;
+    color: $brand-error;
+    border: 1px solid $brand-error;
+    line-height: 34px;
+}
+
+.root[color="error"][ghost]:hover {
+    background: $brand-error;
+    color: white;
+}
+
+.root[color="error"][ghost]:active {
+    background: #f12143;
+}
+
+.root[color="error"][ghost][disabled] {
+    background: #ebedf2;
+    color: white;
+    border: none;
 }
 
 /**
