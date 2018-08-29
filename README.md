@@ -30,18 +30,18 @@ installComponents(CloudUI, Vue);
 ``` shell
 npm install
 npm install -g vusion-cli
-docs-src/dev
+vusion dev
 ```
 
 ## Build
 
 ``` shell
-docs-src/build
+vusion build
 ```
 
 ## Publish
 
 ``` shell
-docs-src/build
-vusion ghpages -p vusion-ui
+vusion build
+vusion ghpages
 ```

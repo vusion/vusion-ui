@@ -2,7 +2,14 @@ module.exports = {
     version: '>=0.6.0',
     type: 'library',
     lint: true,
+    webpack: {
+        output: {
+            publicPath: '/vusion-ui/',
+        },
+    },
     docs: {
+        mode: 'history',
+        base: '/vusion-ui/',
         navbar: [
             { text: '指南', to: '/guide' },
             { text: '组件', to: '/components' },
