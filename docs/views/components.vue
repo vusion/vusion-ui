@@ -42,8 +42,9 @@ export default {
 
 .main {
     margin-left: $sidebar-width;
-    max-width: 1000px;
-    padding: 50px;
+    max-width: 1010px;
+    padding-left: 50px;
+    padding-bottom: 50px;
     padding-top: 30px;
 }
 </style>

@@ -1,5 +1,5 @@
 module.exports = {
-    version: '>=0.6.0',
+    version: '>=0.7.7',
     type: 'library',
     lint: true,
     webpack: {
@@ -8,6 +8,7 @@ module.exports = {
         },
     },
     docs: {
+        title: 'Vusion UI 组件库',
         mode: 'history',
         base: '/vusion-ui/',
         navbar: [
