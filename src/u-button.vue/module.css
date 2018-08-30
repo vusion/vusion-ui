@@ -2,23 +2,24 @@
 
 .root {
     padding: 0 20px;
-    border-color: #ebedf2;
+    border-color: $border-color-base;
     border-radius: $border-radius-base;
-    transition: all $transition-duration;
+    transition: all $transition-duration-base;
 }
 
 .root:hover {
-    border-color: #ebedf2;
+    border-color: $border-color-base;
     color: $color-base;
-    background: #f4f5f8;
+    background: $background-color-base;
 }
 
 .root:active {
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.15);
 }
 
 .root[disabled] {
-    color: #ebedf2;
+    border-color: $border-color-base;
+    color: $border-color-base;
     background: white;
     box-shadow: none;
 }
@@ -31,7 +32,7 @@
     background: $brand-primary;
     color: white;
     border: none;
-    line-height: 34px;
+    line-height: calc($height-base - 2px);
 }
 
 .root[color="primary"]:hover {
@@ -39,7 +40,7 @@
 }
 
 .root[color="primary"][disabled] {
-    background: #ebedf2;
+    background: $brand-disabled-light;
 }
 
 .root[color="primary"][ghost] {
@@ -58,7 +59,7 @@
     background: $brand-success;
     color: white;
     border: none;
-    line-height: 34px;
+    line-height: calc($height-base - 2px);
 }
 
 .root[color="success"]:hover {
@@ -70,14 +71,14 @@
 }
 
 .root[color="success"][disabled] {
-    background: #ebedf2;
+    background: $brand-disabled-light;
 }
 
 .root[color="success"][ghost] {
     background: white;
     color: $brand-success;
     border: 1px solid $brand-success;
-    line-height: 34px;
+    line-height: calc($height-base - 2px);
 }
 
 .root[color="success"][ghost]:hover {
@@ -90,16 +91,17 @@
 }
 
 .root[color="success"][ghost][disabled] {
-    background: #ebedf2;
-    color: white;
-    border: none;
+    color: $border-color-base;
+    border-color: $border-color-base;
+    background: white;
+    box-shadow: none;
 }
 
 .root[color="info"] {
     background: $brand-info;
     color: white;
     border: none;
-    line-height: 34px;
+    line-height: calc($height-base - 2px);
 }
 
 .root[color="info"]:hover {
@@ -111,14 +113,14 @@
 }
 
 .root[color="info"][disabled] {
-    background: #ebedf2;
+    background: $brand-disabled-light;
 }
 
 .root[color="info"][ghost] {
     background: white;
     color: $brand-info;
     border: 1px solid $brand-info;
-    line-height: 34px;
+    line-height: calc($height-base - 2px);
 }
 
 .root[color="info"][ghost]:hover {
@@ -131,16 +133,17 @@
 }
 
 .root[color="info"][ghost][disabled] {
-    background: #ebedf2;
-    color: white;
-    border: none;
+    color: $border-color-base;
+    border-color: $border-color-base;
+    background: white;
+    box-shadow: none;
 }
 
 .root[color="warning"] {
     background: $brand-warning;
     color: white;
     border: none;
-    line-height: 34px;
+    line-height: calc($height-base - 2px);
 }
 
 .root[color="warning"]:hover {
@@ -152,14 +155,14 @@
 }
 
 .root[color="warning"][disabled] {
-    background: #ebedf2;
+    background: $brand-disabled-light;
 }
 
 .root[color="warning"][ghost] {
     background: white;
     color: $brand-warning;
     border: 1px solid $brand-warning;
-    line-height: 34px;
+    line-height: calc($height-base - 2px);
 }
 
 .root[color="warning"][ghost]:hover {
@@ -172,16 +175,17 @@
 }
 
 .root[color="warning"][ghost][disabled] {
-    background: #ebedf2;
-    color: white;
-    border: none;
+    color: $border-color-base;
+    border-color: $border-color-base;
+    background: white;
+    box-shadow: none;
 }
 
 .root[color="error"] {
     background: $brand-error;
     color: white;
     border: none;
-    line-height: 34px;
+    line-height: calc($height-base - 2px);
 }
 
 .root[color="error"]:hover {
@@ -193,14 +197,14 @@
 }
 
 .root[color="error"][disabled] {
-    background: #ebedf2;
+    background: $brand-disabled-light;
 }
 
 .root[color="error"][ghost] {
     background: white;
     color: $brand-error;
     border: 1px solid $brand-error;
-    line-height: 34px;
+    line-height: calc($height-base - 2px);
 }
 
 .root[color="error"][ghost]:hover {
@@ -213,9 +217,14 @@
 }
 
 .root[color="error"][ghost][disabled] {
-    background: #ebedf2;
-    color: white;
-    border: none;
+    color: $border-color-base;
+    border-color: $border-color-base;
+    background: white;
+    box-shadow: none;
+}
+
+.root[ghost] {
+    padding: 0 19px;
 }
 
 /**
@@ -224,14 +233,22 @@
 
 .root[size="small"] {
     height: 30px;
-    line-height: 30px;
+    line-height: 28px;
     padding: 0 10px;
+}
+
+.root[size="small"][ghost] {
+    padding: 0 9px;
 }
 
 .root[size="large"] {
     height: 40px;
-    line-height: 40px;
+    line-height: 38px;
     padding: 0 15px;
+}
+
+.root[size="large"][ghost] {
+    padding: 0 14px;
 }
 
 .root[square] {

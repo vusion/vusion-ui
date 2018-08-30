@@ -5,5 +5,4 @@
 }
 .root[disabled] {
     cursor: not-allowed;
-    color: #ccc;
 }

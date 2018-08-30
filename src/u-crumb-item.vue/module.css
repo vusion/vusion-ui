@@ -1,6 +1,0 @@
-@import 'proto-ui.vusion/src/u-crumb-item.vue/module.css';
-
-.root:not(:last-child)::after {
-    content: ' - ';
-    margin: 0 5px;
-}

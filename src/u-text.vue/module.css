@@ -1,0 +1,22 @@
+@import 'proto-ui.vusion/src/u-text.vue/module.css';
+
+.root[color="secondary"] {
+    color: $color-secondary;
+}
+
+.root[color="info"] {
+    color: $color-info;
+}
+
+.root[color="success"] {
+    color: $color-success;
+}
+
+.root[color="warning"] {
+    color: $color-warning;
+}
+
+.root[color="error"] {
+    color: $color-error;
+}
+

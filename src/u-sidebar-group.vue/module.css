@@ -22,14 +22,13 @@
     z-index: 1;
     width: 40px;
     height: 40px;
-    line-height: 39px;
+    line-height: 40px;
     text-align: center;
+    transition: transform $transition-duration-base;
 }
 
-/* @TODO: replace by icon-font */
 .expander::after {
-    content: '▸';
-    font-size: 16px;
+    icon-font: url('i-line-awesome.vue/assets/angle-right.svg');
 }
 
 .head:hover {
@@ -38,17 +37,11 @@
     /* background-color: #dde8f0; */
 }
 
-/* @TODO: replace by icon-font */
-.head:hover::after {
-    border-left-color: white;
-}
-
-/* @TODO: replace by icon-font */
-.expander[expanded]::after {
-    content: '▾';
+.expander[expanded] {
+    transform: rotate(90deg);
 }
 
 .body {
     background: #14202f;
-    transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out;
+    transition: $transition-duration-base height ease-in-out, $transition-duration-base padding-top ease-in-out, $transition-duration-base padding-bottom ease-in-out;
 }

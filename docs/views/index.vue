@@ -17,6 +17,11 @@
 </template>
 
 <script>
+// external
+import Vue from 'vue';
+import ILineAwesome from 'i-line-awesome.vue';
+Vue.component('i-line-awesome', ILineAwesome);
+
 export default {
     data() {
         return {

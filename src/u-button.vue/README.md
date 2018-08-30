@@ -7,35 +7,36 @@
 <u-button>设 置</u-button>
 ```
 
-### 禁用
+### 链接
 
 ``` html
-<u-button disabled>设 置</u-button>
+<u-linear-layout>
+    <u-button href="https://vusion.github.io" target="_blank">href</u-button>
+    <u-button to="/proto-ui/u-link">to</u-button>
+    <u-button href="https://vusion.github.io" disabled>disabled</u-button>
+</u-linear-layout>
 ```
 
 ### 颜色扩展
 
 ``` html
-<u-linear-layout>
-    <u-button color="primary">Primary</u-button>
-    <u-button color="success">Success</u-button>
-    <u-button color="info">Info</u-button>
-    <u-button color="warning">Warning</u-button>
-    <u-button color="error">Error</u-button>
-    <u-button color="error" disabled>Disabled</u-button>
-</u-linear-layout>
-```
-
-### ghost样式扩展
-
-``` html
-<u-linear-layout>
-    <u-button color="primary" ghost>Primary</u-button>
-    <u-button color="success" ghost>Success</u-button>
-    <u-button color="info" ghost>Info</u-button>
-    <u-button color="warning" ghost>Warning</u-button>
-    <u-button color="error" ghost>Error</u-button>
-    <u-button color="error" disabled>Disabled</u-button>
+<u-linear-layout direction="vertical">
+    <u-linear-layout>
+        <u-button color="primary">Primary</u-button>
+        <u-button color="info">Info</u-button>
+        <u-button color="success">Success</u-button>
+        <u-button color="warning">Warning</u-button>
+        <u-button color="error">Error</u-button>
+        <u-button color="error" disabled>Disabled</u-button>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-button color="primary" ghost>Primary</u-button>
+        <u-button color="info" ghost>Info</u-button>
+        <u-button color="success" ghost>Success</u-button>
+        <u-button color="warning" ghost>Warning</u-button>
+        <u-button color="error" ghost>Error</u-button>
+        <u-button color="error" ghost disabled>Disabled</u-button>
+    </u-linear-layout>
 </u-linear-layout>
 ```
 
@@ -65,14 +66,11 @@
 </u-linear-layout>
 ```
 
-### 链接
+### 展示方式
 
 ``` html
-<u-linear-layout>
-    <u-button href="https://vusion.github.io" target="_blank">href</u-button>
-    <u-button to="/proto-ui/u-link">to</u-button>
-    <u-button href="https://vusion.github.io" disabled>disabled</u-button>
-</u-linear-layout>
+<u-button display="block">块级按钮</u-button>
+<u-button display="inline">行内按钮（默认）</u-button>
 ```
 
 ## API

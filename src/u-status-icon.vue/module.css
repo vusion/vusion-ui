@@ -1,0 +1,48 @@
+.root {
+    color: $color-base;
+}
+
+.icon::before {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.icon[name="success"]::before {
+    icon-font: url("./icons/success.svg");
+    color: $brand-success;
+}
+
+.icon[name="waiting"]::before {
+    icon-font: url("./icons/waiting.svg");
+    color: $brand-disabled-dark;
+}
+
+.icon[name="pause"]::before {
+    icon-font: url("./icons/pause.svg");
+    color: $brand-error;
+}
+
+.icon[name="warning"]::before {
+    icon-font: url("./icons/warning.svg");
+    color: $brand-warning;
+}
+
+.icon[name="error"]::before {
+    icon-font: url("./icons/error.svg");
+    color: $brand-error;
+}
+
+.icon[name="mount"]::before {
+    icon-font: url("./icons/mount.svg");
+    color: $brand-success;
+}
+
+.icon[name="end"]::before {
+    icon-font: url("./icons/end.svg");
+    color: $brand-disabled-dark;
+}
+
+.icon[name="expire"]::before {
+    icon-font: url("./icons/expire.svg");
+    color: $brand-disabled-dark;
+}

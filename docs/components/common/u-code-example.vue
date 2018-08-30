@@ -24,11 +24,9 @@ export default {
 </script>
 
 <style module>
-$border-color: #e1e8ed;
-
 .root {
     margin: 10px 0;
-    border: 1px $border-color solid;
+    border: 1px #e5e8ef solid;
     border-radius: $border-radius-base;
 }
 
@@ -41,8 +39,8 @@ $border-color: #e1e8ed;
 }
 
 .code {
-    border-top: 1px $border-color solid;
-    background: #f8f9fb;
+    border-top: 1px #e5e8ef solid;
+    background: $background-color-base;
     transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out;
 }
 
@@ -55,7 +53,7 @@ $border-color: #e1e8ed;
 }
 
 .expander {
-    border-top: 1px $border-color solid;
+    border-top: 1px #e5e8ef solid;
     text-align: center;
     vertical-align: middle;
     padding: 5px;

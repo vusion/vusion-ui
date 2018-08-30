@@ -8,7 +8,7 @@
     line-height: 44px;
     padding-left: 20px;
     color: #717f94;
-    transition: all $transition-duration;
+    transition: all $transition-duration-base;
 }
 
 .root:hover {
