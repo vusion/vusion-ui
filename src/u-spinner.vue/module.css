@@ -4,13 +4,13 @@
 }
 
 .root {
-    content: '';
-    border-top: 2px solid #07d;
-    border-right: 2px solid transparent;
-    vertical-align: -5px;
     display: inline-block;
-    animation: spin 0.6s infinite linear;
-    width: 1.2rem;
-    height: 1.2rem;
+    content: '';
+    border-top: 2px solid $brand-primary;
+    border-right: 2px solid transparent;
+    animation: spin 0.8s infinite linear;
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: -0.2em;
     border-radius: 50%;
 }

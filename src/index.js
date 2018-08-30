@@ -12,6 +12,7 @@ export { default as Link } from './u-link.vue';
 export { default as ListView } from './u-list-view.vue';
 export { default as ListViewItem } from './u-list-view-item.vue';
 export { default as Logo } from 'proto-ui.vusion/src/u-logo.vue';
+export { default as Loading } from 'proto-ui.vusion/src/u-loading.vue';
 export { default as Modal } from './u-modal.vue';
 export { default as Navbar } from './u-navbar.vue';
 export { default as NavbarDivider } from './u-navbar-divider.vue';
