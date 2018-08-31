@@ -23,6 +23,7 @@ export default {
 .root > h1 {
     font-size: 24px;
     line-height: 30px;
+    margin-bottom: 60px;
 }
 
 .root > h2 {

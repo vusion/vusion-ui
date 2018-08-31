@@ -2,9 +2,9 @@
 
 /* Brand Colors */
 $brand-primary: #457cd0;
-$brand-secondary: #e1e8ed;
-$brand-success: #34bfa3;
+$brand-secondary: #dfe4ec; /* #575962; */
 $brand-info: #36a3f7;
+$brand-success: #34bfa3;
 $brand-warning: #ffb518;
 $brand-error: #f34f69;
 
@@ -23,9 +23,11 @@ $gray-lightest: #eee;
 
 /* Component Base Colors */
 $background-color-base: #f2f3f8;
+$background-color-light: #f2f4fb;
 $color-base: #565b61;
 $color-secondary: #a3aab5;
 $border-color-base: #dfe4ec;
+$border-color-light: #e5e8ef;
 
 /* Spacing Dimensions */
 $margin-small: 10px;

@@ -9,6 +9,7 @@ module.exports = {
     },
     docs: {
         title: 'Vusion UI 组件库',
+        logo: '组件库',
         mode: 'history',
         base: '/vusion-ui/',
         navbar: [
@@ -18,6 +19,7 @@ module.exports = {
         ],
         components: [
             { group: 'Basic', name: 'base', alias: '基础', path: 'proto-ui.vusion/src/base/README.md' },
+            { group: 'Basic', name: 'scheme', alias: '设计规范', path: 'library/base/SCHEME.md' },
             { group: 'Basic', name: 'typography', alias: '排印', path: 'proto-ui.vusion/src/base/TYPOGRAPHY.md' },
             { group: 'Basic', name: 'u-text', alias: '文本' },
             { group: 'Basic', name: 'u-link', alias: '链接' },
@@ -32,7 +34,7 @@ module.exports = {
             { group: 'Layout', name: 'u-grid-layout', alias: '栅格布局' },
             { group: 'Layout', name: 'u-desc-list', alias: '描述列表', path: 'cloud-ui.vusion/src/u-desc-list.vue/README.md' },
             { group: 'Layout', name: 'u-info-list', alias: '详情列表', path: 'cloud-ui.vusion/src/u-info-list.vue/README.md' },
-            { group: 'Layout', name: 'u-table', alias: '表格', path: 'cloud-ui.vusion/src/u-table.vue/README.md' },
+            { group: 'Layout', name: 'u-table', alias: '表格' },
             { group: 'Navigation', name: 'u-navbar', alias: '导航栏' },
             { group: 'Navigation', name: 'u-sidebar', alias: '侧边栏', path: 'cloud-ui.vusion/src/u-sidebar.vue/README.md' },
             { group: 'Navigation', name: 'u-menu', alias: '菜单' },

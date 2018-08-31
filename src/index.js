@@ -26,6 +26,7 @@ export { default as SidebarGroup } from './u-sidebar-group.vue';
 export { default as SidebarItem } from './u-sidebar-item.vue';
 export { default as Spinner } from './u-spinner.vue';
 export { default as StatusIcon } from './u-status-icon.vue';
+export { default as Table } from './u-table.vue';
 export { default as Text } from './u-text.vue';
 export { default as Toast } from './u-toast.vue';
 export { default as ToolTip } from './u-tooltip.vue';

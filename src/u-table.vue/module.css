@@ -1,0 +1,82 @@
+.root {
+    border: none;
+    position: relative;
+    table-layout: fixed;
+    width: 100%;
+    background: white;
+    word-break: keep-all; /* 不换行 */
+    white-space: nowrap; /* 不换行 */
+}
+
+.root th {
+    text-align: left;
+    font-weight: bold;
+}
+
+.root td {
+    white-space: nowrap;
+}
+
+.root th, .root td {
+    position: relative;
+    line-height: 1.4;
+    padding: 13px;
+    padding-left: 14px;
+    padding-right: 0;
+}
+
+.root thead > tr {
+    background-color: $background-color-light;
+    border-bottom: 1px solid $border-color-light;
+}
+
+.root tbody > tr {
+    border-bottom: 1px solid $border-color-light;
+}
+
+.root tbody > tr:hover > td::before {
+    content: '';
+    width: 100%;
+    height: 6px;
+    position: absolute;
+    top: -6px;
+    left: 0;
+    background: url('./assets/shadow-up.png') repeat-x;
+    z-index: 100;
+}
+
+.root tbody > tr:hover > td::after {
+    content: '';
+    width: 100%;
+    height: 6px;
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    background: url('./assets/shadow-down.png') repeat-x;
+    z-index: 100;
+}
+
+.root[ghost] thead > tr {
+    background: none;
+}
+
+.root[ghost] tbody > tr {
+    border-bottom: none;
+}
+
+.root[ghost] tbody > tr:hover > td::before, .root[ghost] tbody > tr:hover > td::after {
+    display: none;
+}
+
+.root[striped] tbody > tr:nth-child(odd) {
+    background: #f4f5f9;
+}
+
+/* 大小扩展 */
+.root[size="small"] th, .root[size="small"] td {
+    padding: 8px;
+}
+
+.root[size="large"] th, .root[size="large"] td {
+    padding: 16px;
+}
