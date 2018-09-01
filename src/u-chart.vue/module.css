@@ -1,0 +1,148 @@
+$chart-padding: 15px;
+$chart-title-height: 40px;
+$chart-title-small-height: 30px;
+$chart-legend-height: 35px;
+
+.root {
+    position: relative;
+    box-sizing: border-box;
+    padding: 15px;
+    height: 450px;
+}
+
+.title {
+    position: absolute;
+    z-index: 95;
+    top: $chart-padding;
+    left: $chart-padding;
+    right: $chart-padding;
+    height: $chart-title-height;
+    line-height: $chart-title-height;
+    font-size: 16px;
+}
+
+.caption {
+    position: absolute;
+    top: calc($chart-padding + $chart-title-height);
+    left: $chart-padding;
+    right: $chart-padding;
+    text-align: center;
+}
+
+.content {
+    position: absolute;
+    top: $chart-padding;
+    left: $chart-padding;
+    right: $chart-padding;
+    bottom: $chart-padding;
+}
+
+.title ~ .content {
+    top: 65px;
+}
+
+.caption ~ .content {
+    top: 65px;
+}
+
+.legend ~ .content {
+    bottom: 45px;
+}
+
+.root[empty] .content {
+    display: none;
+}
+
+.legend {
+    position: absolute;
+    bottom: $chart-padding;
+    height: $chart-legend-height;
+    line-height: $chart-legend-height;
+    left: $chart-padding;
+    right: $chart-padding;
+    font-size: 12px;
+    text-align: center;
+}
+
+.legend[multiline] {
+    line-height: 18px;
+}
+
+.root[empty] .legend {
+    display: none;
+}
+
+.root[empty] {
+    /* background: url("../assets/images/nodata.png") no-repeat center center; */
+}
+
+.legend-item {
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    margin: 0 1em;
+}
+
+.legend-item[auto-width] {
+    max-width: 15%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.legend-item::before {
+    background: $brand-info;
+    display: inline-block;
+    content: '';
+    width: 10px;
+    height: 10px;
+    vertical-align: text-bottom;
+    margin-right: 4px;
+    position: relative;
+    top: -2px;
+}
+
+/* .legend-item:nth-of-type(5n+1)::before { background: $brand-primary; } */
+.legend-item:nth-of-type(5n+2)::before { background: $brand-warning; }
+.legend-item:nth-of-type(5n+3)::before { background: $brand-success; }
+.legend-item:nth-of-type(5n+4)::before { background: $brand-error; }
+.legend-item:nth-of-type(5n+5)::before { background: $brand-primary; }
+
+.legend-item[muted] {
+    color: $brand-disabled;
+}
+
+.legend-item[muted]::before {
+    background: $brand-disabled;
+}
+
+/* @TODO: border 是否需要更多含义 */
+.root[border] {
+    border: 1px solid $border-color-base;
+}
+
+.loading[class] {
+    background: white;
+}
+
+.operate {
+    position: relative;
+    z-index: 100;
+}
+
+.root[size="small"] {
+    height: 320px !important;
+}
+
+.root[size="small"] .title {
+    height: $chart-title-small-height;
+    line-height: $chart-title-small-height;
+    font-size: 14px;
+}
+.root[size="small"] .title ~ .content {
+    top: 45px;
+}
+
+.root[size="large"] {
+    height: 600px !important;
+}

@@ -1,0 +1,58 @@
+<u-chart :class="$style.root"
+    :title="title" :series="series" :data="currentData" :border="border" :legend="legend"
+    :width="width" :height="height" :title-align="titleAlign" :title-alignment="titleAlignment" :loading="loading" :content-style="contentStyle">
+    <template v-if="title || $slots.titleTemplate" slot="titleTemplate">
+        <slot name="titleTemplate">
+            {{title}}
+        </slot>
+    </template>
+    <template slot="captionTemplate"  v-if="caption || $slots.captionTemplate">
+        <slot name="captionTemplate">
+            {{caption}}
+        </slot>
+    </template>
+    <div :class="$style.wrap">
+        <div :class="$style.grid" ref="grid">
+            <div v-for="(xLabel, index) in xAxis_.data" :class="$style.line" role="y" :style="{left: 100*index/(xAxis_.data.length - 1)+'%'}"></div>
+            <div v-for="(yLabel, index) in yAxis_.data" :class="$style.line" role='x' :style="{bottom: 100*index/(yAxis_.data.length - 1)+'%'}"></div>
+        </div>
+        <div :class="$style.axis" role="axisx">
+            <div v-for="(xLabel, index) in xAxis_.data" :class="$style.label" role="labelx" title="xLabel" :style="{left: 100*index/(xAxis_.data.length - 1)+'%', width: 100/xAxis_.data.length+'%'}">
+                <slot name="xLabelTemplate">{{xLabel}}</slot>
+            </div>
+            <div :class="$style.label" role="label-xName">{{xAxis.name}}</div>
+        </div>
+        <div :class="$style.axis" role="axisy">
+            <div v-for="(yLabel,index) in yAxis_.data" :class="$style.label" role="labely" title="yLabel" :style="{bottom: 100*index/(yAxis_.data.length - 1)+'%'}">{{format(yLabel)}}</div>
+            <div :class="$style.label" role="label-yName">{{yAxis.name}}</div>
+        </div>
+        <div :class="$style.layer" role="layersvg">
+            <svg :class="$style.elsvg" v-for="sery in series" v-show="!sery.hidden && !sery.absent">
+                <path v-if="fill" :class="$style.area" :d="getD(sery, 'area')" />
+                <path :class="$style.line" :d="getD(sery)" />
+            </svg>
+        </div>
+        <div :class="$style.layer">
+            <div :class="$style.piece" v-for="(item,index) in currentData" v-if="!item.hidden" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100/(currentData.length - 1)+'%'}">
+                <div :class="$style.point" v-for="(sery, seryIndex) in series" v-show="item[sery.field || sery.key] !== undefined && !sery.hidden"
+                    :special="item.special && item.special[sery.field || sery.key]" :style="{
+                        bottom: 100*(item[sery.field || sery.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%',
+                        borderColor: item.special && item.special[sery.field || sery.key] && item.special[sery.field || sery.key].color,
+                        background: item.special && item.special[sery.field || sery.key] && item.special[sery.field || sery.key].color
+                    }">
+                    <div :class="$style.value">{{format(item[sery.field || sery.key])}}</div>
+                    <u-tooltip v-if="seryIndex === 0" :trigger-element="getTriggerEl" reference="parent" placement="right" :boundaries-element="$el">
+                        <div slot="content">
+                            <slot :name="'tooltipTemplate'+index">
+                                <div v-for="sery in series">{{ sery.title || sery.name || sery.field || sery.key }}: {{ format(item[sery.field || sery.key]) }}</div>
+                            </slot>
+                        </div>
+                    </u-tooltip>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div :class="$style.operate" slot="operate">
+        <slot></slot>
+    </div>
+</u-chart>

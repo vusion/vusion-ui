@@ -1,0 +1,80 @@
+$g_size: 120px;
+
+.elsvg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.elsvg .elg {
+    width: $g_size;
+    height: $g_size;
+}
+
+.item {
+    fill: $brand-info;
+    stroke: white;
+    stroke-width: 0.5px;
+    transition: opacity 0.2s ease;
+}
+.root .item:nth-of-type(5n+2) { fill: $brand-warning; }
+.root .item:nth-of-type(5n+3) { fill: $brand-error; }
+.root .item:nth-of-type(5n+4) { fill: $brand-success; }
+.root .item:nth-of-type(5n+5) { fill: $brand-primary; }
+
+.item:hover {
+    opacity: 0.8;
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    font-size: 12px;
+    transform: translate(-50%,-50%);
+    color: white;
+    cursor: default;
+}
+
+.tooltip {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    max-width: 200px;
+    padding: 4px 8px;
+    font-size: 12px;
+    background: #333;
+    color: #eee;
+    z-index: $z-index-tooltip;
+}
+
+.tooltip::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border: 5px solid #333;
+    left: -5px;
+    top: 10px;
+    border-left: none;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.emptyitem {
+    fill: white;
+    stroke: #d8d8d8;
+    stroke-width: 0.5px;
+    stroke-dasharray: 2, 2;
+}
+
+.emptytext {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 22px;
+    line-height: 22px;
+    margin-top: -11px;
+    margin-left: -11px;
+    cursor: pointer;
+}

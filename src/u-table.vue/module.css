@@ -21,8 +21,6 @@
     position: relative;
     line-height: 1.4;
     padding: 13px;
-    padding-left: 14px;
-    padding-right: 0;
 }
 
 .root thead > tr {

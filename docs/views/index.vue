@@ -3,7 +3,7 @@
     <header :class="$style.head">
         <div :class="$style.wrap">
             <u-navbar>
-                <u-logo slot="left" color="inverse"></u-logo>
+                <u-logo slot="left" color="inverse">{{ logo }}</u-logo>
                 <u-navbar-item v-for="item in navbar" :key="item.text" :to="item.to" :href="item.href" :target="item.target">{{ item.text }}</u-navbar-item>
             </u-navbar>
         </div>
@@ -25,6 +25,7 @@ Vue.component('i-line-awesome', ILineAwesome);
 export default {
     data() {
         return {
+            logo: this.$docs.logo,
             navbar: this.$docs.navbar,
             theme: window.theme,
         };
