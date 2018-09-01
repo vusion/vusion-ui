@@ -1,7 +1,7 @@
 {
   "name": "vusion-ui.vusion",
   "description": "Vusion UI",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./src/index.js",
   "scripts": {
