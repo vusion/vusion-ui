@@ -73,7 +73,7 @@ $chart-legend-height: 35px;
 }
 
 .root[empty] {
-    /* background: url("../assets/images/nodata.png") no-repeat center center; */
+    background: url('./assets/empty.png') no-repeat center center;
 }
 
 .legend-item {
@@ -102,11 +102,11 @@ $chart-legend-height: 35px;
     top: -2px;
 }
 
-/* .legend-item:nth-of-type(5n+1)::before { background: $brand-primary; } */
-.legend-item:nth-of-type(5n+2)::before { background: $brand-warning; }
-.legend-item:nth-of-type(5n+3)::before { background: $brand-success; }
-.legend-item:nth-of-type(5n+4)::before { background: $brand-error; }
-.legend-item:nth-of-type(5n+5)::before { background: $brand-primary; }
+.legend-item:nth-of-type(5n+1)::before, .legend-item[color][color="info"]::before { background: $brand-info; }
+.legend-item:nth-of-type(5n+2)::before, .legend-item[color][color="warning"]::before { background: $brand-warning; }
+.legend-item:nth-of-type(5n+3)::before, .legend-item[color][color="success"]::before { background: $brand-success; }
+.legend-item:nth-of-type(5n+4)::before, .legend-item[color][color="error"]::before { background: $brand-error; }
+.legend-item:nth-of-type(5n+5)::before, .legend-item[color][color="primary"]::before { background: $brand-primary; }
 
 .legend-item[muted] {
     color: $brand-disabled;

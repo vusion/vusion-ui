@@ -1,38 +1,34 @@
-<u-chart :class="$style.root" :title="title" :border="border" :width="width" :height="height" :legend="legend" :series="data">
-    <svg :class="$style.elsvg" ref="svg" viewBox="14 14 72 72">
-        <g :class="$style.elg" transform="translate(50, 50)">
-            <template  v-if="isEmpty">
-                <u-popper trigger="hover" placement="right-start" follow-cursor>
-                    <circle :class="$style.emptyitem" cx="0" cy="0" :r="RADIUS"></circle>
-                    <u-chart-tooltip :percent='0' :class="$style.tooltip" slot="popper" type="piechart" :row="data" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
-                </u-popper>
-            </template>
-            <template v-else>
-                <template v-for="(item,index) in posData">
-                    <u-popper trigger="hover" placement="right-start" follow-cursor>
-                        <circle v-if="item.percent === 100" :class="[$style.item]" cx="0" cy="0" :r="RADIUS"/>
-                        <path  v-else-if="item.percent !== 100" :class="$style.item"
-                            :d="getD(item)"
-                            @mouseover="onMouseOver(item)" />
-                        <u-chart-tooltip :class="$style.tooltip" slot="popper" type="piechart" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
-                    </u-popper>
+<u-chart :class="$style.root" :title="title" :border="border" :legend="legend" :series="currentData" :data="currentData"
+    :width="width" :height="height">
+    <svg :class="$style.svg" ref="svg" viewBox="0 0 200 200">
+        <g :class="$style.group" transform="translate(100, 100)">
+            <circle v-if="empty" :class="$style.empty" cx="0" cy="0" :r="RADIUS"></circle>
+            <!-- <u-tooltip v-else trigger="hover" placement="right-start" follow-cursor> -->
+            <g v-if="!empty">
+                <template v-for="item in currentData">
+                    <circle v-if="item.percentage === 100" :class="$style.item" cx="0" cy="0" :r="RADIUS"
+                        :color="item.color" :selected="item === currentItem" @mouseover="onMouseOver(item)" />
+                    <path v-else :class="$style.item" :d="getD(item)"
+                        :color="item.color" :selected="item === currentItem" @mouseover="onMouseOver(item)" />
                 </template>
-            </template>
+            </g>
+            <g v-if="!empty">
+                <path v-for="item in currentData" :class="$style['label-line']" :d="item.label.d" :selected="item === currentItem" />
+            </g>
+                <!-- <div slot="content">
+                    <slot name="tooltip" :item="item">{{ item.percentage }}%</slot>
+                </div>
+            </u-tooltip> -->
         </g>
     </svg>
-    <div v-if="isEmpty" :class="$style.emptytext">
-        <u-popper trigger="hover" placement="right-start" follow-cursor>
-            <div>0%</div>
-            <u-chart-tooltip :percent='0' :class="$style.tooltip" slot="popper" type="piechart" :row="data" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
-        </u-popper>
+    <div v-if="empty" :class="$style['empty-text']">
+        <div>0%</div>
     </div>
-    <div v-else v-for="(item, index) in posData" :class="$style.text" :style="getTextStyle(item)">
-        <u-popper trigger="hover" placement="right-start" follow-cursor>
-            <div>{{item ? item.percent + '%' : ''}}</div>
-            <u-chart-tooltip :class="$style.tooltip" slot="popper" type="piechart" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
-        </u-popper>
+    <div v-else v-for="item in currentData" :class="$style.label"
+        :style="getLabelStyle(item)" :selected="item === currentItem">
+        <slot name="label">{{ item.name }}: {{ item.percentage }}%</slot>
     </div>
-    <template v-if="false">
-        <slot name="tooltip" type="piechart" :row="data[0]"></slot>
-    </template>
+    <!-- <div v-else v-for="item in currentData" :class="$style.text" :style="getTextStyle(item)">
+        <div>{{item ? item.percentage + '%' : ''}}</div>
+    </div> -->
 </u-chart>

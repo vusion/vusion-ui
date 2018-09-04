@@ -91,6 +91,7 @@ module.exports = {
             { group: 'Progress & Charts', name: 'u-xbar-chart', alias: '水平柱状图', path: 'cloud-ui.vusion/src/u-xbar-chart.vue/README.md' },
             { group: 'Progress & Charts', name: 'u-line-chart', alias: '线状图' },
             { group: 'Progress & Charts', name: 'u-pie-chart', alias: '饼状图' },
+            { group: 'Progress & Charts', name: 'u-donut-chart', alias: '甜圈图' },
             // { group: 'Extension', name: 'x-ace-editor', alias: '代码编辑器', path: 'x-ace-editor.vue/README.md' },
             { group: 'Mixin & Utils', name: 'u-emitter', alias: '触发器' },
             { group: 'Mixin & Utils', name: 'u-router-item', alias: '路由项' },

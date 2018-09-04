@@ -4,47 +4,47 @@
 ### 基本形式
 
 ``` html
-<u-chart title="图表"></u-chart>
+<u-chart title="图表" :data="[1]"></u-chart>
 ```
 
 ### 边框
 
 ``` html
-<u-chart title="图表" border></u-chart>
+<u-chart title="图表" border :data="[1]"></u-chart>
 ```
 
 ### 描述
 ``` html
-<u-chart title="图表" caption="近7日工作量"></u-chart>
+<u-chart title="图表" caption="近7日工作量" :data="[1]"></u-chart>
 ```
 
 ### 图例
 
 ``` html
-<u-chart title="图表" border :series="[
-    { field: 'readings', title: '阅读数' },
-    { field: 'stars', title: '点赞数' },
-    { field: 'favors', title: '收藏数' },
+<u-chart title="图例" legend :data="[1]" :series="[
+    { name: '阅读数', field: 'readings' },
+    { name: '点赞数', field: 'stars' },
+    { name: '收藏数', field: 'favors' },
 ]"></u-chart>
 ```
 
 ``` html
-<u-chart title="较多的图表" border :series="[
-    { field: 'readings', title: '阅读数' },
-    { field: 'stars', title: '点赞数' },
-    { field: 'favors', title: '收藏数' },
-    { field: 'readings', title: '阅读数' },
-    { field: 'stars', title: '点赞数' },
-    { field: 'favors', title: '收藏数' },
-    { field: 'readings', title: '阅读数' },
-    { field: 'stars', title: '点赞数' },
-    { field: 'favors', title: '收藏数' },
-    { field: 'readings', title: '阅读数' },
-    { field: 'stars', title: '点赞数' },
-    { field: 'favors', title: '收藏数' },
-    { field: 'readings', title: '阅读数' },
-    { field: 'stars', title: '点赞数' },
-    { field: 'favors', title: '收藏数' },
+<u-chart title="较多的图例" legend :data="[1]" :series="[
+    { name: '阅读数', field: 'readings' },
+    { name: '点赞数', field: 'stars' },
+    { name: '收藏数', field: 'favors' },
+    { name: '阅读数', field: 'readings' },
+    { name: '点赞数', field: 'stars' },
+    { name: '收藏数', field: 'favors' },
+    { name: '阅读数', field: 'readings' },
+    { name: '点赞数', field: 'stars' },
+    { name: '收藏数', field: 'favors' },
+    { name: '阅读数', field: 'readings' },
+    { name: '点赞数', field: 'stars' },
+    { name: '收藏数', field: 'favors' },
+    { name: '阅读数', field: 'readings' },
+    { name: '点赞数', field: 'stars' },
+    { name: '收藏数', field: 'favors' },
 ]"></u-chart>
 ```
 
@@ -52,20 +52,20 @@
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-chart title="图表" caption="近7日工作量" border size="small" :series="[
-        { field: 'readings', title: '阅读数' },
-        { field: 'stars', title: '点赞数' },
-        { field: 'favors', title: '收藏数' },
+    <u-chart title="图表" caption="近7日工作量" border legend size="small" :data="[1]" :series="[
+        { name: '阅读数', field: 'readings' },
+        { name: '点赞数', field: 'stars' },
+        { name: '收藏数', field: 'favors' },
     ]"></u-chart>
-    <u-chart title="图表" caption="近7日工作量" border size="normal" :series="[
-        { field: 'readings', title: '阅读数' },
-        { field: 'stars', title: '点赞数' },
-        { field: 'favors', title: '收藏数' },
+    <u-chart title="图表" caption="近7日工作量" border legend size="normal" :data="[1]" :series="[
+        { name: '阅读数', field: 'readings' },
+        { name: '点赞数', field: 'stars' },
+        { name: '收藏数', field: 'favors' },
     ]"></u-chart>
-    <u-chart title="图表" caption="近7日工作量" border size="large" :series="[
-        { field: 'readings', title: '阅读数' },
-        { field: 'stars', title: '点赞数' },
-        { field: 'favors', title: '收藏数' },
+    <u-chart title="图表" caption="近7日工作量" border legend size="large" :data="[1]" :series="[
+        { name: '阅读数', field: 'readings' },
+        { name: '点赞数', field: 'stars' },
+        { name: '收藏数', field: 'favors' },
     ]"></u-chart>
 </u-linear-layout>
 ```

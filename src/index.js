@@ -6,6 +6,7 @@ export { default as Button } from './u-button.vue';
 export { default as Chart } from './u-chart.vue';
 export { default as Checkbox } from './u-checkbox.vue';
 export { default as DateTimePicker } from './u-date-time-picker.vue';
+export { default as DonutChart } from './u-donut-chart.vue';
 export { default as FormItem } from './u-form-item.vue';
 export { default as Icon } from './u-icon.vue';
 export { default as Label } from './u-label.vue';

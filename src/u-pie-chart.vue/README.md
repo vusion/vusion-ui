@@ -1,34 +1,69 @@
-# 弹窗 PieChart
+# 饼状图 PieChart
 
 ## 示例
 ### 基本形式
 
 ``` html
-<u-pie-chart border legend title="每星期访问量" :data="[
-    { 'percent': 25, 'name': 'selector1' },
-    { 'percent': 25, 'name': 'selector2' },
-    { 'percent': 25, 'name': 'selector3' },
-    { 'percent': 25, 'name': 'selector4' }
+<u-pie-chart :data="[3, 6, 5, 4, 2]"></u-pie-chart>
+```
+
+``` html
+<u-pie-chart legend title="24小时消费" :data="[
+    { name: '容器服务', value: 20 },
+    { name: '云服务器', value: 20 },
+    { name: '负载均衡', value: 15 },
+    { name: 'RDS', value: 35 },
+    { name: '云硬盘', value: 9 },
+    { name: '消息队列', value: 1 },
+    { name: '公网 IP', value: 1 },
 ]"></u-pie-chart>
 ```
 
-#### 百分比都为 0
 ``` html
-<u-pie-chart border legend title="每星期访问量" :data="[
-    { 'percent': 0, 'name': 'selector1' },
-    { 'percent': 0, 'name': 'selector2' },
-    { 'percent': 0, 'name': 'selector3' },
-    { 'percent': 0, 'name': 'selector4' }
+<u-pie-chart legend title="24小时消费" :data="[
+    { name: '容器服务', value: 20 },
+    { name: '云服务器', value: 20 },
+    { name: '负载均衡', value: 15 },
+    { name: 'RDS', value: 35 },
+    { name: '云硬盘', value: 9 },
+    { name: '消息队列', value: 0 },
+    { name: '公网 IP', value: 0 },
+]"></u-pie-chart>
+```
+
+### 空态
+
+``` html
+<u-pie-chart legend title="每星期访问量" :data="[]"></u-pie-chart>
+```
+
+``` html
+<u-pie-chart legend title="每星期访问量" :data="[
+    { name: 'selector1', value: 0 },
+    { name: 'selector2', value: 0 },
+    { name: 'selector3', value: 0 },
+    { name: 'selector4', value: 0 },
+]"></u-pie-chart>
+```
+
+### 设置颜色
+
+``` html
+<u-pie-chart legend :data="[
+    { name: '请求成功数', value: 90, color: 'success' },
+    { name: '请求失败数', value: 10, color: 'error' },
+    { name: '线程超时次数', value: 4, color: 'info' },
+    { name: '线程拒绝次数', value: 6, color: 'warning' },
 ]"></u-pie-chart>
 ```
 
 #### 自定义tooltip
 ``` html
-<u-pie-chart border legend title="每星期访问量" :data="[
-    { 'percent': 25, 'name': 'selector1' },
-    { 'percent': 25, 'name': 'selector2' },
-    { 'percent': 30, 'name': 'selector3' },
-    { 'percent': 20, 'name': 'selector4' }
+<u-pie-chart legend title="每星期访问量" :data="[
+    { percent: 25, name: 'selector1' },
+    { percent: 25, name: 'selector2' },
+    { percent: 30, name: 'selector3' },
+    { percent: 20, name: 'selector4' },
 ]">
     <div slot="tooltip" slot-scope="scope">{{ scope.row.name }}</div>
 </u-pie-chart>

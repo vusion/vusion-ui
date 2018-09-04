@@ -17,12 +17,16 @@ export default {
     data() {
         return {
             currentSeries: this.handleSeries(this.series),
+            // currentData: this.handleData(this.data),
         };
     },
     watch: {
         series(series) {
             this.currentSeries = this.handleSeries(series);
         },
+        // data(data) {
+        //     this.currentData = this.handleData(data);
+        // },
     },
     methods: {
         handleSeries(series) {
@@ -31,9 +35,16 @@ export default {
 
             series.forEach((sery) => {
                 if (!sery.hasOwnProperty('hidden'))
-                    sery.hidden = undefined;
+                    this.$set(sery, 'hidden', false);
             });
             return series;
         },
+        // handleData(data) {
+        //     if (!data) {
+        //         return [];
+        //     }
+
+        //     return data;
+        // },
     },
 };

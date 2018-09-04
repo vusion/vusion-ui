@@ -56,14 +56,14 @@ $line_offset: 6px;
     left: $axis-y_width;
     right: 19px;
     bottom: 0;
-    height: $axis-x_height;
+    height: calc($axis-x_height + 1px);
     border-top: 1px solid $axis_border;
 }
 
 .axis[role="axisy"] {
     left: 0;
     top: 14px;
-    bottom: $axis-x_height;
+    bottom: calc($axis-x_height + 1px);
     width: $axis-y_width;
     border-right: 1px solid $axis_border;
 }
@@ -112,7 +112,7 @@ $line_offset: 6px;
     text-align: right;
 }
 
-.layer .elsvg {
+.elsvg {
     position: absolute;
     top: 0;
     left: 0;
@@ -128,18 +128,19 @@ $line_offset: 6px;
 
 .area {
     stroke-opacity: 0;
+    fill: transparent;
 }
 
-.layer .elsvg .line { stroke: $brand-info; }
-.layer .elsvg .area { fill: color-mod($brand-info alpha(0.2)); }
-.layer .elsvg:nth-of-type(5n+2) .line { stroke: $brand-warning; }
-.layer .elsvg:nth-of-type(5n+2) .area { fill: color-mod($brand-warning alpha(0.2)); }
-.layer .elsvg:nth-of-type(5n+3) .line { stroke: $brand-success; }
-.layer .elsvg:nth-of-type(5n+3) .area { fill: color-mod($brand-success alpha(0.2)); }
-.layer .elsvg:nth-of-type(5n+4) .line { stroke: $brand-error; }
-.layer .elsvg:nth-of-type(5n+4) .area { fill: color-mod($brand-error alpha(0.2)); }
-.layer .elsvg:nth-of-type(5n+5) .line { stroke: $brand-primary; }
-.layer .elsvg:nth-of-type(5n+5) .area { fill: color-mod($brand-primary alpha(0.2)); }
+.elsvg:nth-of-type(5n+1) .line, .elsvg[color][color="info"] .line { stroke: $brand-info; }
+.elsvg:nth-of-type(5n+1) .area, .elsvg[color][color="info"] .area { fill: color-mod($brand-info alpha(0.2)); }
+.elsvg:nth-of-type(5n+2) .line, .elsvg[color][color="warning"] .line { stroke: $brand-warning; }
+.elsvg:nth-of-type(5n+2) .area, .elsvg[color][color="warning"] .area { fill: color-mod($brand-warning alpha(0.2)); }
+.elsvg:nth-of-type(5n+3) .line, .elsvg[color][color="success"] .line { stroke: $brand-success; }
+.elsvg:nth-of-type(5n+3) .area, .elsvg[color][color="success"] .area { fill: color-mod($brand-success alpha(0.2)); }
+.elsvg:nth-of-type(5n+4) .line, .elsvg[color][color="error"] .line { stroke: $brand-error; }
+.elsvg:nth-of-type(5n+4) .area, .elsvg[color][color="error"] .area { fill: color-mod($brand-error alpha(0.2)); }
+.elsvg:nth-of-type(5n+5) .line, .elsvg[color][color="primary"] .line { stroke: $brand-primary; }
+.elsvg:nth-of-type(5n+5) .area, .elsvg[color][color="primary"] .area { fill: color-mod($brand-primary alpha(0.2)); }
 
 .piece {
     position: absolute;
@@ -261,10 +262,11 @@ $line_offset: 6px;
     opacity: 1;
 }
 
-.piece .point:nth-of-type(5n+2) { background: $brand-warning; }
-.piece .point:nth-of-type(5n+3) { background: $brand-success; }
-.piece .point:nth-of-type(5n+4) { background: $brand-error; }
-.piece .point:nth-of-type(5n+5) { background: $brand-primary; }
+.piece .point:nth-of-type(5n+1), .piece .point[color][color="info"] { background: $brand-info; }
+.piece .point:nth-of-type(5n+2), .piece .point[color][color="warning"] { background: $brand-warning; }
+.piece .point:nth-of-type(5n+3), .piece .point[color][color="success"] { background: $brand-success; }
+.piece .point:nth-of-type(5n+4), .piece .point[color][color="error"] { background: $brand-error; }
+.piece .point:nth-of-type(5n+5), .piece .point[color][color="primary"] { background: $brand-primary; }
 
 .piece .point[special][class] {
     display: block;
