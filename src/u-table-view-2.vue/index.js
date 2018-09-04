@@ -1,9 +1,14 @@
 export default {
     name: 'u-table-view-2',
     props: {
-        data: { type: Array, default: () => [] },
+        data: { type: Array },
         title: String,
         border: { type: Boolean, default: false },
+        loading: { type: Boolean, default: false },
+        loadingText: { type: String, default: '正在加载中...' },
+        error: { type: Boolean, default: false },
+        errorText: { type: String, default: '加载失败，请重试' },
+        emptyText: { type: String, default: '暂无数据' },
     },
     data() {
         return {
