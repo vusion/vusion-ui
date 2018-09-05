@@ -231,7 +231,7 @@ $line_offset: 6px;
 }
 
 .piece:hover {
-    border-left-color: rgba(0,0,0,0.2);
+    border-left-color: rgba(0, 0, 0, 0.2);
 }
 
 .piece:hover .u-tooltip {

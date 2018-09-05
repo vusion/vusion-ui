@@ -17,7 +17,7 @@
 
 .root[selected] {
     color: white;
-    background: rgba(0,0,0,0.15);
+    background: rgba(0, 0, 0, 0.15);
     border-right: 4px solid $brand-primary;
 }
 

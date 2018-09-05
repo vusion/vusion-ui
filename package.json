@@ -5,7 +5,8 @@
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./src/index.js",
   "scripts": {
-    "precommit": "node node_modules/vusion-hooks/precommit"
+    "precommit": "node node_modules/vusion-hooks/precommit",
+    "lint": "eslint --fix ./src/**/*.{js,vue} && stylelint --fix ./src/**/*.css"
   },
   "repository": "vusion/vusion-ui",
   "homepage": "http://vusion.github.io/vusion-ui",
@@ -22,7 +23,7 @@
     "vusion-ui"
   ],
   "dependencies": {
-    "cloud-ui.vusion": "~0.3.33",
+    "cloud-ui.vusion": "~0.3.36",
     "i-line-awesome.vue": "^1.0.2",
     "proto-ui.vusion": "~0.3.30"
   },
@@ -36,7 +37,7 @@
     "husky": "^0.13.3",
     "markdown-it-for-inline": "^0.1.1",
     "stylelint": "^9.3.0",
-    "stylelint-config-vusion": "^1.0.3",
+    "stylelint-config-vusion": "^1.1.0",
     "vue": "^2.5.0",
     "vusion-hooks": "^0.2.1",
     "vusion-utils": "^0.2.1",
