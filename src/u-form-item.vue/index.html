@@ -7,15 +7,15 @@
     </span>
     <div :class="$style.field">
         <!-- 添加了描述功能 -->
-
+        <div :class="$style.description">
+            <slot name="description">{{ description }}</slot>
+        </div>
         <div :class="$style.wrap">
             <slot></slot>
             <span v-if="currentMessage" :class="$style.message" :color="color">
                 <slot name="message">{{ currentMessage }}</slot>
             </span>
         </div>
-        <div :class="$style.description">
-            <slot name="description">{{ description }}</slot>
-        </div>
+
     </div>
 </div>
