@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root">
     <div :class="$style.side">
-        <u-sidebar :class="$style.sidebar" collapsible accordion>
+        <u-sidebar color="inverse" :class="$style.sidebar" collapsible accordion>
             <u-sidebar-group v-for="group in groups" :key="group.name" :title="group.name">
                 <u-sidebar-item v-for="component in group.children" :key="component.name" exact :to="'/components/'+component.name">
                     {{ component.alias }} <small>{{ component.CamelName }}</small>

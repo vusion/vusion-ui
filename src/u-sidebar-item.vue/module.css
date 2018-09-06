@@ -7,17 +7,17 @@
     height: 44px;
     line-height: 44px;
     padding-left: 20px;
-    color: #717f94;
+    color: $color-base;
     transition: all $transition-duration-base;
 }
 
 .root:hover {
-    color: white;
+    color: $brand-primary;
 }
 
 .root[selected] {
-    color: white;
-    background: rgba(0, 0, 0, 0.15);
+    color: $brand-primary;
+    background: color-mod($brand-primary alpha(0.1));
     border-right: 4px solid $brand-primary;
 }
 

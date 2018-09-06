@@ -36,7 +36,7 @@ module.exports = {
             { group: 'Layout', name: 'u-info-list', alias: '详情列表', path: 'cloud-ui.vusion/src/u-info-list.vue/README.md' },
             { group: 'Layout', name: 'u-table', alias: '表格' },
             { group: 'Navigation', name: 'u-navbar', alias: '导航栏' },
-            { group: 'Navigation', name: 'u-sidebar', alias: '侧边栏', path: 'cloud-ui.vusion/src/u-sidebar.vue/README.md' },
+            { group: 'Navigation', name: 'u-sidebar', alias: '侧边栏' },
             { group: 'Navigation', name: 'u-menu', alias: '菜单' },
             { group: 'Navigation', name: 'u-subnav', alias: '子导航', path: 'cloud-ui.vusion/src/u-subnav.vue/README.md' },
             { group: 'Navigation', name: 'u-tabs', alias: '标签页' },

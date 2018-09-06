@@ -6,10 +6,9 @@
     composes: group_head from '../u-sidebar.vue/module.css';
     display: block;
     cursor: pointer;
-
+    color: #8191a9;
     height: 40px;
     line-height: 40px;
-    color: #6e7a8c;
     padding-left: 20px;
     transition: color 0.2s;
     position: relative;
@@ -42,6 +41,8 @@
 }
 
 .body {
-    background: #14202f;
+    composes: group_body from '../u-sidebar.vue/module.css';
+    background: #ebeff5;
     transition: $transition-duration-base height ease-in-out, $transition-duration-base padding-top ease-in-out, $transition-duration-base padding-bottom ease-in-out;
 }
+

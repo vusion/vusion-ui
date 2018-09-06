@@ -3,7 +3,7 @@
 .root {
     height: 100%;
     overflow: auto;
-    background: #1d293c;
+    background: #f6f7fb;
 }
 
 .root[size="small"] .group_head {
@@ -17,4 +17,43 @@
 .root[size="small"] .item {
     height: 32px;
     line-height: 32px;
+}
+
+.root[color="inverse"] {
+    background: #1d293c;
+}
+
+.root[color="inverse"] .item {
+    color: #717f94;
+}
+
+.root[color="inverse"] .item:hover {
+    color: white;
+}
+
+.root[color="inverse"] .item[selected] {
+    color: white;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.root[color="inverse"] .item[disabled] {
+    background: transparent;
+    color: #586475;
+}
+
+.root[color="inverse"] .item[selected][disabled] {
+    background: transparent;
+    border-right: none;
+}
+
+.root[color="inverse"] .group_head {
+    color: #6e7a8c;
+}
+
+.root[color="inverse"] .group_body {
+    background: #14202f;
+}
+
+.root[color="inverse"] .divider {
+    background: #3a465a;
 }

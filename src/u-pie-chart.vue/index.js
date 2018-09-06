@@ -39,7 +39,8 @@ export default {
         window.addEventListener('resize', this.getSize);
     },
     mounted() {
-        this.getSize();
+        // 必须要用 setTimeout，不然获取不到 svg
+        setTimeout(() => this.getSize());
     },
     destoryed() {
         this.removeEventListener('resize', this.getSize);
@@ -50,11 +51,15 @@ export default {
             // 其他动态绑定
         },
         getSize() {
-            this.currentWidth = this.$el.offsetWidth;
-            this.currentHeight = this.$el.offsetHeight;
-            this.svgWidth = this.$refs.svg.clientWidth;
-            this.svgHeight = this.$refs.svg.clientHeight;
-            this.svgSize = Math.min(this.svgWidth, this.svgHeight);
+            if (this.$el) {
+                this.currentWidth = this.$el.offsetWidth;
+                this.currentHeight = this.$el.offsetHeight;
+            }
+            if (this.$refs.svg) {
+                this.svgWidth = this.$refs.svg.clientWidth;
+                this.svgHeight = this.$refs.svg.clientHeight;
+                this.svgSize = Math.min(this.svgWidth, this.svgHeight);
+            }
         },
         handleData(data) {
             // 保证内部始终为 Array

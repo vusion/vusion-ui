@@ -1,7 +1,7 @@
 <template>
     <div :class="$style.root">
         <div :class="$style.side">
-            <u-sidebar>
+            <u-sidebar color="inverse">
                 <u-sidebar-item to="/guide/introduce">介绍</u-sidebar-item>
                 <u-sidebar-item to="/guide/quickstart">快速开始</u-sidebar-item>
                 <u-sidebar-item href="https://github.com/vusion/vusion-ui/releases" target="_blank">更新日志</u-sidebar-item>

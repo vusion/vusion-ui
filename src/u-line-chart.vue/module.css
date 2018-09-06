@@ -36,13 +36,13 @@ $line_offset: 6px;
 }
 
 .line[role="x"] {
-    left: -$line_offset;
-    right: -1px;
+    left: 0;
+    right: 0;
     border-top: 1px solid $line_border;
 }
 
 .line[role="y"] {
-    top: -1px;
+    top: 0;
     bottom: -$line_offset;
     /* border-left: 1px solid $line_border; */
 }
@@ -63,9 +63,10 @@ $line_offset: 6px;
 .axis[role="axisy"] {
     left: 0;
     top: 14px;
-    bottom: calc($axis-x_height + 1px);
-    width: $axis-y_width;
+    bottom: $axis-x_height;
+    width: calc($axis-y_width + 1px);
     border-right: 1px solid $axis_border;
+    border: none;
 }
 
 .label {
@@ -129,25 +130,26 @@ $line_offset: 6px;
 .area {
     stroke-opacity: 0;
     fill: transparent;
+    opacity: 0.2;
 }
 
 .elsvg:nth-of-type(5n+1) .line, .elsvg[color][color="info"] .line { stroke: $brand-info; }
-.elsvg:nth-of-type(5n+1) .area, .elsvg[color][color="info"] .area { fill: color-mod($brand-info alpha(0.2)); }
+.elsvg:nth-of-type(5n+1) .area, .elsvg[color][color="info"] .area { fill: $brand-info; }
 .elsvg:nth-of-type(5n+2) .line, .elsvg[color][color="warning"] .line { stroke: $brand-warning; }
-.elsvg:nth-of-type(5n+2) .area, .elsvg[color][color="warning"] .area { fill: color-mod($brand-warning alpha(0.2)); }
+.elsvg:nth-of-type(5n+2) .area, .elsvg[color][color="warning"] .area { fill: $brand-warning; }
 .elsvg:nth-of-type(5n+3) .line, .elsvg[color][color="success"] .line { stroke: $brand-success; }
-.elsvg:nth-of-type(5n+3) .area, .elsvg[color][color="success"] .area { fill: color-mod($brand-success alpha(0.2)); }
+.elsvg:nth-of-type(5n+3) .area, .elsvg[color][color="success"] .area { fill: $brand-success; }
 .elsvg:nth-of-type(5n+4) .line, .elsvg[color][color="error"] .line { stroke: $brand-error; }
-.elsvg:nth-of-type(5n+4) .area, .elsvg[color][color="error"] .area { fill: color-mod($brand-error alpha(0.2)); }
+.elsvg:nth-of-type(5n+4) .area, .elsvg[color][color="error"] .area { fill: $brand-error; }
 .elsvg:nth-of-type(5n+5) .line, .elsvg[color][color="primary"] .line { stroke: $brand-primary; }
-.elsvg:nth-of-type(5n+5) .area, .elsvg[color][color="primary"] .area { fill: color-mod($brand-primary alpha(0.2)); }
+.elsvg:nth-of-type(5n+5) .area, .elsvg[color][color="primary"] .area { fill: $brand-primary; }
 
 .piece {
     position: absolute;
     top: 0;
     bottom: 0;
     border-left: 1px solid transparent;
-    transition: border-left-color $transition-duration-base;
+    /* transition: border-left-color $transition-duration-base; */
 }
 
 .piece::before {
@@ -249,8 +251,7 @@ $line_offset: 6px;
     margin-left: -4px;
     width: 7px;
     height: 7px;
-    opacity: 0;
-    transition: opacity $transition-duration-base;
+    display: none;
 }
 
 .piece .point {
@@ -259,7 +260,6 @@ $line_offset: 6px;
 
 .piece:hover .point {
     display: block;
-    opacity: 1;
 }
 
 .piece .point:nth-of-type(5n+1), .piece .point[color][color="info"] { background: $brand-info; }

@@ -54,8 +54,8 @@ $chart-legend-height: 35px;
     bottom: 5px;
     height: $chart-legend-height;
     line-height: 1.28;
-    left: $chart-padding;
-    right: $chart-padding;
+    left: calc($chart-padding - 10px);
+    right: calc($chart-padding - 10px);
     font-size: 12px;
     text-align: center;
 }

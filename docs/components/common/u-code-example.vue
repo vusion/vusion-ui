@@ -31,7 +31,7 @@ export default {
 }
 
 .root:hover {
-    box-shadow: 0 2px 10px rgba(90,95,100,0.12);
+    box-shadow: 0 2px 10px rgba(90, 95, 100, 0.12);
 }
 
 .example {

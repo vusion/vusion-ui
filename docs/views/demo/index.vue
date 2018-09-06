@@ -1,7 +1,7 @@
 <template>
     <div :class="$style.root">
         <div :class="$style.side">
-            <u-sidebar collapsible accordion expand-trigger="click">
+            <u-sidebar color="inverse" collapsible accordion expand-trigger="click">
                 <u-sidebar-group title="dashboard">
                     <u-sidebar-item exact to="/demo/dashboard/analysis">分析页</u-sidebar-item>
                     <u-sidebar-item exact to="/demo/dashboard/monitor">监控页</u-sidebar-item>
