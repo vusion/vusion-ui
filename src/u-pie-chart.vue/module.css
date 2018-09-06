@@ -65,14 +65,14 @@ $group_size: 120px;
     cursor: default;
 }
 
-.empty {
+.zero {
     fill: white;
     stroke: $brand-disabled;
     stroke-width: 1;
     stroke-dasharray: 4, 4;
 }
 
-.empty-text {
+.zero-text {
     position: absolute;
     left: 50%;
     top: 50%;

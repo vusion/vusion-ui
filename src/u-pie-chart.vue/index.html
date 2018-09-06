@@ -1,19 +1,21 @@
-<u-chart :class="$style.root" :title="title" :border="border" :legend="legend" :series="currentData" :data="currentData"
-    :width="width" :height="height">
+<u-chart :class="$style.root" :title="title" :border="border" :legend="legend" readonly :series="currentData" :data="data"
+    :width="width" :height="height" @select-series="selectedItem = $event.series">
     <svg :class="$style.svg" ref="svg" viewBox="0 0 200 200">
         <g :class="$style.group" transform="translate(100, 100)">
-            <circle v-if="empty" :class="$style.empty" cx="0" cy="0" :r="RADIUS"></circle>
+            <circle v-if="zero" :class="$style.zero" cx="0" cy="0" :r="RADIUS"></circle>
             <!-- <u-tooltip v-else trigger="hover" placement="right-start" follow-cursor> -->
-            <g v-if="!empty">
+            <g v-if="!zero">
                 <template v-for="item in currentData">
                     <circle v-if="item.percentage === 100" :class="$style.item" cx="0" cy="0" :r="RADIUS"
-                        :color="item.color" :selected="item === currentItem" @mouseover="onMouseOver(item)" />
+                        :color="item.color" :style="{ fill: item.color }"
+                        :selected="item === selectedItem" @mouseover="onMouseOver(item)" />
                     <path v-else :class="$style.item" :d="getD(item)"
-                        :color="item.color" :selected="item === currentItem" @mouseover="onMouseOver(item)" />
+                        :color="item.color" :style="{ fill: item.color }"
+                        :selected="item === selectedItem" @mouseover="onMouseOver(item)" />
                 </template>
             </g>
-            <g v-if="!empty">
-                <path v-for="item in currentData" :class="$style['label-line']" :d="item.label.d" :selected="item === currentItem" />
+            <g v-if="!zero">
+                <path v-for="item in currentData" :class="$style['label-line']" :d="item.label.d" :selected="item === selectedItem" />
             </g>
                 <!-- <div slot="content">
                     <slot name="tooltip" :item="item">{{ item.percentage }}%</slot>
@@ -21,11 +23,11 @@
             </u-tooltip> -->
         </g>
     </svg>
-    <div v-if="empty" :class="$style['empty-text']">
+    <div v-if="zero" :class="$style['zero-text']">
         <div>0%</div>
     </div>
     <div v-else v-for="item in currentData" :class="$style.label"
-        :style="getLabelStyle(item)" :selected="item === currentItem">
+        :style="getLabelStyle(item)" :selected="item === selectedItem">
         <slot name="label">{{ item.name }}: {{ item.percentage }}%</slot>
     </div>
     <!-- <div v-else v-for="item in currentData" :class="$style.text" :style="getTextStyle(item)">

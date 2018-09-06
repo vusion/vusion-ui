@@ -23,7 +23,7 @@ export default {
                 data: [],
             },
             percent_: undefined,
-            currentData: this.getCurrentData(this.data),
+            currentData: this.handleData(this.data),
         };
     },
     created() {
@@ -31,8 +31,8 @@ export default {
         window.addEventListener('resize', this._onResize, false);
     },
     watch: {
-        data(newValue) {
-            this.currentData = this.getCurrentData(newValue);
+        data(data) {
+            this.currentData = this.handleData(data);
             this.draw();
         },
     },
@@ -51,17 +51,19 @@ export default {
             this._getSize();
             this.draw();
         },
-        getCurrentData(value) {
-            if (!value)
-                return value;
-            const data = value || this.data;
+        handleData(data) {
+            if (!data)
+                return [];
+
             const length = data.length;
             let currentData = [];
+
             if (length > FILTER) {
                 const diff = Math.round(length / FILTER);
                 currentData = data.filter((item, index) => index % diff === 0);
             } else
                 currentData = data;
+
             return currentData;
         },
         draw() {
@@ -112,18 +114,18 @@ export default {
                 if (this.yAxis.min !== undefined)
                     yAxis_.min = this.yAxis.min;
                 else {
-                    yAxis_.min = Math.min(...this.series.map((sery) =>
-                        !sery.absent && Math.min(...this.currentData.map((item) =>
-                            item[sery.field || sery.key] !== undefined ? item[sery.field || sery.key] : Infinity)
+                    yAxis_.min = Math.min(...this.seriesList.map((series) =>
+                        !series.absent && Math.min(...this.currentData.map((item) =>
+                            item[series.field || series.key] !== undefined ? item[series.field || series.key] : Infinity)
                         )
                     )); // 支持空数据
                 }
                 if (this.yAxis.max !== undefined)
                     yAxis_.max = this.yAxis.max;
                 else {
-                    yAxis_.max = Math.max(...this.series.map((sery) =>
-                        !sery.absent && Math.max(...this.currentData.map((item) =>
-                            item[sery.field || sery.key] !== undefined ? item[sery.field || sery.key] : -Infinity)
+                    yAxis_.max = Math.max(...this.seriesList.map((series) =>
+                        !series.absent && Math.max(...this.currentData.map((item) =>
+                            item[series.field || series.key] !== undefined ? item[series.field || series.key] : -Infinity)
                         )
                     )); // 支持空数据
                 }
@@ -161,13 +163,13 @@ export default {
                 this._getSize();
             });
         },
-        getD(sery, type) {
+        getD(series, type) {
             if (!this.width_ || !this.height_ || !this.currentData || !this.xAxis_.data.length || !this.yAxis_.data.length)
                 return;
             if (this.currentData.length <= 1) // 一个点无需绘制线条
                 return;
 
-            if (sery.absent)
+            if (series.absent)
                 return;
 
             const width = this.width_;
@@ -175,12 +177,12 @@ export default {
             const delta = width / (this.currentData.length - 1) / 2;
 
             const points = this.currentData.map((item, index) => {
-                if (isNaN(item[sery.field || sery.key]))
+                if (isNaN(item[series.field || series.key]))
                     return null;
                 else {
                     return [
                         width * index / (this.currentData.length - 1),
-                        height * (1 - (item[sery.field || sery.key] - this.yAxis_.min) / (this.yAxis_.max - this.yAxis_.min)),
+                        height * (1 - (item[series.field || series.key] - this.yAxis_.min) / (this.yAxis_.max - this.yAxis_.min)),
                     ];
                 }
             });
@@ -232,7 +234,7 @@ export default {
             return cmds.join(' ');
         },
         getTopOne(item) {
-            return Math.max(...this.series.map((sery) => !sery.absent && !sery.hidden && item[sery.field || sery.key] ? item[sery.field || sery.key] : 0));
+            return Math.max(...this.seriesList.map((series) => !series.absent && !series.hidden && item[series.field || series.key] ? item[series.field || series.key] : 0));
         },
         format(value) {
             return value;

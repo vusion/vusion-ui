@@ -12,32 +12,36 @@ export default {
         titleAlign: { type: String, default: 'center' },
         titleAlignment: { type: String, default: 'center' },
         loading: { type: Boolean, default: false },
+        error: { type: Boolean, default: false },
+        readonly: { type: Boolean, default: false },
         contentStyle: Object,
     },
     data() {
         return {
-            currentSeries: this.handleSeries(this.series),
+            seriesList: this.handleSeriesList(this.series),
             // currentData: this.handleData(this.data),
         };
     },
     watch: {
         series(series) {
-            this.currentSeries = this.handleSeries(series);
+            this.seriesList = this.handleSeriesList(series);
         },
         // data(data) {
         //     this.currentData = this.handleData(data);
         // },
     },
     methods: {
-        handleSeries(series) {
-            if (!series)
-                return series;
+        handleSeriesList(seriesList) {
+            // 保证内部始终为 Array
+            if (!seriesList)
+                return [];
 
-            series.forEach((sery) => {
-                if (!sery.hasOwnProperty('hidden'))
-                    this.$set(sery, 'hidden', false);
+            seriesList.forEach((series) => {
+                if (!series.hasOwnProperty('hidden'))
+                    this.$set(series, 'hidden', false);
             });
-            return series;
+
+            return seriesList;
         },
         // handleData(data) {
         //     if (!data) {
@@ -46,5 +50,15 @@ export default {
 
         //     return data;
         // },
+        selectLegendItem(series) {
+            this.$emit('select-series', {
+                series,
+            });
+        },
+        toggleLegendItem(series) {
+            if (this.readonly)
+                return;
+            series.hidden = !series.hidden;
+        },
     },
 };

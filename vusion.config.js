@@ -86,7 +86,7 @@ module.exports = {
             { group: 'Progress & Charts', name: 'u-linear-progress', alias: '线形进度条', path: 'cloud-ui.vusion/src/u-linear-progress.vue/README.md' },
             { group: 'Progress & Charts', name: 'u-circular-progress', alias: '环形进度条', path: 'cloud-ui.vusion/src/u-circular-progress.vue/README.md' },
             { group: 'Progress & Charts', name: 'u-water-progress', alias: '水量进度条' },
-            { group: 'Progress & Charts', name: 'u-chart', alias: '图表' },
+            { group: 'Progress & Charts', name: 'u-chart', alias: '图表基类' },
             { group: 'Progress & Charts', name: 'u-bar-chart', alias: '柱状图', path: 'cloud-ui.vusion/src/u-bar-chart.vue/README.md' },
             { group: 'Progress & Charts', name: 'u-xbar-chart', alias: '水平柱状图', path: 'cloud-ui.vusion/src/u-xbar-chart.vue/README.md' },
             { group: 'Progress & Charts', name: 'u-line-chart', alias: '线状图' },

@@ -1,23 +1,14 @@
-.chart[empty]::after {
-    content: "";
-    position: absolute;
-    box-sizing: border-box;
-    height: 110px;
-    width: 110px;
-    top: calc(50% - 55px);
-    left: calc(50% - 55px);
-    border: 1px solid #eee;
-    border-radius: 100%;
-}
 
-.empty {
+.root {}
+
+.zero {
     fill: white;
     stroke: $brand-disabled;
     stroke-width: 1;
     stroke-dasharray: 4, 4;
 }
 
-.empty-text {
+.zero-text {
     position: absolute;
     left: 50%;
     top: 50%;

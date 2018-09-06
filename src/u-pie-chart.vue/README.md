@@ -31,11 +31,24 @@
 ]"></u-pie-chart>
 ```
 
-### 空态
+### 数据状态
 
+#### 加载中
 ``` html
-<u-pie-chart legend title="每星期访问量" :data="[]"></u-pie-chart>
+<u-pie-chart title="24小时消费" border legend></u-pie-chart>
 ```
+
+#### 加载失败
+``` html
+<u-pie-chart title="24小时消费" border legend :data="null"></u-pie-chart>
+```
+
+#### 空态
+``` html
+<u-pie-chart title="24小时消费" legend :data="[]"></u-pie-chart>
+```
+
+#### 和为0
 
 ``` html
 <u-pie-chart legend title="每星期访问量" :data="[
@@ -52,21 +65,9 @@
 <u-pie-chart legend :data="[
     { name: '请求成功数', value: 90, color: 'success' },
     { name: '请求失败数', value: 10, color: 'error' },
-    { name: '线程超时次数', value: 4, color: 'info' },
+    { name: '线程超时次数', value: 4, color: '#5b9cff' },
     { name: '线程拒绝次数', value: 6, color: 'warning' },
 ]"></u-pie-chart>
-```
-
-#### 自定义tooltip
-``` html
-<u-pie-chart legend title="每星期访问量" :data="[
-    { percent: 25, name: 'selector1' },
-    { percent: 25, name: 'selector2' },
-    { percent: 30, name: 'selector3' },
-    { percent: 20, name: 'selector4' },
-]">
-    <div slot="tooltip" slot-scope="scope">{{ scope.row.name }}</div>
-</u-pie-chart>
 ```
 
 ## API

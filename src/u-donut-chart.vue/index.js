@@ -9,21 +9,8 @@ export default {
     },
     data() {
         return {
-            RADIUS: 60,
             // thickness:
-            // currentData: this.handleData(this.data),
-            // currentItem: undefined,
-            // currentWidth: 0,
-            // currentHeight: 0,
         };
-    },
-    computed: {
-        // legendRows() {
-        //     return this.height >= 36 ? Math.floor(this.height / 36) : 1;
-        // },
-        // legendColumns() {
-        //     return this.data && this.data.length > 0 ? Math.ceil(this.data.length / this.legendRows) : 0;
-        // },
     },
     methods: {
         getD(item) {

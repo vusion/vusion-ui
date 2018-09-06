@@ -7,12 +7,13 @@ export default {
         fixed: { type: Number, default: 1 },
         width: { type: String, default: '100%' },
         height: { type: String, default: '450px' },
+        labels: { type: Boolean, default: true },
     },
     data() {
         return {
             RADIUS: 60,
             currentData: this.handleData(this.data),
-            currentItem: undefined,
+            selectedItem: undefined,
             currentWidth: 0,
             currentHeight: 0,
             svgWidth: 0,
@@ -20,7 +21,7 @@ export default {
         };
     },
     computed: {
-        empty() {
+        zero() {
             if (!this.currentData.length)
                 return true;
 
@@ -31,13 +32,24 @@ export default {
     watch: {
         data(data) {
             this.currentData = this.handleData(data);
+            this.draw();
         },
     },
+    created() {
+        window.addEventListener('resize', this.getSize);
+    },
     mounted() {
-        this.onResize();
+        this.getSize();
+    },
+    destoryed() {
+        this.removeEventListener('resize', this.getSize);
     },
     methods: {
-        onResize() {
+        draw() {
+            this.getSize();
+            // 其他动态绑定
+        },
+        getSize() {
             this.currentWidth = this.$el.offsetWidth;
             this.currentHeight = this.$el.offsetHeight;
             this.svgWidth = this.$refs.svg.clientWidth;
@@ -45,6 +57,7 @@ export default {
             this.svgSize = Math.min(this.svgWidth, this.svgHeight);
         },
         handleData(data) {
+            // 保证内部始终为 Array
             if (!data)
                 return [];
 
@@ -140,7 +153,7 @@ export default {
             return result.join('; ');
         },
         onMouseOver(item) {
-            this.currentItem = item;
+            this.selectedItem = item;
         },
     },
 };
