@@ -44,7 +44,7 @@
                     <u-tooltip v-if="seriesIndex === 0" :trigger-element="getTriggerEl" reference="parent" placement="right" :boundaries-element="$el">
                         <div slot="content">
                             <slot :name="'tooltipTemplate'+index">
-                                <div v-for="series in seriesList">{{ series.name || series.field || series.key }}: {{ format(item[series.field || series.key]) }}</div>
+                                <div v-for="series in seriesList">{{ series.name || series.field || series.key }}: {{ format(item[series.name || series.field || series.key]) }}</div>
                             </slot>
                         </div>
                     </u-tooltip>

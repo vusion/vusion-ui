@@ -80,6 +80,7 @@ module.exports = {
             { group: 'Popper', name: 'u-tooltip', alias: '工具提示' },
             { group: 'Feedback', name: 'u-spinner', alias: '加载图标' },
             { group: 'Feedback', name: 'u-loading', alias: '加载中' },
+            { group: 'Feedback', name: 'u-placeholder', alias: '占位图' },
             { group: 'Feedback', name: 'u-toast', alias: '吐司提示' },
             { group: 'Feedback', name: 'u-modal', alias: '弹窗', path: 'cloud-ui.vusion/src/u-modal.vue/README.md' },
             { group: 'Feedback', name: 'u-lightbox', alias: '灯箱', path: 'cloud-ui.vusion/src/u-lightbox.vue/README.md' },

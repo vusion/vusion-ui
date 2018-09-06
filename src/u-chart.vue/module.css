@@ -13,7 +13,7 @@ $chart-legend-height: 35px;
 .title {
     position: absolute;
     z-index: 95;
-    top: $chart-padding;
+    top: calc($chart-padding - 5px);
     left: $chart-padding;
     right: $chart-padding;
     height: $chart-title-height;

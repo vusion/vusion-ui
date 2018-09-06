@@ -3,6 +3,7 @@ export default {
     props: {
         data: { type: Array },
         title: String,
+        titleAlignment: { type: String, default: 'center' },
         border: { type: Boolean, default: false },
         loading: { type: Boolean, default: false },
         loadingText: { type: String, default: '正在加载中...' },

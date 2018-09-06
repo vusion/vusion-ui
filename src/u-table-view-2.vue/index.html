@@ -1,5 +1,5 @@
 <div :class="$style.root" ref="root" :border="border">
-    <div :class="$style.title">{{ title }}</div>
+    <div :class="$style.title" :style="{ textAlign: titleAlignment }">{{ title }}</div>
     <div :class="$style.head">
         <u-table :class="$style['head-table']">
             <colgroup>

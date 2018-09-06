@@ -6,21 +6,20 @@
     padding-left: 14px;
     padding-right: 20px;
     background: white;
-    color: #555;
-    border: 1px solid $brand-secondary;
+    border: 1px solid $border-color-base;
     border-radius: $border-radius-base;
 }
 
 .root:focus {
-    border-color: $brand-secondary;
+    border-color: $border-color-base;
 }
 
 .root::after {
     position: absolute;
-    icon-font: url('cloud-ui.vusion/src/u-icon.vue/icons/keyboard-arrow-down.svg');
+    icon-font: url('i-line-awesome.vue/assets/angle-down.svg');
     color: #a5a5a6;
-    font-size: 18px;
-    right: 6px;
+    font-size: 12px;
+    right: 10px;
     top: 0;
     line-height: inherit;
 }
@@ -44,9 +43,10 @@
 .popper {
     margin-top: 1px;
     max-height: 194px;
+    line-height: 28px;
     overflow: auto;
     background: white;
-    border: 1px solid $brand-secondary;
+    border: 1px solid $border-color-base;
     border-radius: $border-radius-base;
     z-index: 1065;
 }
