@@ -33,6 +33,7 @@
     color: white;
     border: none;
     line-height: calc($height-base - 2px);
+    vertical-align: 1px;
 }
 
 .root[color="primary"]:hover {
@@ -60,6 +61,7 @@
     color: white;
     border: none;
     line-height: calc($height-base - 2px);
+    vertical-align: 1px;
 }
 
 .root[color="success"]:hover {
@@ -79,6 +81,7 @@
     color: $brand-success;
     border: 1px solid $brand-success;
     line-height: calc($height-base - 2px);
+    vertical-align: 1px;
 }
 
 .root[color="success"][ghost]:hover {
@@ -102,6 +105,7 @@
     color: white;
     border: none;
     line-height: calc($height-base - 2px);
+    vertical-align: 1px;
 }
 
 .root[color="info"]:hover {
@@ -121,6 +125,7 @@
     color: $brand-info;
     border: 1px solid $brand-info;
     line-height: calc($height-base - 2px);
+    vertical-align: 1px;
 }
 
 .root[color="info"][ghost]:hover {
@@ -144,6 +149,7 @@
     color: white;
     border: none;
     line-height: calc($height-base - 2px);
+    vertical-align: 1px;
 }
 
 .root[color="warning"]:hover {
@@ -163,6 +169,7 @@
     color: $brand-warning;
     border: 1px solid $brand-warning;
     line-height: calc($height-base - 2px);
+    vertical-align: 1px;
 }
 
 .root[color="warning"][ghost]:hover {
@@ -186,6 +193,7 @@
     color: white;
     border: none;
     line-height: calc($height-base - 2px);
+    vertical-align: 1px;
 }
 
 .root[color="error"]:hover {
@@ -205,6 +213,7 @@
     color: $brand-error;
     border: 1px solid $brand-error;
     line-height: calc($height-base - 2px);
+    vertical-align: 1px;
 }
 
 .root[color="error"][ghost]:hover {
@@ -261,13 +270,13 @@
  */
 .root[icon="create"]::before {
     icon-font: url('cloud-ui.vusion/src/u-icon.vue/icons/create.svg');
-    vertical-align: -2px;
+    vertical-align: 1px;
     margin-right: 8px;
 }
 
 .root[square][icon="refresh"]::before {
     icon-font: url('cloud-ui.vusion/src/u-icon.vue/icons/refresh.svg');
-    vertical-align: -2px;
+    vertical-align: 1px;
     color: #9ba4ad;
 }
 
