@@ -70,7 +70,7 @@ module.exports = {
             { group: 'Data', name: 'u-pills', alias: '药丸', path: 'cloud-ui.vusion/src/u-pills.vue/README.md' },
             { group: 'Data', name: 'u-tablets', alias: '药片', path: 'cloud-ui.vusion/src/u-tablets.vue/README.md' },
             { group: 'Data', name: 'u-transfer', alias: '穿梭框' },
-            { group: 'Data', name: 'u-countup', alias: '数字渐变', path: 'cloud-ui.vusion/src/u-countup.vue/README.md' },
+            { group: 'Data', name: 'u-countup', alias: '数字渐变' },
             { group: 'DateTime', name: 'u-calendar', alias: '日历', path: 'cloud-ui.vusion/src/u-calendar.vue/README.md' },
             { group: 'DateTime', name: 'u-time-picker', alias: '日期选择', path: 'cloud-ui.vusion/src/u-time-picker.vue/README.md' },
             { group: 'DateTime', name: 'u-date-picker', alias: '时间选择', path: 'cloud-ui.vusion/src/u-date-picker.vue/README.md' },

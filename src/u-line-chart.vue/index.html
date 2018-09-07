@@ -24,7 +24,7 @@
         </div>
         <div :class="$style.axis" role="axisy">
             <div v-for="(yLabel,index) in yAxis_.data" :class="$style.label" role="labely" title="yLabel" :style="{bottom: 100*index/(yAxis_.data.length - 1)+'%'}">{{format(yLabel)}}</div>
-            <div :class="$style.label" role="label-yName">{{yAxis.name}}</div>
+            <div :class="$style.label" role="label-yName">{{yAxis.name}}{{yAxis.unit}}</div>
         </div>
         <div :class="$style.layer" role="layersvg">
             <svg :class="$style.elsvg" v-for="series in seriesList" v-show="!series.hidden && !series.absent" :color="series.color">
@@ -41,10 +41,10 @@
                         background: item.special && item.special[series.field || series.key] && item.special[series.field || series.key].color
                     }">
                     <div :class="$style.value">{{format(item[series.field || series.key])}}</div>
-                    <u-tooltip v-if="seriesIndex === 0" :trigger-element="getTriggerEl" reference="parent" placement="right" :boundaries-element="$el">
+                    <u-tooltip v-if="seriesIndex === 0" :disabled="item[series.field || series.key] === undefined" :trigger-element="getTriggerEl" reference="parent" placement="right" :boundaries-element="$el">
                         <div slot="content">
                             <slot :name="'tooltipTemplate'+index">
-                                <div v-for="series in seriesList">{{ series.name || series.field || series.key }}: {{ format(item[series.name || series.field || series.key]) }}</div>
+                                <div v-for="series in seriesList">{{ series.name || series.field || series.key }}: {{ format(item[series.field || series.key]) }}{{yAxis.unit}}</div>
                             </slot>
                         </div>
                     </u-tooltip>

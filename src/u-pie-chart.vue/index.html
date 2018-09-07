@@ -9,13 +9,13 @@
                     <circle v-if="item.percentage === 100" :class="$style.item" cx="0" cy="0" :r="RADIUS"
                         :color="item.color" :style="{ fill: item.color }"
                         :selected="item === selectedItem" @mouseover="onMouseOver(item)" />
-                    <path v-else :class="$style.item" :d="getD(item)"
+                    <path v-else :class="$style.item" :d="item.d"
                         :color="item.color" :style="{ fill: item.color }"
                         :selected="item === selectedItem" @mouseover="onMouseOver(item)" />
                 </template>
             </g>
             <g v-if="!zero">
-                <path v-for="item in currentData" :class="$style['label-line']" :d="item.label.d" :selected="item === selectedItem" />
+                <path v-for="item in currentData" v-if="item.label" :class="$style['label-line']" :d="item.label.d" :selected="item === selectedItem" />
             </g>
                 <!-- <div slot="content">
                     <slot name="tooltip" :item="item">{{ item.percentage }}%</slot>
@@ -26,7 +26,7 @@
     <div v-if="zero" :class="$style['zero-text']">
         <div>0%</div>
     </div>
-    <div v-else v-for="item in currentData" :class="$style.label"
+    <div v-else v-for="item in currentData" v-if="item.label" :class="$style.label"
         :style="getLabelStyle(item)" :selected="item === selectedItem">
         <slot name="label">{{ item.name }}: {{ item.percentage }}%</slot>
     </div>
