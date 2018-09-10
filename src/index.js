@@ -22,10 +22,8 @@ export {
     InfoListItem,
     InfoListGroup,
     InfoList,
-    Input,
     LightBox,
     LightBoxItem,
-    LinearProgress,
     LinearLayout,
     LinkList,
     LinkListItem,
@@ -41,8 +39,6 @@ export {
     Radios,
     SelectDivider,
     SelectGroup,
-    SuggestItem,
-    Suggest,
     Slider,
     Steps,
     Step,
@@ -55,16 +51,12 @@ export {
     TableCell,
     TableSelectItem,
     TableSelect,
-    TableView,
-    TableViewCell,
-    TableViewColumn,
     ResizeTableColumn,
     ResizeTable,
     Tablet,
     Tablets,
     Tabs,
     Tag,
-    Textarea,
     TimePicker,
     XBarChart,
 } from 'cloud-ui.vusion';
@@ -79,7 +71,9 @@ export { default as DateTimePicker } from './u-date-time-picker.vue';
 export { default as DonutChart } from './u-donut-chart.vue';
 export { default as FormItem } from './u-form-item.vue';
 export { default as Icon } from './u-icon.vue';
+export { default as Input } from './u-input.vue';
 export { default as Label } from './u-label.vue';
+export { default as LinearProgress } from './u-linear-progress.vue';
 export { default as LineChart } from './u-line-chart.vue';
 export { default as Link } from './u-link.vue';
 export { default as ListView } from './u-list-view.vue';
@@ -95,6 +89,8 @@ export { default as Placeholder } from './u-placeholder.vue';
 export { default as Radio } from './u-radios.vue';
 export { default as Select } from './u-select.vue';
 export { default as SelectItem } from './u-select-item.vue';
+export { default as Suggest } from './u-suggest.vue';
+export { default as SuggestItem } from './u-suggest-item.vue';
 export { default as Sidebar } from './u-sidebar.vue';
 export { default as SidebarDivider } from './u-sidebar-divider.vue';
 export { default as SidebarGroup } from './u-sidebar-group.vue';
@@ -104,7 +100,11 @@ export { default as StatusIcon } from './u-status-icon.vue';
 export { default as Table } from './u-table.vue';
 export { default as TableView2 } from './u-table-view-2.vue';
 export { default as TableViewColumn2 } from './u-table-view-column-2.vue';
+export { default as TableView } from './u-table-view.vue';
+export { default as TableViewCell } from './u-table-view-cell.vue';
+export { default as TableViewColumn } from './u-table-view-column.vue';
 export { default as Text } from './u-text.vue';
+export { default as Textarea } from './u-textarea.vue';
 export { default as Toast } from './u-toast.vue';
 export { default as Tooltip } from './u-tooltip.vue';
 export { default as Transfer } from './u-transfer.vue';

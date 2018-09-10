@@ -1,0 +1,91 @@
+@import 'proto-ui.vusion/src/u-input.vue/module.css';
+
+.root {
+    padding: 0 10px;
+    color: $color-base;
+    border-color: $border-color-base;
+    border-radius: $border-radius-base;
+    transition: border-color $transition-duration-base;
+}
+.root[close] {
+    padding-right: 30px;
+}
+
+.input::placeholder {
+    /* Removes placeholder transparency in Firefox. */
+    opacity: 1;
+    color: #999;
+}
+
+.root[focus] {
+    border-color: $brand-primary;
+}
+
+.root[disabled] {
+    background-color: $brand-disabled-light;
+}
+
+.root[color="error"] {
+    border-color: $brand-error;
+}
+
+.close {
+    position: absolute;
+    width: $height-base;
+    height: $height-base;
+    line-height: $height-base;
+    text-align: center;
+    right: 1px;
+    top: 0;
+    cursor: pointer;
+}
+
+.closeIcon {
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    background: #f5f7fa;
+    border-radius: 100%;
+    display: inline-block;
+}
+
+.closeIcon:hover {
+    color: #999;
+    background-color: #ebedef;
+}
+
+.closeIcon::before {
+    icon-font: url("../u-icon.vue/icons/close-small.svg");
+    font-size: 16px;
+    color: #b4b4b4;
+    margin-right: 0;
+    vertical-align: middle;
+}
+
+.root[size$="mini"] { width: 80px; padding: 0 6px; }
+.root[size^="mini"] { height: 28px; line-height: 26px; }
+.input[size$="mini"][close] { padding-right: 30px; }
+
+.root[size$="small"] { width: 120px; padding: 0 8px; }
+.root[size^="small"] { height: 30px; line-height: 28px; }
+.input[size$="small"][close] { padding-right: 30px; }
+
+.root[size$="normal"] { width: 160px; padding: 0 10px; }
+.root[size^="normal"] { height: $height-base; line-height: calc($height-base - 2px); }
+.root[size$="normal"][close] { padding-right: 30px; }
+
+.root[size$="medium"] { width: 280px; padding: 0 10px; }
+.root[size^="medium"] { height: 36px; line-height: calc(36px - 2px); }
+.input[size$="medium"][close] { padding-right: 30px; }
+
+.root[size$="large"] { width: 440px; padding: 0 10px; }
+.root[size^="large"] { height: 38px; line-height: 36px; }
+.input[size$="large"][close] { padding-right: 30px; }
+
+.root[size$="huge"] { width: 580px; padding: 0 10px; }
+.root[size^="huge"] { height: 40px; line-height: 38px; }
+.input[size$="huge"][close] { padding-right: 30px; }
+
+.root[size$="full"] { width: 100%; padding: 0 10px; }
+.root[size^="full"] { height: 100%; }
+.input[size$="full"][close] { padding-right: 30px; }

@@ -23,5 +23,6 @@
 
 .button[disabled] {
     color: white;
-    background: #ebedf2;
+    border-color: $border-color-base;
+    background: $brand-disabled-light;
 }
