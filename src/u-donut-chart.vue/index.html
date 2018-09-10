@@ -17,7 +17,7 @@
         </g>
     </svg>
     <div v-if="zero" :class="$style['zero-text']">
-        <div>0%</div>
+        <!-- <div>0%</div> -->
     </div>
     <div v-else v-for="item in currentData" :class="$style.label"
             :style="getLabelStyle(item)" :selected="item === selectedItem">

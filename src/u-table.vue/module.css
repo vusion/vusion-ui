@@ -15,6 +15,7 @@
 
 .root td {
     white-space: nowrap;
+    color: $color-secondary;
 }
 
 .root th, .root td {

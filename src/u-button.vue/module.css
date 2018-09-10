@@ -233,6 +233,7 @@
 
 .root[ghost] {
     padding: 0 19px;
+    vertical-align: 0;
 }
 
 /**
@@ -269,7 +270,7 @@
  */
 .root[icon="create"]::before {
     icon-font: url('cloud-ui.vusion/src/u-icon.vue/icons/create.svg');
-    vertical-align: -1px;
+    vertical-align: -2px;
     margin-right: 8px;
 }
 
