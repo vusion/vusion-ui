@@ -1,0 +1,36 @@
+.root {
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    line-height: 28px;
+    padding: 0 12px;
+    background: $field-background;
+    color: $field-color;
+    border: 1px solid $field-border-color;
+    border-radius: $border-radius-base;
+    margin-right: $margin-right-base;
+}
+
+.root:not(:last-child) {
+    margin-right: 4px;
+}
+
+.root:hover {
+    border-color: $brand-primary;
+}
+
+.root[selected] {
+    background: $brand-primary;
+    color: white;
+    border-color: $brand-primary;
+}
+
+.root[disabled] {
+    cursor: not-allowed;
+    color: $field-border-color;
+    border-color: $field-border-color;
+}
+
+.root[selected][disabled] {
+    background: $gray-light;
+}

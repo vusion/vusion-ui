@@ -37,10 +37,10 @@ $margin-large: 30px;
 /* Component Base Dimensions */
 $border-width-base: 1px;
 $width-base: 160px;
-$height-base: 36px;
+$height-base: 34px;
 
 $border-radius-square: 0;
-$border-radius-base: 3px;
+$border-radius-base: 2px;
 $border-radius-round: 5px;
 
 /* Specific Dimensions */

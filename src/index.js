@@ -1,66 +1,5 @@
 export * from 'proto-ui.vusion';
 
-export {
-    BarChart,
-    Block,
-    Calendar,
-    Capsule,
-    CapsuleGroup,
-    Capsules,
-    CascadeCapsules,
-    ChartTooltip,
-    Checkboxes,
-    CircularProgress,
-    ColorSelect,
-    ComboSlider,
-    CreateElement,
-    DatePicker,
-    DescListItem,
-    DescListGroup,
-    DescList,
-    Form,
-    InfoListItem,
-    InfoListGroup,
-    InfoList,
-    LightBox,
-    LightBoxItem,
-    LinearLayout,
-    LinkList,
-    LinkListItem,
-    Menu,
-    MenuItem,
-    MultiSelect,
-    NumberInput,
-    Pagination,
-    Pill,
-    Pills,
-    Popover,
-    Popup,
-    Radios,
-    SelectDivider,
-    SelectGroup,
-    Slider,
-    Steps,
-    Step,
-    Subnav,
-    SubnavItem,
-    SubnavDivider,
-    Subtab,
-    Subtabs,
-    Switch,
-    TableCell,
-    TableSelectItem,
-    TableSelect,
-    ResizeTableColumn,
-    ResizeTable,
-    Tablet,
-    Tablets,
-    Tabs,
-    Tag,
-    TimePicker,
-    XBarChart,
-} from 'cloud-ui.vusion';
-
 export { default as Action } from './u-action.vue';
 export { default as Actions } from './u-actions.vue';
 export { default as Button } from './u-button.vue';
@@ -98,10 +37,7 @@ export { default as SidebarItem } from './u-sidebar-item.vue';
 export { default as Spinner } from './u-spinner.vue';
 export { default as StatusIcon } from './u-status-icon.vue';
 export { default as Table } from './u-table.vue';
-export { default as TableView2 } from './u-table-view-2.vue';
-export { default as TableViewColumn2 } from './u-table-view-column-2.vue';
 export { default as TableView } from './u-table-view.vue';
-export { default as TableViewCell } from './u-table-view-cell.vue';
 export { default as TableViewColumn } from './u-table-view-column.vue';
 export { default as Text } from './u-text.vue';
 export { default as Textarea } from './u-textarea.vue';

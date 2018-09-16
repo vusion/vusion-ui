@@ -5,18 +5,18 @@
 }
 
 .root[color="info"] {
-    color: $color-info;
+    color: $brand-info;
 }
 
 .root[color="success"] {
-    color: $color-success;
+    color: $brand-success;
 }
 
 .root[color="warning"] {
-    color: $color-warning;
+    color: $brand-warning;
 }
 
 .root[color="error"] {
-    color: $color-error;
+    color: $brand-error;
 }
 

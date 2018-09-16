@@ -1,0 +1,25 @@
+@import 'proto-ui.vusion/src/u-switch.vue/module.css';
+
+.root {
+    transition: background 0.2s;
+}
+
+.button {
+    transition: all 0.2s;
+}
+
+.root[with-text] {
+    width: 54px;
+}
+
+.root[with-text][checked] .button {
+    left: calc(54px - $button-size - 2px);
+}
+
+.root[with-text] .text::before {
+    content: 'OFF';
+}
+
+.root[with-text][checked] .text::before {
+    content: 'ON';
+}

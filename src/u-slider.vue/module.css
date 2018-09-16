@@ -1,0 +1,82 @@
+@import 'proto-ui.vusion/src/u-slider.vue/module.css';
+
+.root {
+    vertical-align: -7px;
+}
+
+.body {
+    height: 24px;
+    padding: 9px 0;
+}
+
+.track {
+    height: 6px;
+    background: #e6e6e6;
+    overflow: initial;
+    cursor: pointer;
+}
+
+.track::before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    left: -7px;
+    height: 100%;
+    background: $brand-primary;
+}
+
+.track::after {
+    content: '';
+    position: absolute;
+    width: 7px;
+    right: -7px;
+    height: 100%;
+    background: #e6e6e6;
+}
+
+.root[disabled] .track::before {
+    background: $brand-disabled;
+}
+
+.bound {
+    background: url("../assets/images/stripe.png") repeat-x;
+    box-sizing: content-box;
+}
+
+.bound[role="start"] {
+    left: -7px;
+    padding-left: 7px;
+}
+
+.bound[role="end"] {
+    right: -7px;
+    padding-right: 7px;
+}
+
+.handle {
+    margin-left: -7px;
+    width: 14px;
+    height: 24px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.handle::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background-color: #e6e6e6;
+    top: 5px;
+    left: 3px;
+}
+
+.handle::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background-color: #e6e6e6;
+    top: 5px;
+    right: 3px;
+}

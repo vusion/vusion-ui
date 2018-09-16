@@ -3,12 +3,17 @@
 .root {
     padding: 3px 8px;
     font-size: 12px;
-    border-radius: 3px;
-    background: #eaeaea;
+    border-radius: $border-radius-base;
+    background: $background-color-base;
 }
 
 .root[color="primary"] {
     background: $brand-primary;
+    color: white;
+}
+
+.root[color="info"] {
+    background: $brand-info;
     color: white;
 }
 

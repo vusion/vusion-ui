@@ -1,0 +1,221 @@
+$axis-y_width: 40px;
+$axis-x_height: 30px;
+$axis_border: #ccc;
+$axis-y_offset: 10px;
+$axis-x_offset: 6px;
+$line_border: #eee;
+$line_width: 2px;
+$line_offset: 6px;
+$bar_width: 60px;
+.root {}
+
+.grid {
+    position: absolute;
+    bottom: $axis-x_height;
+    top: 15px;
+    left: $axis-y_width;
+    right: 20px;
+    font-size: 0;
+}
+
+.layer {
+    position: absolute;
+    bottom: $axis-x_height;
+    top: 15px;
+    left: $axis-y_width;
+    right: 20px;
+    font-size: 0;
+    z-index: 10;
+}
+
+.line {
+    position: absolute;
+}
+
+.line[role="line-x"] {
+    left: -$line_offset;
+    right: -1px;
+    border-top: 1px solid $line_border;
+}
+
+.line[role="line-y"] {
+    top: -1px;
+    bottom: -$line_offset;
+    border-left: 1px solid $line_border;
+}
+
+.axis {
+    position: absolute;
+    z-index: 2;
+}
+
+.axis[role="axis-x"] {
+    left: $axis-y_width;
+    right: 19px;
+    bottom: 0;
+    height: $axis-x_height;
+    border-top: 1px solid $axis_border;
+}
+
+.axis[role="axis-y"] {
+    left: 0;
+    top: 14px;
+    bottom: $axis-x_height;
+    width: $axis-y_width;
+    border-right: 1px solid $axis_border;
+}
+
+.label {
+    position: absolute;
+    font-size: 12px;
+}
+
+.label[role="label-x"] {
+    top: $axis-x_offset;
+    bottom: 0;
+    text-align: center;
+}
+
+.label[wrap] {
+    white-space: nowrap;
+    transform: translateX(-50%);
+}
+
+.label[role="label-y"] {
+    left: 0;
+    right: $axis-y_offset;
+    -webkit-transform: translateY(50%);
+    -moz-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    -o-transform: translateY(50%);
+    transform: translateY(50%);
+    text-align: right;
+}
+
+.label[role="label-xName"] {
+    right: -50px;
+    top: 6px;
+    bottom: 0;
+}
+
+.label[role="label-yName"] {
+    right: 10px;
+    top: -30px;
+    text-align: right;
+}
+
+.piece {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.bar {
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0;
+    width: 50%;
+    left: 50%;
+    margin-left: -25%;
+    background: rgba(91, 161, 242, 0.3);
+    border: $line_width solid rgba(91, 161, 242, 0.6);
+    border-bottom: none;
+}
+
+.tooltip {
+    border-radius: 2px;
+    position: absolute;
+    text-align: initial;
+    white-space: nowrap;
+    line-height: 20px;
+    padding: 17px 20px;
+    font-size: 12px;
+    background: rgba(71, 88, 107, 0.9);
+    color: white;
+    z-index: $z-index-tooltip;
+    box-sizing: border-box;
+}
+
+.tooltip::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border: 5px solid rgba(71, 88, 107, 0.9);
+}
+
+.tooltip[x-placement="right-start"]::after {
+    top: 10px;
+    left: -5px;
+    border-left: none;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.tooltip[x-placement="left-start"]::after {
+    top: 10px;
+    right: -5px;
+    border-right: none;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.bar[role="bar-stack"] {
+    border: none;
+    background: none;
+}
+
+.bar[role="bar-static"] {
+    position: static;
+    width: auto;
+    margin: 0;
+}
+
+.bar[role="bar-static"]:nth-of-type(1) {
+    border-color: $theme-dark-chart-color1;
+    background: $theme-dark-chart-rgba-color1;
+}
+
+.bar[role="bar-static"]:nth-of-type(2) {
+    border-color: $theme-dark-chart-color2;
+    background: $theme-dark-chart-rgba-color2;
+}
+
+.bar[role="bar-static"]:nth-of-type(3) {
+    border-color: $theme-dark-chart-color3;
+    background: $theme-dark-chart-rgba-color3;
+}
+
+.bar[role="bar-static"]:nth-of-type(4) {
+    border-color: $theme-dark-chart-color4;
+    background: $theme-dark-chart-rgba-color4;
+}
+
+.bar[role="bar-static"]:nth-of-type(5) {
+    border-color: $theme-dark-chart-color5;
+    background: $theme-dark-chart-rgba-color5;
+}
+
+.bar[role="bar-static"]:nth-of-type(6) {
+    border-color: $theme-dark-chart-color6;
+    background: $theme-dark-chart-rgba-color6;
+}
+
+.bar[role="bar-static"]:nth-of-type(7) {
+    border-color: $theme-dark-chart-color7;
+    background: $theme-dark-chart-rgba-color7;
+}
+
+.bar[role="bar-static"]:nth-of-type(8) {
+    border-color: $theme-dark-chart-color8;
+    background: $theme-dark-chart-rgba-color8;
+}
+
+.bar[role="bar-static"]:nth-of-type(9) {
+    border-color: $theme-dark-chart-color9;
+    background: $theme-dark-chart-rgba-color9;
+}
+
+.bar[role="bar-static"]:nth-of-type(10) {
+    border-color: $theme-dark-chart-color10;
+    background: $theme-dark-chart-rgba-color10;
+}

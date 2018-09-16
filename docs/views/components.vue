@@ -2,11 +2,20 @@
 <div :class="$style.root">
     <div :class="$style.side">
         <u-sidebar color="inverse" :class="$style.sidebar" collapsible accordion>
-            <u-sidebar-group v-for="group in groups" :key="group.name" :title="group.name">
-                <u-sidebar-item v-for="component in group.children" :key="component.name" exact :to="'/components/'+component.name">
-                    {{ component.alias }} <small>{{ component.CamelName }}</small>
-                </u-sidebar-item>
-            </u-sidebar-group>
+            <template v-for="group in groups">
+                <template v-if="!group.name">
+                    <u-sidebar-item v-for="component in group.children" :key="component.name" exact
+                        :href="component.href" :to="component.to ? component.to : '/components/'+component.name" :target="component.target">
+                        {{ component.alias }} <small>{{ component.CamelName }}</small>
+                    </u-sidebar-item>
+                </template>
+                <u-sidebar-group v-else :key="group.name" :title="group.name">
+                    <u-sidebar-item v-for="component in group.children" :key="component.name" exact
+                        :href="component.href" :to="component.to ? component.to : '/components/'+component.name" :target="component.target">
+                        {{ component.alias }} <small>{{ component.CamelName }}</small>
+                    </u-sidebar-item>
+                </u-sidebar-group>
+            </template>
         </u-sidebar>
     </div>
     <div :class="$style.main">

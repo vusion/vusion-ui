@@ -1,0 +1,5 @@
+@import 'proto-ui.vusion/src/u-checkboxes.vue/module.css';
+
+.root > *:not(:last-child) {
+    margin-right: 80px;
+}
