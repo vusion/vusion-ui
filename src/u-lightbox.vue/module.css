@@ -68,19 +68,19 @@ $height: 64px;
 }
 
 .button[role='prev']::before {
-    icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
+    /* icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg'); */
 }
 
 .button[role='next']::before {
-    icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
+    /* icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg'); */
 }
 
 .button[role='rotateRight']::before {
-    icon-font: url('../u-icon.vue/icons/rotate-right.svg');
+    /* icon-font: url('../u-icon.vue/icons/rotate-right.svg'); */
 }
 
 .button[role='rotateLeft']::before {
-    icon-font: url('../u-icon.vue/icons/rotate-left.svg');
+    /* icon-font: url('../u-icon.vue/icons/rotate-left.svg'); */
 }
 
 .optionsColl {

@@ -23,7 +23,6 @@
     "vusion-ui"
   ],
   "dependencies": {
-    "cloud-ui.vusion": "~0.3.36",
     "i-line-awesome.vue": "^1.0.2",
     "proto-ui.vusion": "~0.3.31"
   },
