@@ -18,14 +18,13 @@ module.exports = {
         mode: 'history',
         base: '/vusion-ui/',
         navbar: [
-            { text: '指南', to: '/guide' },
             { text: '组件', to: '/components' },
             { text: '演示', to: '/demo' },
         ],
         components: [
-            { name: 'introduce', alias: '介绍', path: './docs/views/guide/introduce.md' },
-            { name: 'changelog', alias: '更新日志', href: 'https://github.com/vusion/vusion-ui/releases', target: '_blank' },
-            { group: 'Guide', name: 'pattern', alias: '组件模式', path: './docs/views/guide/pattern.md' },
+            { group: 'Guide', name: 'introduce', alias: '介绍', path: './docs/views/guide/introduce.md' },
+            { group: 'Guide', name: 'pattern', alias: '设计模式', path: './docs/views/guide/pattern.md' },
+            { group: 'Guide', name: 'changelog', alias: '更新日志', href: 'https://github.com/vusion/vusion-ui/releases', target: '_blank' },
             { group: 'Basic', name: 'scheme', alias: '设计规范', path: 'library/base/SCHEME.md' },
             { group: 'Basic', name: 'typography', alias: '排印', path: 'proto-ui.vusion/src/base/TYPOGRAPHY.md' },
             { group: 'Basic', name: 'u-text', alias: '文本' },
