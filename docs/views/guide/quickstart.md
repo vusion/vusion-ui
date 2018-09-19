@@ -1,48 +1,56 @@
 # 快速开始
 
+[![NPM Version][npm-img]][npm-url]
+
+[npm-img]: http://img.shields.io/npm/v/vusion-ui.vusion.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/vusion-ui.vusion
+
+Vusion UI 是网易云计算前端团队在 Vusion 体系中推出的标准组件库，用于快速搭建企业级中后台项目。
+
+### 特性
+
+- 开箱即用、简洁高效
+- 数量丰富、功能完善
+- 灵活扩展
+
+### 支持环境
+
+- 支持 Vue.js 2.x
+- 支持现代浏览器和 IE9 及以上
+
 ### 安装
 
-使用 npm 安装组件库 `vusion-ui.vusion`, 推荐安装 `vusion-utils` 可以方便的在全局安装组件库、组件、过滤器等。
+使用 npm 安装组件库`vusion-ui.vusion`, 同时需要安装一个工具包`vusion-utils`。
 
 ``` shell
-npm install --save vusion-ui.vusion vusion-utils
+npm i --save vusion-ui.vusion vusion-utils
 ```
 
-### 使用
+### 引入
 
-``` javascript
+#### 全部引入
+
+``` js
 import Vue from 'vue';
-import * as CloudUI from 'vusion-ui.vusion';
+import * as VusionUI from 'vusion-ui.vusion';
 import { install } from 'vusion-utils';
-install(CloudUI, Vue); // 全局注册组件库
+
+install(VusionUI, Vue); // 全局安装组件库中的组件、指令等
 ```
 
-如果您想对组件进行样式或逻辑上的修改，请查看 Vusion 文档中的[组件的扩展和继承](https://vusion.github.io/guides/components)。
+#### 按需引入
 
-### 示例
+``` js
+import Vue from 'vue';
+import { directives, UButton, UText, UInput } from 'vusion-ui.vusion';
+import { install } from 'vusion-utils';
 
-```vue
-<template>
-<div>
-    <u-modal :visible.sync="modalVisible" title="提示" mask-close cancel-button="">
-        <span>Welcome to use Cloud UI !</span>
-    </u-modal>
-    <u-button @click="open()">Open</u-button>
-</div>
-</template>
-
-<script>
-export default {
-    data() {
-        return {
-            modalVisible: false,
-        };
-    },
-    methods: {
-        open() {
-            this.modalVisible = true;
-        },
-    },
-};
-</script>
+install({ directives, UButton, UText, UInput }, Vue); // 全局安装组件库中的组件、指令等
 ```
+
+> 我们没有使用 Vue 的 plugin 设计，主要是考虑 TreeShaking 机制。
+
+### 如何贡献
+
+- 在使用中存在问题，可以给我们[报告 Bug](https://github.com/vusion/vusion-ui/issues)
+- 希望参与贡献，欢迎 [Pull Request](https://github.com/vusion/vusion-ui/pulls)
