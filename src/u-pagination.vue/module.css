@@ -1,0 +1,86 @@
+$item_size: 32px;
+
+.root {
+    user-select: none;
+    cursor: default;
+    padding: 0;
+}
+
+.item {
+    display: inline-block;
+    text-decoration: none;
+
+    padding: 0 10px;
+    min-width: $item_size;
+    height: $item_size;
+    line-height: $item_size;
+    font-size: 12px;
+    text-align: center;
+    color: $color-base;
+    cursor: $cursor-pointer;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.item:hover {
+    color: $brand-primary;
+    background: $background-color-base;
+}
+
+.item[selected] {
+    background: $brand-primary;
+    color: white;
+}
+
+.item[disabled] {
+    cursor: $cursor-not-allowed;
+    color: $brand-disabled;
+}
+
+.item[role="prev"]::before {
+    content: url('i-line-awesome.vue/assets/angle-left.svg');
+}
+
+.item[role="next"]::before {
+    content: url('i-line-awesome.vue/assets/angle-right.svg');
+}
+
+.item[role="prev"] {
+    background: $background-color-base;
+}
+
+.item[role="next"] {
+    background: $background-color-base;
+}
+
+.item[role="prev"]:hover {
+    background: $border-color-base;
+}
+
+.item[role="next"]:hover {
+    background: $border-color-base;
+}
+
+.item[role="blank"] {
+    background: none;
+    color: $color-base;
+    cursor: initial;
+}
+
+.root[disabled] {
+    cursor: $cursor-not-allowed;
+}
+
+.root[disabled] .item {
+    color: $brand-disabled;
+    cursor: $cursor-not-allowed;
+}
+
+.root[disabled] .item[role="blank"] {
+    color: $brand-disabled;
+    cursor: initial;
+}
+
+.root[disabled] .item[selected] {
+    background: $gray-lighter;
+}

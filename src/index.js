@@ -31,7 +31,6 @@ export {
     MenuItem,
     MultiSelect,
     NumberInput,
-    Pagination,
     Pill,
     Pills,
     Popover,
@@ -39,7 +38,6 @@ export {
     Radios,
     SelectDivider,
     SelectGroup,
-    Slider,
     Steps,
     Step,
     Subnav,
@@ -84,6 +82,7 @@ export { default as Modal } from './u-modal.vue';
 export { default as Navbar } from './u-navbar.vue';
 export { default as NavbarDivider } from './u-navbar-divider.vue';
 export { default as NavbarItem } from './u-navbar-item.vue';
+export { default as Pagination } from './u-pagination.vue';
 export { default as PieChart } from './u-pie-chart.vue';
 export { default as Placeholder } from './u-placeholder.vue';
 export { default as Radio } from './u-radios.vue';
@@ -95,6 +94,7 @@ export { default as Sidebar } from './u-sidebar.vue';
 export { default as SidebarDivider } from './u-sidebar-divider.vue';
 export { default as SidebarGroup } from './u-sidebar-group.vue';
 export { default as SidebarItem } from './u-sidebar-item.vue';
+export { default as Slider } from './u-slider.vue';
 export { default as Spinner } from './u-spinner.vue';
 export { default as StatusIcon } from './u-status-icon.vue';
 export { default as Table } from './u-table.vue';
