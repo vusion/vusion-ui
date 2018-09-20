@@ -39,10 +39,12 @@ $item_size: 32px;
 
 .item[role="prev"]::before {
     content: url('i-line-awesome.vue/assets/angle-left.svg');
+    vertical-align: middle;
 }
 
 .item[role="next"]::before {
     content: url('i-line-awesome.vue/assets/angle-right.svg');
+    vertical-align: middle;
 }
 
 .item[role="prev"] {
