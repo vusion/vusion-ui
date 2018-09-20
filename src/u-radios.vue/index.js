@@ -1,2 +1,3 @@
-import Radio from 'proto-ui.vusion/src/u-radio.vue';
-export default Radio;
+import Radios from 'proto-ui.vusion/src/u-radios.vue';
+
+export default Radios;

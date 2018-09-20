@@ -47,6 +47,7 @@ $group_size: 120px;
 .label {
     display: none;
     position: absolute;
+    top: 0;
     white-space: nowrap;
 }
 
