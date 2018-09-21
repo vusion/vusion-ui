@@ -1,3 +1,3 @@
-import Modal from 'proto-ui.vusion/src/u-modal.vue';
+import UModal from 'proto-ui.vusion/src/u-modal.vue';
 
-export default Modal;
+export default UModal;

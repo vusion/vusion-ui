@@ -1,3 +1,3 @@
-import Button from 'proto-ui.vusion/src/u-button.vue';
+import UButton from 'proto-ui.vusion/src/u-button.vue';
 
-export default Button;
+export default UButton;

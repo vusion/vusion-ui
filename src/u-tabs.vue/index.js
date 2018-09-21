@@ -1,3 +1,3 @@
-import Tabs from 'proto-ui.vusion/src/u-tabs.vue';
+import UTabs from 'proto-ui.vusion/src/u-tabs.vue';
 
-export default Tabs;
+export default UTabs;

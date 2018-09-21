@@ -1,8 +1,8 @@
-import Steps from 'proto-ui.vusion/src/u-steps.vue';
+import USteps from 'proto-ui.vusion/src/u-steps.vue';
 
 export default {
     name: 'u-steps',
-    mixins: [Steps],
+    extends: USteps,
     props: {
         size: String,
     },

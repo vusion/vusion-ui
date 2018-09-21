@@ -1,3 +1,3 @@
-import Select from 'proto-ui.vusion/src/u-select.vue';
+import USelect from 'proto-ui.vusion/src/u-select.vue';
 
-export default Select;
+export default USelect;

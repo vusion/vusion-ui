@@ -1,3 +1,3 @@
-import Link from 'proto-ui.vusion/src/u-link.vue';
+import ULink from 'proto-ui.vusion/src/u-link.vue';
 
-export default Link;
+export default ULink;

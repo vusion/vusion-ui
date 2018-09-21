@@ -1,3 +1,3 @@
-import Spinner from 'proto-ui.vusion/src/u-spinner.vue';
+import USpinner from 'proto-ui.vusion/src/u-spinner.vue';
 
-export default Spinner;
+export default USpinner;

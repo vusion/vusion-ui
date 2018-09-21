@@ -1,3 +1,3 @@
-import Transfer from 'proto-ui.vusion/src/u-transfer.vue';
+import UTransfer from 'proto-ui.vusion/src/u-transfer.vue';
 
-export default Transfer;
+export default UTransfer;

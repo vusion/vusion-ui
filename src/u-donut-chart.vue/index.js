@@ -1,8 +1,8 @@
-import PieChart from '../u-pie-chart.vue';
+import UPieChart from '../u-pie-chart.vue';
 
 export default {
     name: 'u-donut-chart',
-    extends: PieChart,
+    extends: UPieChart,
     props: {
         unit: String,
         // showLabels: { type: Boolean, default: false },

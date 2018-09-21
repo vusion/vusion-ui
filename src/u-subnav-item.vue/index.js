@@ -1,7 +1,7 @@
-import NavbarItem from '../u-navbar-item.vue';
+import UNavbarItem from '../u-navbar-item.vue';
 
 export default {
     name: 'u-subnav-item',
-    mixins: [NavbarItem],
+    extends: UNavbarItem,
     parentName: 'u-subnav',
 };

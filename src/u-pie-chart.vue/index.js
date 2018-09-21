@@ -1,8 +1,8 @@
-import Chart from '../u-chart.vue';
+import UChart from '../u-chart.vue';
 
 export default {
     name: 'u-pie-chart',
-    extends: Chart,
+    extends: UChart,
     props: {
         fixed: { type: Number, default: 1 },
         width: { type: String, default: '100%' },

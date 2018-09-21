@@ -1,3 +1,3 @@
-import SelectGroup from 'proto-ui.vusion/src/u-select-group.vue';
+import USelectGroup from 'proto-ui.vusion/src/u-select-group.vue';
 
-export default SelectGroup;
+export default USelectGroup;

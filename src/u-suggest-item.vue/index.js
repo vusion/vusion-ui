@@ -1,3 +1,3 @@
-import SuggestItem from 'proto-ui.vusion/src/u-suggest-item.vue';
+import USuggestItem from 'proto-ui.vusion/src/u-suggest-item.vue';
 
-export default SuggestItem;
+export default USuggestItem;

@@ -1,3 +1,3 @@
-import Label from 'proto-ui.vusion/src/u-label.vue';
+import ULabel from 'proto-ui.vusion/src/u-label.vue';
 
-export default Label;
+export default ULabel;

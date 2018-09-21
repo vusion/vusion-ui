@@ -1,3 +1,3 @@
-import Menu from 'proto-ui.vusion/src/u-menu.vue';
+import UMenu from 'proto-ui.vusion/src/u-menu.vue';
 
-export default Menu;
+export default UMenu;

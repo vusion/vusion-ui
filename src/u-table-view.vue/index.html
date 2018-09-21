@@ -36,7 +36,7 @@
                 <template v-else>
                     <tr v-for="(item, index) in data">
                         <td v-for="columnVM in columnVMs">
-                            <u-render v-if="columnVM.$scopedSlots.default" :vnode="columnVM.$scopedSlots.default({ item, columnVM, index })"></u-render>
+                            <f-render v-if="columnVM.$scopedSlots.default" :vnode="columnVM.$scopedSlots.default({ item, columnVM, index })"></f-render>
                             <span v-else>{{ item[columnVM.field] }}</span>
                         </td>
                     </tr>

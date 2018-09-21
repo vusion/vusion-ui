@@ -1,9 +1,7 @@
-import ListView from 'proto-ui.vusion/src/u-list-view.vue';
+import UListView from 'proto-ui.vusion/src/u-list-view.vue';
 
-const Capsules = {
+export default {
     name: 'u-capsules',
     childName: 'u-capsule',
-    mixins: [ListView],
+    mixins: [UListView],
 };
-
-export default Capsules;

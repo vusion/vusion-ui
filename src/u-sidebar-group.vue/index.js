@@ -1,3 +1,3 @@
-import SidebarGroup from 'proto-ui.vusion/src/u-sidebar-group.vue';
+import USidebarGroup from 'proto-ui.vusion/src/u-sidebar-group.vue';
 
-export default SidebarGroup;
+export default USidebarGroup;

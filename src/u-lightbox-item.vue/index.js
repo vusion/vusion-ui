@@ -1,4 +1,4 @@
-import { UEmitter } from 'proto-ui.vusion';
+import { MEmitter } from 'proto-ui.vusion';
 import Zoom from './zoomobj.js';
 
 export default {
@@ -8,7 +8,7 @@ export default {
         title: { type: String, default: '' },
         value: { type: Number, default: 0, validator: (value) => Number.isInteger(value) && value >= 0 },
     },
-    mixins: [UEmitter],
+    mixins: [MEmitter],
     computed: {
         isStart() {
             return this === this.parentVM.itemVMs[0];

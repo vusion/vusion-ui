@@ -1,3 +1,3 @@
-import Popup from 'proto-ui.vusion/src/u-popup.vue';
+import UPopup from 'proto-ui.vusion/src/u-popup.vue';
 
-export default Popup;
+export default UPopup;

@@ -1,3 +1,3 @@
-import SidebarItem from 'proto-ui.vusion/src/u-sidebar-item.vue';
+import USidebarItem from 'proto-ui.vusion/src/u-sidebar-item.vue';
 
-export default SidebarItem;
+export default USidebarItem;

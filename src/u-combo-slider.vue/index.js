@@ -1,8 +1,8 @@
-import ComboSlider from 'proto-ui.vusion/src/u-combo-slider.vue';
+import UComboSlider from 'proto-ui.vusion/src/u-combo-slider.vue';
 
 export default {
     name: 'u-combo-slider',
-    mixins: [ComboSlider],
+    mixins: [UComboSlider],
     props: {
         unit: String,
         tip: String,

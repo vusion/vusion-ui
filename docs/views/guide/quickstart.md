@@ -1,9 +1,6 @@
 # 快速开始
 
-[![NPM Version][npm-img]][npm-url]
-
-[npm-img]: http://img.shields.io/npm/v/vusion-ui.vusion.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/vusion-ui.vusion
+[![NPM Version](https://img.shields.io/badge/version-0.4.x-orange.svg?style=flat-square)](http://npmjs.org/package/vusion-ui.vusion)
 
 Vusion UI 是网易云计算前端团队在 Vusion 体系中推出的标准组件库，用于快速搭建企业级中后台项目。
 

@@ -1,3 +1,3 @@
-import Switch from 'proto-ui.vusion/src/u-switch.vue';
+import USwitch from 'proto-ui.vusion/src/u-switch.vue';
 
-export default Switch;
+export default USwitch;

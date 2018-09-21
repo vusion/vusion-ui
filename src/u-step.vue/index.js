@@ -1,3 +1,3 @@
-import Step from 'proto-ui.vusion/src/u-step.vue';
+import UStep from 'proto-ui.vusion/src/u-step.vue';
 
-export default Step;
+export default UStep;

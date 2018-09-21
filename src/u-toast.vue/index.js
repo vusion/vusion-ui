@@ -1,3 +1,3 @@
-import Toast from 'proto-ui.vusion/src/u-toast.vue';
+import UToast from 'proto-ui.vusion/src/u-toast.vue';
 
-export default Toast;
+export default UToast;

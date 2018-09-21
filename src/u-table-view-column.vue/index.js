@@ -1,9 +1,9 @@
-import { UEmitter } from 'proto-ui.vusion';
+import { MEmitter } from 'proto-ui.vusion';
 
 export default {
     name: 'u-table-view-column',
     parentName: 'u-table-view',
-    mixins: [UEmitter],
+    mixins: [MEmitter],
     props: {
         title: String,
         field: String,

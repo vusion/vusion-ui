@@ -1,11 +1,11 @@
 <template>
 <div :class="$style.root">
     <div :class="$style.example"><slot></slot></div>
-    <u-collapse-transition>
+    <f-collapse-transition>
         <div :class="$style.code" v-show="expanded">
             <slot name="code"></slot>
         </div>
-    </u-collapse-transition>
+    </f-collapse-transition>
     <div :class="$style.expander" :expanded="expanded" @click="expanded = !expanded">{{ expanded ? '收起代码' : '显示代码' }}</div>
 </div>
 </template>

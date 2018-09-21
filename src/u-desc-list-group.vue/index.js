@@ -1,10 +1,10 @@
-import { UEmitter } from 'proto-ui.vusion';
+import { MEmitter } from 'proto-ui.vusion';
 
 export default {
     name: 'u-desc-list-group',
     parentName: 'u-desc-list',
     childName: 'u-desc-list-item',
-    mixins: [UEmitter],
+    mixins: [MEmitter],
     props: {
         title: String,
         labelSize: String,

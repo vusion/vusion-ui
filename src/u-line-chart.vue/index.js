@@ -1,11 +1,11 @@
 const TICKES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20, 30, 40, 50, 100, 200, 500, 1000, 1];
 const FILTER = 360;
 
-import Chart from '../u-chart.vue';
+import UChart from '../u-chart.vue';
 
 export default {
     name: 'u-line-chart',
-    extends: Chart,
+    extends: UChart,
     props: {
         xAxis: Object,
         yAxis: Object,

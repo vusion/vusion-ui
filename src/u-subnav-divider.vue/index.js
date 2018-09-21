@@ -1,7 +1,7 @@
-import NavbarDivider from '../u-navbar-divider.vue';
+import UNavbarDivider from '../u-navbar-divider.vue';
 
 export default {
     name: 'u-subnav-divider',
-    mixins: [NavbarDivider],
+    extends: UNavbarDivider,
     parentName: 'u-subnav-divider',
 };

@@ -1,3 +1,3 @@
-import Pagination from 'proto-ui.vusion/src/u-pagination.vue';
+import UPagination from 'proto-ui.vusion/src/u-pagination.vue';
 
-export default Pagination;
+export default UPagination;

@@ -1,9 +1,9 @@
-import { UEmitter } from 'proto-ui.vusion';
+import { MEmitter } from 'proto-ui.vusion';
 
 export default {
     name: 'u-action',
     parentName: 'u-actions',
-    mixins: [UEmitter],
+    mixins: [MEmitter],
     inheritAttrs: false,
     created() {
         this.dispatch(this.$options.parentName, 'add-item-vm', this);
