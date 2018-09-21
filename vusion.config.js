@@ -4,14 +4,19 @@ module.exports = {
     lint: true,
     webpack: {
         output: {
-            publicPath: '/vusion-ui/',
+            publicPath: '/vusion-ui@0.3.x/',
+        },
+    },
+    webpackDevServer: {
+        historyApiFallback: {
+            index: '/vusion-ui@0.3.x/',
         },
     },
     docs: {
         title: 'Vusion UI 组件库',
         logo: '组件库',
         mode: 'history',
-        base: '/vusion-ui/',
+        base: '/vusion-ui@0.3.x/',
         navbar: [
             { text: '指南', to: '/guide' },
             { text: '组件', to: '/components' },
