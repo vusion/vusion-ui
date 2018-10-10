@@ -3,3 +3,27 @@
 .root > *:not(:last-child) {
     margin-right: 80px;
 }
+
+.radio::before {
+    display: inline-block;
+    content: '✓';
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    color: transparent;
+    overflow: hidden;
+}
+
+.radio[selected]::before {
+    background: $brand-primary;
+    animation: radio-selecting $transition-duration-base;
+}
+
+@keyframes radio-selecting {
+    from {
+        transform: scale(0.1,0.1);
+    }
+    to {
+        transform: scale(1,1);
+    }
+}
