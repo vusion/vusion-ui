@@ -1,8 +1,0 @@
-<ul :class="$style.root" :disabled="disabled">
-    <li :class="$style.item" role="prev" :disabled="currentPage <= 1" @click="select(currentPage - 1)"></li>
-    <template v-for="page in pages">
-        <li v-if="page" :class="$style.item" :selected="currentPage === page" @click="select(page)">{{ page }}</li>
-        <li v-else :class="$style.item" role="blank">...</li>
-    </template>
-    <li :class="$style.item" role="next" :disabled="currentPage >= total" @click="select(currentPage + 1)"></li>
-</ul>

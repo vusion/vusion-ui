@@ -1,56 +1,10 @@
-.root {
-    vertical-align: 1px;
-}
-
-.body {
-    position: relative;
-    margin: 0 10px;
-    padding: 6px 0;
-}
+@import 'proto-ui.vusion/src/u-slider.vue/module.css';
 
 .track {
-    position: relative;
-    overflow: hidden;
     height: 3px;
-    background: $background-color-base;
-}
-
-.trail {
-    position: absolute;
-    height: 100%;
-    background: $brand-primary;
-}
-
-.bound {
-    position: absolute;
-    background: rgba(255,255,255,0.4);
-    height: 100%;
-}
-
-.bound[role="start"] {
-    left: 0;
-}
-
-.bound[role="end"] {
-    right: 0;
 }
 
 .handle {
-    position: absolute;
-    left: 0;
     top: -2px;
-    margin-left: -10px;
-    width: 20px;
-    height: 20px;
-    background: white;
     border: 2px solid #ddd;
-    border-radius: 100px;
-}
-
-.root[disabled] {
-    cursor: $cursor-not-allowed;
-}
-
-.root[disabled] .trail {
-    background: $brand-disabled;
 }
