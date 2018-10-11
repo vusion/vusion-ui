@@ -527,6 +527,8 @@ export default {
                         // this.bodyWidth = parseFloat(this.tableWidth) - this.scrollWidth;
                         this.fixedMinTableHeight = this.minBodyHeight = this.minHeight - titleHeight - headHeight;
                     }
+                    if (this.isYScroll)
+                        this.fixedMaxTableHeight = this.fixedMaxTableHeight - this.scrollWidth;
 
                     if (this.loading && tableWidth > parentWidth) {
                         this.fixedTableHeight = parseFloat(getStyle(this.$refs.body, 'height')) || 0;
