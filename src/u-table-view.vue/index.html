@@ -287,7 +287,7 @@
                     </thead>
                 </table>
             </div>
-            <div :class="$style.body" id="lefttable" ref="lefttable" :style="{height: fixedTableHeight+'px', maxHeight: fixedMaxTableHeight+'px', minHeight: fixedMinTableHeight+'px'}" role="fixed">
+            <div :class="$style.body" ref="lefttable" :style="{height: fixedTableHeight ? fixedTableHeight+'px' : '', maxHeight: fixedMaxTableHeight+'px', minHeight: fixedMinTableHeight+'px'}" role="fixed">
                 <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{width: bodyWidth, tableLayout: layout}">
                     <colgroup>
                         <col v-for="(column, index) in columns" :width="column.currentWidth || columnsWidth[index]">
@@ -379,7 +379,7 @@
                     </thead>
                 </table>
             </div>
-            <div :class="$style.body" id="righttable" ref="righttable" :style="{height: fixedTableHeight+'px', maxHeight: fixedMaxTableHeight+'px', minHeight: fixedMinTableHeight+'px'}" role="fixed">
+            <div :class="$style.body" ref="righttable" :style="{height: fixedTableHeight ? fixedTableHeight+'px' : '', maxHeight: fixedMaxTableHeight+'px', minHeight: fixedMinTableHeight+'px'}" role="fixed">
                 <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{width: bodyWidth, tableLayout: layout}">
                     <colgroup>
                         <col v-for="(column, index) in rightColumns" :width="column.fixedWidth || column.currentWidth || columnsWidth[index]">
