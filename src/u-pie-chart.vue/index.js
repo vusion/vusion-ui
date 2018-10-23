@@ -40,7 +40,7 @@ export default {
     },
     mounted() {
         // 必须要用 setTimeout，不然获取不到 svg
-        setTimeout(() => this.getSize());
+        setTimeout(() => this.draw());
     },
     destoryed() {
         this.removeEventListener('resize', this.getSize);
@@ -75,7 +75,12 @@ export default {
 
             let accumulatedPercentage = 0;
             return data.map((item) => {
-                item = Object.assign({}, item);
+                item = Object.assign({
+                    d: '',
+                    accumulatedPercentage: 0,
+                    percentage: 0,
+                    label: {},
+                }, item);
 
                 // @deprecated percent
                 if (item.percent)

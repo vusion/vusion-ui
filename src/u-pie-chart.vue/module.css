@@ -29,8 +29,8 @@ $group_size: 120px;
 
 .item:nth-of-type(5n+1), .item[color][color="info"] { fill: $brand-info; }
 .item:nth-of-type(5n+2), .item[color][color="warning"] { fill: $brand-warning; }
-.item:nth-of-type(5n+3), .item[color][color="error"] { fill: $brand-error; }
-.item:nth-of-type(5n+4), .item[color][color="success"] { fill: $brand-success; }
+.item:nth-of-type(5n+3), .item[color][color="success"] { fill: $brand-success; }
+.item:nth-of-type(5n+4), .item[color][color="error"] { fill: $brand-error; }
 .item:nth-of-type(5n+5), .item[color][color="primary"] { fill: $brand-primary; }
 
 .label-line {
