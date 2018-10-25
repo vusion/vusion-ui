@@ -8,7 +8,7 @@
             <g v-if="!zero">
                 <path v-for="item in currentData" :class="$style.item" :selected="item === selectedItem"
                         :color="item.color" :style="{ stroke: item.color }"
-                        :d="getD(item)" @mouseover="onMouseOver(item)" />
+                        :d="item.d" @mouseover="onMouseOver(item)" />
             </g>
             <g v-if="!zero">
                 <path v-for="item in currentData" :class="$style['label-line']" :d="item.label.d" :selected="item === selectedItem" />
