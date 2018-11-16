@@ -69,9 +69,9 @@
 
 ``` vue
 <template>
-<u-line-chart border legend :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth">
-    <div slot="title">{{ title }}</div>
-</u-line-chart>
+    <u-line-chart border legend :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth">
+        <div slot="title">{{ title }}</div>
+    </u-line-chart>
 </template>
 
 <script>
@@ -98,6 +98,44 @@ export default {
 </script>
 ```
 
+### 简单散点图
+
+``` vue
+<template>
+    <u-line-chart border scatter legend :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth" @click="point">
+        <div slot="title">{{ title }}</div>
+    </u-line-chart>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            title: '每星期访问量',
+            xaxis: { key: 'week' },
+            yaxis: { min: 0, name: '个' },
+            series: [{ key: 'number' }],
+            data: [
+                { week: '星期一', number: 150 },
+                { week: '星期二', number: 300 },
+                { week: '星期三', number: 28 },
+                { week: '星期四', number: 200 },
+                { week: '星期五', number: 74 },
+                { week: '星期六', number: 532 },
+                { week: '星期日', number: 420 },
+            ],
+            smooth: true,
+        };
+    },
+    methods: {
+        point(e) {
+            console.log(e);
+        },
+    },
+};
+</script>
+```
+
 ## API
 
 ### Attrs/Props
@@ -118,6 +156,18 @@ export default {
 | fill | Boolean | false | 线段和X轴之间否填充 |
 | titleAlign | String | `center` | 图表标题的对齐方式，默认是居中，值有:left,center,right |
 | loading | Boolean | `false` | true表示正在加载中，false表示加载完成 |
+| scatter | Boolean | `false` | 散点图 |
+
+### Events
+
+#### @click
+
+选择此项前触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.data | Object | 当前点的数据 |
+| $event.index | String | 当前索引 |
 
 ### Slots
 

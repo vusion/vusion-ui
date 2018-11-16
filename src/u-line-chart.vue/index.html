@@ -26,15 +26,15 @@
             <div v-for="(yLabel,index) in yAxis_.data" :class="$style.label" role="labely" title="yLabel" :style="{bottom: 100*index/(yAxis_.data.length - 1)+'%'}">{{format(yLabel)}}</div>
             <div :class="$style.label" role="label-yName">{{yAxis.name}}{{yAxis.unit}}</div>
         </div>
-        <div :class="$style.layer" role="layersvg">
+        <div :class="$style.layer" role="layersvg" v-if="!scatter">
             <svg :class="$style.elsvg" v-for="series in seriesList" v-show="!series.hidden && !series.absent" :color="series.color">
                 <path v-if="fill" :class="$style.area" :d="getD(series, 'area')" />
                 <path :class="$style.line" :d="getD(series)" />
             </svg>
         </div>
         <div :class="$style.layer">
-            <div :class="$style.piece" v-for="(item,index) in currentData" v-if="!item.hidden" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100/(currentData.length - 1)+'%'}">
-                <div :class="$style.point" v-for="(series, seriesIndex) in seriesList" v-show="item[series.field || series.key] !== undefined && !series.hidden" :color="series.color"
+            <div :class="$style.piece" v-for="(item,index) in currentData" :scatter="scatter" v-if="!item.hidden" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100/(currentData.length - 1)+'%'}">
+                <div :class="$style.point" @click="pointClick(item, index)" :scatter="scatter" v-for="(series, seriesIndex) in seriesList" v-show="item[series.field || series.key] !== undefined && !series.hidden" :color="series.color"
                     :special="item.special && item.special[series.field || series.key]" :style="{
                         bottom: 100*(item[series.field || series.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%',
                         borderColor: item.special && item.special[series.field || series.key] && item.special[series.field || series.key].color,

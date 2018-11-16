@@ -11,6 +11,7 @@ export default {
         yAxis: Object,
         smooth: Boolean,
         fill: Boolean,
+        scatter: Boolean,
     },
     data() {
         return {
@@ -257,6 +258,12 @@ export default {
         },
         getTriggerEl(referenceEl) {
             return referenceEl.parentElement;
+        },
+        pointClick(item, index) {
+            this.$emit('click', {
+                data: item,
+                index,
+            });
         },
     },
     destroyed() {
