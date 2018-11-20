@@ -43,7 +43,7 @@
                     <div :class="$style.value">{{format(item[series.field || series.key])}}</div>
                     <u-tooltip v-if="seriesIndex === 0" :disabled="item[series.field || series.key] === undefined" :trigger-element="getTriggerEl" reference="parent" placement="right" :boundaries-element="$el">
                         <div slot="content">
-                            <slot :name="'tooltipTemplate'+index">
+                            <slot name="tooltip" :series="series" :row="item" :index="index">
                                 <div v-for="series in seriesList">{{ series.name || series.field || series.key }}: {{ format(item[series.field || series.key]) }}{{yAxis.unit}}</div>
                             </slot>
                         </div>
