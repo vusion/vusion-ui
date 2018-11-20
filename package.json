@@ -1,7 +1,7 @@
 {
   "name": "vusion-ui.vusion",
   "description": "Vusion UI",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./src/index.js",
   "scripts": {
@@ -23,9 +23,9 @@
     "vusion-ui"
   ],
   "dependencies": {
-    "cloud-ui.vusion": "~0.3.36",
+    "cloud-ui.vusion": "~0.3.54",
     "i-line-awesome.vue": "^1.0.2",
-    "proto-ui.vusion": "~0.3.37"
+    "proto-ui.vusion": "~0.3.40"
   },
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
