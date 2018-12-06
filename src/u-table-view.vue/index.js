@@ -678,7 +678,7 @@ export default {
             this.$emit('toggle-expand', {
                 index,
                 direction: copyRowData.iconName,
-                row: copyRowData.iconName,
+                row: copyRowData,
             });
         },
         bodyScroll(e) {
