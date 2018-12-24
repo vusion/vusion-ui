@@ -1,6 +1,6 @@
 <div :class="$style.root" :position="position">
     <transition-group name="toast">
-        <div :class="$style.item" v-for="(item, index) in items" :color="item.color" :key="index">
+        <div :class="$style.item" v-for="item in items" :color="item.color" :key="item.text">
             {{ item.text }}
             <a :class="$style.close" v-if="closable" @click="close(item)"></a>
         </div>
