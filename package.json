@@ -23,9 +23,9 @@
     "vusion-ui"
   ],
   "dependencies": {
-    "cloud-ui.vusion": "~0.3.56",
+    "cloud-ui.vusion": "~0.3.58",
     "i-line-awesome.vue": "^1.0.2",
-    "proto-ui.vusion": "~0.3.41"
+    "proto-ui.vusion": "~0.3.43"
   },
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
