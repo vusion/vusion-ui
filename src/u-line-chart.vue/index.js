@@ -63,7 +63,7 @@ export default {
                 const diff = Math.round(length / FILTER);
                 currentData = data.filter((item, index) => index % diff === 0);
             } else
-                currentData = data;
+                currentData = Array.from(data);
 
             return currentData;
         },
