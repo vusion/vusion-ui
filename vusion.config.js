@@ -46,7 +46,7 @@ module.exports = {
             { group: 'Navigation', name: 'u-subnav', alias: '子导航', path: 'cloud-ui.vusion/src/u-subnav.vue/README.md' },
             { group: 'Navigation', name: 'u-tabs', alias: '标签页' },
             { group: 'Navigation', name: 'u-subtabs', alias: '子标签页', path: 'cloud-ui.vusion/src/u-subtabs.vue/README.md' },
-            { group: 'Navigation', name: 'u-steps', alias: '步骤条', path: 'cloud-ui.vusion/src/u-steps.vue/README.md' },
+            { group: 'Navigation', name: 'u-steps', alias: '步骤条', path: 'proto-ui.vusion/src/u-steps.vue/README.md' },
             { group: 'Navigation', name: 'u-crumb', alias: '面包屑' },
             { group: 'Navigation', name: 'u-pagination', alias: '翻页器' },
             { group: 'Navigation', name: 'u-actions', alias: '操作列表' },
