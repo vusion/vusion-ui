@@ -6,7 +6,10 @@ export default {
     name: 'u-table-view',
     props: {
         title: String,
-        data: Array,
+        data: {
+            type: Array,
+            default: () => ([]),
+        },
         allChecked: { type: Boolean, default: false },
         defaultSort: {
             type: Object,
@@ -27,7 +30,16 @@ export default {
                 };
             },
         },
-        noDataText: { type: String, default: '暂无数据' },
+        radioTextField: {
+            type: String,
+            default: 'radioText',
+        },
+        radioValueField: {
+            type: String,
+            default: 'radioLabel',
+        },
+        radioValue: [String, Number],
+        noDataText: { type: String, default() { return '暂无数据'; } },
         loading: { type: Boolean, default: false },
         height: [String, Number],
         maxHeight: [String, Number],
@@ -40,10 +52,10 @@ export default {
         xScroll: { type: Boolean, default: false }, // 用来处理当表格出现水平滚动条时，默认scroll事件走表格的水平滚动
         width: [String, Number],
         visible: { type: Boolean, default: true },
-        pattern: { type: String, default: 'normal' }, // 特殊显示内容情形
+        pattern: { type: String, default: 'normal' }, // 特殊显示内容情形 三种形式 瀑布流 暂未支持
         limit: { type: Number, default: 5 }, // 用来默认显示limit条数据
-        limitText: { type: String, default: '查看更多' },
-        allText: { type: String, default: '收起' },
+        limitText: { type: String, default() { return '查看更多'; } },
+        allText: { type: String, default() { return '收起'; } },
         defaultText: { type: String, default: '-' },
         expandPattern: { type: String, default: 'toggle' },
         // mode: { type: String, default: 'self' }, // fixed布局的时候计算方式是走原生表格的还是走自定义计算规则配置项
@@ -51,7 +63,15 @@ export default {
         loadText: { type: String, default: '' }, // 加载状态显示的文字
         rowClassName: { type: Function, default() { return ''; } }, // 自定义表格单行的样式
         color: String,
-        forceFilter: { type: Boolean, default: true },
+        forceFilter: { type: Boolean, default: false }, // 用来强制在数据源发生变化情况下就进行过滤
+        forceSort: { type: Boolean, default: false }, // 用来强制在数据源发生变化的情况下进行排序
+        showColor: {
+            type: Boolean,
+            default: false,
+        },
+        sortMethod: Function,
+        sortRemoteMethod: Function,
+        filterMethod: Function,
     },
     data() {
         return {
@@ -59,6 +79,7 @@ export default {
             tdata: [],
             allSel: this.allChecked,
             columnsWidth: [],
+            currentRadioValue: this.radioValue,
             fixedRightWidth: [],
             copyTdata: [], // tdata的复制版本主要用来过滤
             tableWidth: undefined, // display值为none的时候需要特殊处理这个值
@@ -83,6 +104,7 @@ export default {
             filterTdata: undefined, // 用来记录当前filter列过滤后符合条件的所有数据
             currentSortColumn: undefined, // 表示当前排序列
             currentSort: this.defaultSort,
+            // scrollDiff: false,
         };
     },
     directives: { ellipsisTitle },
@@ -109,15 +131,15 @@ export default {
     },
     computed: {
         fixedLeftColumns() {
-            return this.columns.filter((column) => column.fixed === 'left');
+            return this.columns.filter((column) => column.fixed === 'left' && column.visible);
         },
         fixedRightColumns() {
             const rightCols = [];
             const other = [];
             this.columns.forEach((col) => {
-                if (col.fixed && col.fixed === 'right') {
+                if (col.fixed && col.fixed === 'right' && col.visible) {
                     rightCols.push(col);
-                } else {
+                } else if (col.visible) {
                     other.push(col);
                 }
             });
@@ -125,10 +147,17 @@ export default {
             return rightCols;
         },
         expandedColumn() {
-            return this.columns.filter((column) => column.type === 'expand')[0];
+            return this.columns.filter((column) => column.type === 'expand' && column.visible)[0];
         },
         allDisabled() {
             return this.tdata.every((item) => item.disabled);
+        },
+        showColumns() {
+            // visible属性为true的列集合
+            return this.columns.filter((column) => column.visible);
+        },
+        radioColumn() {
+            return this.columns.filter((column) => column.type === 'radio' && column.visible)[0];
         },
     },
     watch: {
@@ -141,12 +170,12 @@ export default {
                     this.tdata = this.initTableData();
 
                 // this.copyTdata = this.initTableData();
-                const flag = this.columns.some((column) => column.filter);
+                const flag = this.showColumns.some((column) => column.filter);
                 if (flag && this.forceFilter) {
                     // 在有filter列的情况下  数据如果发生变化是需要对数据进行过滤显示的
                     let columnIndex;
                     if (this.defaultFilter.title === undefined) {
-                        this.columns.some((item, index) => {
+                        this.showColumns.some((item, index) => {
                             if (item.filter) {
                                 this.defaultFilter.title = item.title;
                                 this.defaultFilter.value = item.value;
@@ -157,7 +186,7 @@ export default {
                             return false;
                         });
                     } else {
-                        this.columns.some((column, index) => {
+                        this.showColumns.some((column, index) => {
                             if (column.title === this.defaultFilter.title) {
                                 this.defaultFilter.column = column;
                                 columnIndex = index;
@@ -174,19 +203,13 @@ export default {
                         else
                             return item[column.label] === value;
                     });
-
-                    // 去掉，会导致陷入死循环中
-                    // this.$emit('filter-change', {
-                    //     column,
-                    //     value,
-                    //     index: columnIndex,
-                    // });
                 }
                 if (this.pattern === 'limit')
                     this.tdata = this.tdata.slice(0, this.limit);
 
-                if (this.currentSortColumn && !this.currentSortColumn.sortRemoteMethod) {
+                if (this.currentSortColumn && this.forceSort) {
                     const order = this.currentSort.order === 'asc' ? -1 : 1;
+                    // 此处有问题 异步执行 数据改变不希望我们在执行排序操作
                     this.sortData(this.currentSortColumn, order, 'change');
                 }
                 this.handleResize();
@@ -200,15 +223,15 @@ export default {
             const rightIndexs = [];
             this.rightColumnsWidth = [];
             this.fixedLeftColumns && this.fixedLeftColumns.forEach((item) => {
-                const index = this.columns.indexOf(item);
+                const index = this.showColumns.indexOf(item);
                 leftIndexs.push(index);
             });
             this.fixedRightColumns && this.fixedRightColumns.forEach((item) => {
-                const index = this.columns.indexOf(item);
+                const index = this.showColumns.indexOf(item);
                 rightIndexs.push(index);
                 newValue[index] && this.rightColumnsWidth.push(newValue[index]);
             });
-            this.columns.forEach((item, index) => {
+            this.showColumns.forEach((item, index) => {
                 if (rightIndexs.indexOf(index) === -1 && newValue[index]) {
                     this.rightColumnsWidth.push(newValue[index]);
                 }
@@ -235,12 +258,33 @@ export default {
             // 比较复杂情况下，可能会先赋值data，再将loading设为false
             this.handleResize();
         },
-        defaultSort(newValue) {
-            this.currentSort = newValue;
-        },
         columns() {
             // 列表的列修改会导致变化 列表设置
             this.handleResize();
+        },
+        showColumns() {
+            this.handleResize();
+        },
+        radioValue(value) {
+            this.currentRadioValue = value;
+        },
+        currentRadioValue(value) {
+            let row;
+            let sindex;
+            this.data.some((item, index) => {
+                if (item[this.radioValueField] === value) {
+                    row = item;
+                    sindex = index;
+                    return true;
+                }
+                return false;
+            });
+            this.$emit('update:radioValue', value);
+            this.$emit('radio-change', {
+                value,
+                row,
+                index: sindex,
+            });
         },
     },
     methods: {
@@ -273,18 +317,6 @@ export default {
                 return value || column.defaultText || this.defaultText;
             }
         },
-        setCellWidth(column, index) {
-            let width = '';
-            if (column.currentWidth)
-                width = column.currentWidth;
-            else if (this.columnsWidth[index])
-                width = this.columnsWidth[index].width;
-
-            // when browser has scrollBar,set a width to resolve scroll position bug
-            if (width === '0')
-                width = '';
-            return width;
-        },
         handleSort(column) {
             if (column.sortable) {
                 if (column.title === this.currentSort.title)
@@ -301,12 +333,14 @@ export default {
         sortData(column, order, type) {
             // type 字段在data发生变化时传入，此时不能抛sort-change方法，防止死循环
             const label = column.label;
-            if (column.sortRemoteMethod) {
+            const sortRemoteMethod = this.sortRemoteMethod || column.sortRemoteMethod;
+            const sortMethod = this.sortMethod || column.sortMethod;
+            if (sortRemoteMethod) {
                 // 异步执行排序方法
-                column.sortRemoteMethod(label, this.currentSort.order, column);
+                sortRemoteMethod(label, this.currentSort.order, column);
             } else {
-                if (column.sortMethod)
-                    this.copyTdata.sort((value1, value2) => column.sortMethod(value1[label], value2[label]) ? order : -order);
+                if (sortMethod)
+                    this.copyTdata.sort((value1, value2) => sortMethod(value1[label], value2[label]) ? order : -order);
                 else {
                     this.copyTdata.sort((value1, value2) => {
                         if (value1[label] === value2[label])
@@ -364,6 +398,8 @@ export default {
         },
         initTableData(value) {
             let tdata = [];
+            // 现在是将原始数据进行了深拷贝操作 现在的原因是不进行深拷贝会影响到原始数据，会添加一些新的属性，导致原始数据的变化
+            // 1 需不需要进行深拷贝（如何解决影响原始数据变化的问题）2 进行深拷贝，数据变化需不需要$emit事件
             const copyData = deepCopy([], this.data);
             this.copyTdata = copyData;
             copyData.forEach((item, index) => {
@@ -371,8 +407,8 @@ export default {
                 item.original_data = this.data[index];
                 item.original_index = index;
             });
-            const selection = this.columns && this.columns.some((item) => item.type && item.type === 'selection');
-            const expand = this.columns && this.columns.some((item) => item.type && item.type === 'expand');
+            const selection = this.showColumns && this.showColumns.some((item) => item.type && item.type === 'selection');
+            const expand = this.showColumns && this.showColumns.some((item) => item.type && item.type === 'expand');
             if (selection && expand) {
                 copyData.forEach((item) => {
                     if (item.selected === undefined)
@@ -427,13 +463,13 @@ export default {
                     // 判断是否会出现水平滚动条
                     let parentWidth;
                     parentWidth = this.$el.offsetWidth;
-                    let tableWidth = this.$refs.body.offsetWidth;
+                    let tableWidth = this.$refs.body && this.$refs.body.offsetWidth;
                     if (parentWidth === 0) {
                         // 初始表格是隐藏的需要特殊处理的，此时上面两个值默认是0
                         let parentNode = this.$refs.root.parentNode;
-                        while (parentNode.offsetWidth === 0)
+                        while (parentNode && parentNode.offsetWidth === 0)
                             parentNode = parentNode.parentNode;
-                        parentWidth = tableWidth = parentNode.offsetWidth;
+                        parentWidth = tableWidth = parentNode.offsetWidth || 0;
                     }
 
                     // 分别获取有百分比 具体数值 和无width的column集合
@@ -441,7 +477,7 @@ export default {
                     const percentColumns = [];
                     const valueColumns = [];
                     const noWidthColumns = [];
-                    this.columns.forEach((item) => {
+                    this.showColumns.forEach((item) => {
                         const width = item.copyWidth ? item.copyWidth + '' : undefined;
                         if (width && width.indexOf('%') !== -1)
                             percentColumns.push(item);
@@ -454,9 +490,9 @@ export default {
                     let leaveWidth = 0;
 
                     // 全部都是百分数
-                    if (percentColumns.length === this.columns.length) {
+                    if (percentColumns.length === this.showColumns.length) {
                         let sumWidth = 0;
-                        this.columns.forEach((item) => {
+                        this.showColumns.forEach((item) => {
                             sumWidth += parseFloat(item.copyWidth);
                         });
                         if (sumWidth !== 100) {
@@ -464,6 +500,17 @@ export default {
                                 item.currentWidth = item.copyWidth = parseFloat(item.copyWidth) / sumWidth * 100 + '%';
                             });
                         }
+                    }
+
+                    // 全部是数值的情况 并且和是小于当前的总宽度 特殊情况
+                    let isAutoWidthChange = false;
+                    if (valueColumns.length === this.showColumns.length) {
+                        let sumWidth = 0;
+                        this.showColumns.forEach((item) => {
+                            sumWidth += parseFloat(item.currentWidth);
+                        });
+                        if (tableWidth > 0 && sumWidth < tableWidth)
+                            isAutoWidthChange = true;
                     }
 
                     let percentWidthSum = 0;
@@ -482,10 +529,10 @@ export default {
                         noWidthColumns.forEach((item) => item.currentWidth = width);
                     }
 
-                    const allWidth = !this.columns.some((cell) => !cell.copyWidth); // each column set a width
+                    const allWidth = !this.showColumns.some((cell) => !cell.copyWidth); // each column set a width
 
                     if (allWidth) {
-                        this.tableWidth = this.columns.map((cell) => {
+                        this.tableWidth = this.showColumns.map((cell) => {
                             if ((cell.copyWidth + '').indexOf('%') !== -1)
                                 return parseFloat(cell.copyWidth) * parentWidth / 100;
                             else
@@ -541,25 +588,33 @@ export default {
 
                     this.columnsWidth = [];
 
-                    this.columns.forEach((item, index) => {
+                    // 在点击排序和过滤的时候 不需要再减去一次滚动条的宽度
+                    // 处理有滚动条的情况下 宽度问题
+                    let diffCurrentWidth = parseFloat(this.tableWidth);
+                    this.showColumns.forEach((item, index) => {
                         // 存储item.currentWidth可能变化前的值，是由于如果出现水平滚动条，会导致item.currentWidth的值发生变化，
                         // 这时候，组成tbody的表格对应的col最后一个的宽度应该是本身宽度减去滚动条的宽度，不然会导致对不齐的问题出现
-                        this.columnsWidth.push(item.currentWidth);
-
-                        if (this.height && index === (this.columns.length - 1) && this.isYScroll) {
+                        diffCurrentWidth = Math.abs(diffCurrentWidth - parseFloat(item.currentWidth));
+                        if (index === this.showColumns.length - 1 && diffCurrentWidth > 1 && !isAutoWidthChange){
+                            this.columnsWidth.push(parseFloat(item.currentWidth) + this.scrollWidth);
+                        } else
+                            this.columnsWidth.push(item.currentWidth);
+                        if (this.height && index === (this.showColumns.length - 1) && this.isYScroll && diffCurrentWidth < 0.001) {
                             item.currentWidth = parseFloat(item.currentWidth) - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
+                            // this.scrollDiff = true;
                         }
-                        if (this.maxHeight && index === (this.columns.length - 1) && this.isYScroll) {
+                        if (this.maxHeight && index === (this.showColumns.length - 1) && this.isYScroll && diffCurrentWidth < 0.001) {
                             item.currentWidth = parseFloat(item.currentWidth) - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
+                            // this.scrollDiff = true;
                         }
                     });
                 });
             }
         },
         select(option, column, index) {
-            this.$refs.popper && this.$refs.popper[0] && this.$refs.popper[0].toggle(false);
+            this.$refs.popper && this.$refs.popper.forEach((item) => item.toggle(false));
             column.selectValue = option.value;
             this.defaultFilter.title = column.title;
             this.defaultFilter.value = option.value;
@@ -594,6 +649,10 @@ export default {
             this.$emit('selection-change', selection);
         },
         rowClick(row, index) {
+            if (this.radioColumn && !row.disabled) {
+                // 单选按钮存在的情况下要满足点击行能整个选中
+                this.currentRadioValue = row[this.radioValueField];
+            }
             this.$emit('row-click', {
                 data: row,
                 index,
@@ -651,7 +710,7 @@ export default {
                     this.$refs.body.parentNode.scrollLeft += 50;
             }
         },
-        mouseover() {
+        mouseenter() {
             this.over = true;
         },
         mouseleave() {
@@ -689,22 +748,34 @@ export default {
                 this.$refs.righttable.scrollTop = e.target.scrollTop;
             this.$refs.popper && this.$refs.popper[0] && this.$refs.popper[0].toggle(false);
         },
-        fixmouseover(value) {
-            if (value === -1)
+        fixmouseenter(value) {
+            if (value === -1) {
                 this.fixedHover = true;
-            else {
+                this.$emit('mouseenter', {
+                    index: 0,
+                });
+            } else {
                 const obj = this.tdata[value];
                 obj.hover = true;
                 this.tdata.splice(value, 1, obj);
+                this.$emit('mouseenter', {
+                    index: value,
+                });
             }
         },
         fixmouseleave(value) {
-            if (value === -1)
+            if (value === -1) {
                 this.fixedHover = false;
-            else {
+                this.$emit('mouseleave', {
+                    index: 0,
+                });
+            } else {
                 const obj = this.tdata[value];
                 obj.hover = false;
                 this.tdata.splice(value, 1, obj);
+                this.$emit('mouseleave', {
+                    index: value,
+                });
             }
         },
         showAll() {
@@ -728,3 +799,4 @@ export default {
         window.removeEventListener('resize', this.onResize, false);
     },
 };
+
