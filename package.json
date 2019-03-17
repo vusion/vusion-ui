@@ -1,7 +1,7 @@
 {
   "name": "vusion-ui.vusion",
   "description": "Vusion UI",
-  "version": "0.3.18",
+  "version": "0.3.19",
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./src/index.js",
   "scripts": {
@@ -23,9 +23,9 @@
     "vusion-ui"
   ],
   "dependencies": {
-    "cloud-ui.vusion": "~0.3.58",
+    "cloud-ui.vusion": "~0.3.69",
     "i-line-awesome.vue": "^1.0.2",
-    "proto-ui.vusion": "~0.3.43"
+    "proto-ui.vusion": "~0.3.48"
   },
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
@@ -41,7 +41,7 @@
     "vue": "^2.5.0",
     "vue-template-compiler": "^2.5.21",
     "vusion-hooks": "^0.2.1",
-    "vusion-utils": "^0.2.1",
+    "vusion-utils": "^0.2.3",
     "x-ace-editor.vue": "^0.1.2"
   },
   "peerDependencies": {
