@@ -10,7 +10,7 @@
     left: 0;
     bottom: 0;
     z-index: 1;
-    background-color: #ebf0f5;
+    background-color: $background-color-light;
 }
 
 .root[bottom-border]::before {
@@ -25,7 +25,7 @@
     right: 0;
     top: 0;
     z-index: 1;
-    background-color: #ebf0f5;
+    background-color: $background-color-light;
 }
 
 .table {
@@ -48,14 +48,14 @@
     vertical-align: middle;
     box-sizing: border-box;
     padding: 13px 0 13px 10px;
-    line-height: 20px;
+    line-height: 1.4;
     text-align: left;
-    font-weight: 400;
+    font-weight: normal;
 }
 
 .hthSpan[border] {
-    border-left: 1px solid #ebf0f5;
-    /* border-right: 1px solid #ebf0f5; */
+    border-left: 1px solid $background-color-light;
+    /* border-right: 1px solid $background-color-light; */
 }
 
 .hthSpan[role] {
@@ -82,7 +82,7 @@
 .htrItem {
     background-color: #f5f7fa;
     background-clip: padding-box;
-    border-bottom: 1px solid #ebf0f5;
+    border-bottom: 1px solid $background-color-light;
 }
 .htrItem[color='light'] {
     background: white;
@@ -98,7 +98,7 @@
 }
 
 .btrItem {
-    border-top: 1px solid #ebf0f5;
+    border-top: 1px solid $background-color-light;
 }
 
 .btrItem[show-color] {
@@ -115,11 +115,11 @@
 }
 
 .btbody[no-show-header] .btrItem {
-    border-left: 1px solid #ebf0f5;
+    border-left: 1px solid $background-color-light;
 }
 
 .btbody[no-show-header] .btrItem:first-child {
-    border-top: 1px solid #ebf0f5;
+    border-top: 1px solid $background-color-light;
 }
 
 .btdSpan {
@@ -131,11 +131,11 @@
     width: auto;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: #999;
+    color: $color-secondary;
 }
 .btdSpan[border] {
-    border-left: 1px solid #ebf0f5;
-    /* border-right: 1px solid #ebf0f5; */
+    border-left: 1px solid $background-color-light;
+    /* border-right: 1px solid $background-color-light; */
 }
 
 .btdSpan[role="center"] {
@@ -176,7 +176,7 @@
     word-break: break-all;
     /* 解决在火狐浏览器下英文换行显示问题 */
     word-wrap: break-word;
-    line-height: 24px;
+    line-height: 1.4;
 }
 
 .ditem[expanded] {
@@ -241,7 +241,7 @@
     position: absolute;
     top: -6px;
     left: 0;
-    background: url("../assets/images/shadow-up.png") repeat-x;
+    background: url("../u-table.vue/assets/shadow-up.png") repeat-x;
     z-index: 100;
 }
 
@@ -366,7 +366,7 @@
     width: 14px;
     height: 14px;
     border: 1px solid #d7dbe0;
-    background-color: #ebf0f5;
+    background-color: $background-color-light;
     vertical-align: middle;
     cursor: not-allowed;
     border-radius: 100%;
