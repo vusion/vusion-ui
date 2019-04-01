@@ -20,7 +20,7 @@ export default {
                 vnode = this.column.$scopedSlots.expandContent;
         } else if (this.text) {
             // 表格的自定义头部内容
-            vnode = this.column.$slots.headerTitle;
+            vnode = this.column.$slots.headerTitle || this.column.$slots.iconContent;
         } else {
             if (this.column.$scopedSlots.default)
                 vnode = this.column.$scopedSlots.default;
@@ -31,7 +31,11 @@ export default {
             class: {
                 expand: this.expand,
             },
+            // style: {
+            //     display: 'inline-block',
+            // },
         }, [
+            /* eslint-disable */
             typeof vnode === 'object' ? vnode : vnode({
                 row: this.row,
             }),

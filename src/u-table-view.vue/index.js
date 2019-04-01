@@ -39,7 +39,7 @@ export default {
             default: 'radioLabel',
         },
         radioValue: [String, Number],
-        noDataText: { type: String, default() { return '暂无数据'; } },
+        noDataText: { type: String, default() { return this.$t('noDataText'); } },
         loading: { type: Boolean, default: false },
         height: [String, Number],
         maxHeight: [String, Number],
@@ -54,8 +54,8 @@ export default {
         visible: { type: Boolean, default: true },
         pattern: { type: String, default: 'normal' }, // 特殊显示内容情形 三种形式 瀑布流 暂未支持
         limit: { type: Number, default: 5 }, // 用来默认显示limit条数据
-        limitText: { type: String, default() { return '查看更多'; } },
-        allText: { type: String, default() { return '收起'; } },
+        limitText: { type: String, default() { return this.$t('limitText'); } },
+        allText: { type: String, default() { return this.$t('allText'); } },
         defaultText: { type: String, default: '-' },
         expandPattern: { type: String, default: 'toggle' },
         // mode: { type: String, default: 'self' }, // fixed布局的时候计算方式是走原生表格的还是走自定义计算规则配置项
@@ -105,6 +105,7 @@ export default {
             currentSortColumn: undefined, // 表示当前排序列
             currentSort: this.defaultSort,
             // scrollDiff: false,
+            rootBottomBorder: false, // 解决tr加border-bottom带来样式上的异常问题，采用给根元素添加伪元素的方式实现
         };
     },
     directives: { ellipsisTitle },
@@ -285,6 +286,10 @@ export default {
                 row,
                 index: sindex,
             });
+            if (sindex === this.data.length - 1)
+                this.rootBottomBorder = true;
+            else
+                this.rootBottomBorder = false;
         },
     },
     methods: {
@@ -799,4 +804,3 @@ export default {
         window.removeEventListener('resize', this.onResize, false);
     },
 };
-
