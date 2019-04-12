@@ -252,7 +252,7 @@
     position: absolute;
     bottom: -6px;
     left: 0;
-    background: url("../assets/images/shadow-down.png") repeat-x;
+    background: url("../u-table.vue/assets/shadow-down.png") repeat-x;
     z-index: 100;
 }
 
