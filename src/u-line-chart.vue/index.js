@@ -270,12 +270,13 @@ export default {
             });
         },
         onMouseenter(index) {
+            const count = this.seriesList.length;
             if (index !== undefined) {
-                this.currentIndex = index;
+                this.currentIndex = index * count;
                 this.currentItem = this.currentData[index];
-                this.reference = this.$refs.point[index];
+                this.reference = this.$refs.point[index * count];
             } else {
-                this.currentItem = this.currentData[this.currentIndex];
+                this.currentItem = this.currentData[this.currentIndex / count];
                 this.reference = this.$refs.point[this.currentIndex];
             }
             this.open = true;
