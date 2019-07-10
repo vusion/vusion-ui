@@ -25,8 +25,8 @@ export default {
             },
             percent_: undefined,
             currentData: this.handleData(this.data),
-            reference: 'parent',
-            open: false,
+            tooltipReference: 'parent',
+            tooltipOpen: false,
             currentItem: {},
             currentIndex: -1,
         };
@@ -274,17 +274,17 @@ export default {
             if (index !== undefined) {
                 this.currentIndex = index * count;
                 this.currentItem = this.currentData[index];
-                this.reference = this.$refs.point[index * count];
+                this.tooltipReference = this.$refs.point[index * count];
             } else {
                 this.currentItem = this.currentData[this.currentIndex / count];
-                this.reference = this.$refs.point[this.currentIndex];
+                this.tooltipReference = this.$refs.point[this.currentIndex];
             }
-            this.open = true;
+            this.tooltipOpen = true;
         },
         onMouseleave(event) {
             if (event && this.$refs.tooltip.$refs.popperEl.contains(event.relatedTarget))
                 return false;
-            this.open = false;
+            this.tooltipOpen = false;
         },
     },
     destroyed() {
