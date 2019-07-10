@@ -1,22 +1,22 @@
 module.exports = {
     version: '>=0.7.7',
     type: 'library',
+    name: 'vusion-ui',
+    CamelName: 'VusionUI',
     lint: true,
-    webpack: {
-        output: {
-            publicPath: '/vusion-ui@0.3.x/',
-        },
-    },
+    uglifyJS: true,
+    extractCSS: true,
+    sourceMap: true,
     webpackDevServer: {
         historyApiFallback: {
-            index: '/vusion-ui@0.3.x/',
+            index: '/vusion-ui/',
         },
     },
     docs: {
         title: 'Vusion UI 组件库',
         logo: '组件库',
         mode: 'history',
-        base: '/vusion-ui@0.3.x/',
+        base: '/vusion-ui/',
         install: 'option-name',
         navbar: [
             { text: '指南', to: '/guide' },
