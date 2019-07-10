@@ -17,6 +17,7 @@ module.exports = {
         logo: '组件库',
         mode: 'history',
         base: '/vusion-ui@0.3.x/',
+        install: 'option-name',
         navbar: [
             { text: '指南', to: '/guide' },
             { text: '组件', to: '/components' },

@@ -25,6 +25,10 @@ export default {
             },
             percent_: undefined,
             currentData: this.handleData(this.data),
+            reference: 'parent',
+            open: false,
+            currentItem: {},
+            currentIndex: -1,
         };
     },
     created() {
@@ -264,6 +268,22 @@ export default {
                 data: item,
                 index,
             });
+        },
+        onMouseenter(index) {
+            if (index !== undefined) {
+                this.currentIndex = index;
+                this.currentItem = this.currentData[index];
+                this.reference = this.$refs.point[index];
+            } else {
+                this.currentItem = this.currentData[this.currentIndex];
+                this.reference = this.$refs.point[this.currentIndex];
+            }
+            this.open = true;
+        },
+        onMouseleave(event) {
+            if (event && this.$refs.tooltip.$refs.popperEl.contains(event.relatedTarget))
+                return false;
+            this.open = false;
         },
     },
     destroyed() {

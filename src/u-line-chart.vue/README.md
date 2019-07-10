@@ -98,6 +98,43 @@ export default {
 </script>
 ```
 
+### 自定义tooltip
+
+``` vue
+<template>
+    <u-line-chart border legend :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth">
+        <div slot="tooltip" slot-scope="scope">
+            <span v-for="sery in series">
+                {{ sery.key + scope.index }}: {{ scope.row[sery.key] }}
+            </span>
+        </div>
+    </u-line-chart>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            title: '每星期访问量',
+            xaxis: { key: 'week' },
+            yaxis: { min: 0, name: '个' },
+            series: [{ key: 'number' }],
+            data: [
+                { week: '星期一', number: 150 },
+                { week: '星期二', number: 300 },
+                { week: '星期三', number: 28 },
+                { week: '星期四', number: 200 },
+                { week: '星期五', number: 74 },
+                { week: '星期六', number: 532 },
+                { week: '星期日', number: 420 },
+            ],
+            smooth: true,
+        };
+    },
+};
+</script>
+```
+
 ### 简单散点图
 
 ``` vue
@@ -173,7 +210,7 @@ export default {
 
 | Slot | Description |
 | ---- | ----------- |
-| tooltipTemplate + index（index为遍历data的索引） | 自定义tooltip内容 |
+| tooltip | 自定义tooltip内容 |
 
 | Slot | Description |
 | ---- | ----------- |
