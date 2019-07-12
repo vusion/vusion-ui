@@ -210,7 +210,7 @@ export default {
 
 | Slot | Description |
 | ---- | ----------- |
-| tooltip | 自定义tooltip内容 |
+| tooltip | 自定义tooltip内容，作用域插槽，其中`row`表示当前点的数据，`index`表示当前点的索引 |
 
 | Slot | Description |
 | ---- | ----------- |

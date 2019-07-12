@@ -32,8 +32,8 @@
                 <path :class="$style.line" :d="getD(series)" />
             </svg>
         </div>
-        <div :class="$style.layer" ref="layer">
-            <div :class="$style.piece" v-for="(item,index) in currentData" :scatter="scatter" v-if="!item.hidden" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100 / (currentData.length - 1)+'%'}" @mouseenter="onMouseenter(index)" @mouseleave="onMouseleave($event, index)">
+        <div :class="$style.layer" ref="layer" @mouseenter="isChartLeave = false" @mouseleave="isChartLeave = true">
+            <div :class="$style.piece" v-for="(item,index) in currentData" :scatter="scatter" v-if="!item.hidden" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100 / (currentData.length - 1)+'%'}" @mouseenter="onMouseenter(index)" @mouseleave="onMouseleave">
                 <div :class="$style.point" ref="point" @click="pointClick(item, index)" :scatter="scatter" v-for="(series, seriesIndex) in seriesList" v-show="item[series.field || series.key] !== undefined && !series.hidden" :color="series.color"
                     :special="item.special && item.special[series.field || series.key]" :style="{
                         bottom: 100*(item[series.field || series.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%',
@@ -47,7 +47,7 @@
     <div :class="$style.operate" slot="operate">
         <slot></slot>
     </div>
-    <u-tooltip ref="tooltip" :open.sync="tooltipOpen" trigger="manual" :trigger-element="getTriggerEl" :reference="tooltipReference" placement="right" :boundaries-element="$el" @mouseenter="onMouseenter()" @mouseleave="onMouseleave">
+    <u-tooltip ref="tooltip" :open.sync="tooltipOpen" trigger="manual" :trigger-element="getTriggerEl" :reference="tooltipReference" placement="right" :boundaries-element="$el" @mouseleave="onMouseleave">
         <div slot="content">
             <slot name="tooltip" :row="currentItem" :index="currentIndex">
                 <div v-for="series in seriesList">{{ series.name || series.field || series.key }}: {{ format(currentItem[series.field || series.key]) }}{{yAxis.unit}}</div>

@@ -29,6 +29,7 @@ export default {
             tooltipOpen: false,
             currentItem: {},
             currentIndex: -1,
+            isChartLeave: true,
         };
     },
     created() {
@@ -271,18 +272,32 @@ export default {
         },
         onMouseenter(index) {
             const count = this.seriesList.length;
-            if (index !== undefined) {
-                this.currentIndex = index * count;
-                this.currentItem = this.currentData[index];
-                this.tooltipReference = this.$refs.point[index * count];
+            this.currentIndex = index;
+            this.currentItem = this.currentData[index];
+            let diff = null;
+            const isPointExist = this.seriesList.some((series, index) => {
+                if (this.currentItem && this.currentItem[series.field || series.key]) {
+                    diff = index;
+                    return true;
+                } else
+                    return false;
+            });
+            // 需要特殊处理下 数据点不存在的情况
+            if (!isPointExist) {
+                this.tooltipOpen = false;
+                return false;
             } else {
-                this.currentItem = this.currentData[this.currentIndex / count];
-                this.tooltipReference = this.$refs.point[this.currentIndex];
+                this.$nextTick(() => {
+                    if (!this.isChartLeave) {
+                        this.tooltipReference = this.$refs.point[index * count + diff];
+                        this.tooltipOpen = true;
+                    } else
+                        this.tooltipOpen = false;
+                });
             }
-            this.tooltipOpen = true;
         },
         onMouseleave(event) {
-            if (event && this.$refs.tooltip.$refs.popperEl.contains(event.relatedTarget))
+            if (event && this.$refs.tooltip && this.$refs.tooltip.$refs.popperEl.contains(event.relatedTarget))
                 return false;
             this.tooltipOpen = false;
         },
