@@ -276,7 +276,8 @@ export default {
             this.currentItem = this.currentData[index];
             let diff = null;
             const isPointExist = this.seriesList.some((series, index) => {
-                if (this.currentItem && this.currentItem[series.field || series.key]) {
+                // 修复数据为0不显示tooltip的bug
+                if (this.currentItem && (this.currentItem[series.field || series.key] !== undefined || this.currentItem[series.field || series.key] !== null)) {
                     diff = index;
                     return true;
                 } else
