@@ -127,8 +127,10 @@ export default {
         // this.copyTdata = this.initTableData();
         this.handleResize();
         window.addEventListener('resize', this.onResize, false);
-        if (this.xScroll)
+        if (this.xScroll) {
+            this.addMousewheel = true;
             document.addEventListener('mousewheel', this.onMouseWheel, false);
+        }
     },
     computed: {
         fixedLeftColumns() {
@@ -802,5 +804,8 @@ export default {
     },
     destroyed() {
         window.removeEventListener('resize', this.onResize, false);
+        if (this.addMousewheel) {
+            document.removeEventListener('mousewheel', this.onMouseWheel, false);
+        }
     },
 };
