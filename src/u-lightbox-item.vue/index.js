@@ -41,11 +41,13 @@ export default {
         // 图片设置最大宽高
         if (this.img.complete)
             this.resetImg();
-
-        this.img.addEventListener('load', this.resetImg.bind(this));
+        this.resetImgWrap = this.resetImg.bind(this);
+        this.img.addEventListener('load', this.resetImgWrap);
     },
     destroyed() {
         this.dispatch(this.$options.parentName, 'remove-item-vm', this);
+        if (this.img)
+            this.img.removeEventListener('load', this.resetImgWrap);
     },
     methods: {
         animationEnd() {
@@ -78,6 +80,7 @@ export default {
                     });
                 }
             } else if (this.zoomImg) {
+                this.zoomImg.destroyed();
                 this.zoomImg = null;
                 this.$off('zoom');
             }
