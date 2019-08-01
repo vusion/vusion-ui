@@ -43,7 +43,7 @@ export default {
         setTimeout(() => this.getSize());
     },
     destoryed() {
-        this.removeEventListener('resize', this.getSize);
+        window.removeEventListener('resize', this.getSize);
     },
     methods: {
         draw() {
