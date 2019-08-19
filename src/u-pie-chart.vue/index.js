@@ -30,9 +30,14 @@ export default {
         },
     },
     watch: {
-        data(data) {
-            this.currentData = this.handleData(data);
-            this.draw();
+        data: {
+            deep: true,
+            handler(data) {
+                // 解决数组内对象值发生变化的情况 需要重置selectedItem
+                this.selectedItem = null;
+                this.currentData = this.handleData(data);
+                this.draw();
+            },
         },
     },
     created() {
@@ -57,8 +62,12 @@ export default {
                 this.currentHeight = this.$el.offsetHeight;
             }
             if (this.$refs.svg) {
-                this.svgWidth = this.$refs.svg.clientWidth;
-                this.svgHeight = this.$refs.svg.clientHeight;
+                const rect = this.$refs.svg.getBoundingClientRect();
+                this.svgWidth = rect.width;
+                this.svgHeight = rect.height;
+                // @note: clientWidth & clientHeight are NOT standard and NOT supported in Firefox.
+                // this.svgWidth = this.$refs.svg.clientWidth;
+                // this.svgHeight = this.$refs.svg.clientHeight;
                 this.svgSize = Math.min(this.svgWidth, this.svgHeight);
             }
         },

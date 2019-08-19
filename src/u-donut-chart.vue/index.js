@@ -60,6 +60,10 @@ export default {
             return d;
         },
         getLabelStyle(item) {
+            // 解决首次加载 this.svgSize为0的情况
+            if (this.$refs.svg && !this.svgWidth)
+                this.getSize();
+
             const multiple = this.svgSize / 200;
 
             if (item.label.direction === 'left') {
