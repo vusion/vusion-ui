@@ -35,7 +35,6 @@ export {
     Pills,
     Popover,
     Popup,
-    Radios,
     SelectDivider,
     SelectGroup,
     Steps,
@@ -85,7 +84,7 @@ export { default as NavbarItem } from './u-navbar-item.vue';
 export { default as Pagination } from './u-pagination.vue';
 export { default as PieChart } from './u-pie-chart.vue';
 export { default as Placeholder } from './u-placeholder.vue';
-export { default as Radio } from './u-radios.vue';
+export { default as Radios } from './u-radios.vue';
 export { default as Select } from './u-select.vue';
 export { default as SelectItem } from './u-select-item.vue';
 export { default as Suggest } from './u-suggest.vue';
