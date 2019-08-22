@@ -1,9 +1,11 @@
 import { getStyle, getScrollSize } from 'cloud-ui.vusion/src/base/utils/style';
 import { ellipsisTitle } from 'proto-ui.vusion/src/base/directives';
 import { deepCopy } from 'cloud-ui.vusion/src/base/utils/index';
+import i18n from 'cloud-ui.vusion/src/u-table-view.vue/i18n';
 
 export default {
     name: 'u-table-view',
+    i18n,
     props: {
         title: String,
         data: {
